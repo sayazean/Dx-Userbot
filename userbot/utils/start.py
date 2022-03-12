@@ -11,9 +11,9 @@ async def startupmessage():
         if BOTLOG:
             await tgbot.send_file(
                 BOTLOG_CHATID,
-                "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
-                caption="⚡ **ALBY-Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@ALBY-Userbot\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @ruangprojects ",
-                buttons=[(Button.url("ꜱᴜᴘᴘᴏʀᴛ", "https://t.me/ruangdiskusikami"),)],
+                "https://telegra.ph/file/a7915ed28a022aa9125a6.jpg",
+                caption="⚡ **AbingxUserbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@AbingxUserbot\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ",
+                buttons=[(Button.url("ꜱᴜᴘᴘᴏʀᴛ", "https://t.me/AbingSupport"),)],
             )
     except Exception as e:
         LOGS.error(e)
