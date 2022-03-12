@@ -1,7 +1,7 @@
 {
   "name": "AbingxUserbot",
   "description": "ABINGxUSERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
-  "logo": "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
+  "logo": "https://telegra.ph/file/8dad04830561de07c35d7.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -95,7 +95,7 @@
     },
      "ALIVE_LOGO": {
       "description": "Gambar dalam module .alive",
-      "value": "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
+      "value": "https://telegra.ph/file/8dad04830561de07c35d7.jpg",
       "required": false
     },
     "ALBY_TEKS_KUSTOM": {
