@@ -164,7 +164,7 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨ Versi:** \n "
+            "**⚜-**⚡ ᴀʙɪɴɢxυѕєявσт ⚡ Versi:** \n "
             f"heads/ʙᴅʀʟ-ᴜsᴇʀʙᴏᴛ-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
@@ -223,13 +223,13 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@register(outgoing=True, pattern=r"^\.(?:albyalive)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:abingalive)\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
-        f" **✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨** \n\n"
-        f"\n__**{ALBY_TEKS_KUSTOM}**__\n\n\n"
+        f" **⚡ ᴀʙɪɴɢxυѕєявσт ⚡** \n\n"
+        f"\n__**{ABING_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/ruangdiskusikami) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ruangprojects) | [ᴏᴡɴᴇʀ](https://t.me/Punya_Alby) | [ɢɪᴛʜᴜʙ](https://github.com/PunyaAlby/ALBY-Userbot)")
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/AbingSupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject) | [ᴏᴡɴᴇʀ](https://t.me/sayaabing) | [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -259,13 +259,13 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@register(outgoing=True, pattern=r"^\.(?:albyicon)\s?(.)?")
+@register(outgoing=True, pattern=r"^\.(?:abingicon)\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[『ⒶⓁⒷⓎ』](t.me/Punya_Alby) \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[ᴀʙɪɴɢ](t.me/sayaabing) \n"
         f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
         f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
         f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
@@ -303,7 +303,7 @@ async def redis(alive):
     await alive.edit("__Sedang Memuat...__")
     await alive.edit("__Sedang Memuat..__")
     await alive.edit("__Sedang Memuat...__")
-    await alive.edit("✨")
+    await alive.edit("⚡")
     await asyncio.sleep(2)
     output = (
         f"┏━━━━━━━━━━━━━━━━━━━ \n"
@@ -314,9 +314,9 @@ async def redis(alive):
         f"┣  `Branch   :` {UPSTREAM_REPO_BRANCH} \n"
         f"┣  `Bot Ver  :` {BOT_VER} \n"
         f"┣  `Modules  :` {len(modules)} Modules \n"
-        f"┣  `GitHub   :` [ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ](https://github.com/PunyaAlby/ALBY-Userbot) \n"
-        f"┣  `Support  :` [ᴄʜᴀɴɴᴇʟ](https://t.me/ruangprojects) \n"
-        f"┣  `Owner    :` [『ⒶⓁⒷⓎ』](https://t.me/Punya_Alby) \n"
+        f"┣  `GitHub   :` [ᴀʙɪɴɢ ᴜꜱᴇʀʙᴏᴛ](https://github.com/SayaAbing/AbingxUserbot) \n"
+        f"┣  `Support  :` [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject) \n"
+        f"┣  `Owner    :` [ᴀʙɪɴɢ](https://t.me/sayaabing) \n"
         f"┗━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
