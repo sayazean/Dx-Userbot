@@ -61,7 +61,7 @@ async def quotess(qotli):
                 response = conv.wait_event(
                     events.NewMessage(
                         incoming=True,
-                        from_users=1031952739))
+                        from_users=1337194042))
                 msg = await bot.forward_messages(chat, reply_message)
                 response = await response
                 """ - don't spam notif - """
