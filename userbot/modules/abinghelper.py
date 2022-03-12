@@ -11,10 +11,10 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 @register(outgoing=True, pattern="^.lhelp$")
 async def usit(e):
     await e.edit(
-        f"**Halo {DEFAULTUSER} Jika Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke @albyaja atau tag admin di @ruangdiskusikami:\n"
-        "\n[Telegram](t.me/Punya_Alby)"
-        "\n[Repo](https://github.com/PunyaAlby/ALBY-Userbot/)"
-        "\n[Instagram](instagram.com/fadzkuruuniialmuttaqiin/)")
+        f"**Halo {DEFAULTUSER} Jika Anda Tidak Tau Perintah Untuk Memerintah Ku Ketik** `.help` Atau Bisa Minta Bantuan Ke @sayaabing atau tag admin di @AbingSupport:\n"
+        "\n[Telegram](t.me/sayaabing)"
+        "\n[Repo](https://github.com/SayaAbing/AbingxUserbot/)"
+        "\n[Instagram](instagram.com/aabinggg/)")
 
 
 @register(outgoing=True, pattern="^.vars$")
@@ -27,7 +27,7 @@ async def var(m):
 CMD_HELP.update({
     "helper":
     "`.lhelp`\
-\nUsage: Bantuan Untuk Rose-Userbot.\
+\nUsage: Bantuan Untuk AbingxUserbot.\
 \n`.vars`\
 \nUsage: Melihat Daftar Vars."
 })
