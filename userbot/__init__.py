@@ -246,7 +246,7 @@ BITLY_TOKEN = os.environ.get(
     "BITLY_TOKEN") or "o_1fpd9299vp"
 
 # Bot Name
-TERM_ALIAS = os.environ.get("TERM_ALIAS", "ALBY-Userbot")
+TERM_ALIAS = os.environ.get("TERM_ALIAS", "AbingxUserbot")
 
 # Bot Version
 BOT_VER = os.environ.get("BOT_VER", "8.0")
@@ -375,7 +375,7 @@ for binary, path in binaries.items():
 if STRING_SESSION:
     session = StringSession(str(STRING_SESSION))
 else:
-    session = "ALBY-UserBot"
+    session = "AbingxUserBot"
 try:
     bot = TelegramClient(
         session=session,
@@ -647,7 +647,7 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@ALBYUserbot"):
+            if event.query.user_id == uid and query.startswith("@AbingxUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=roselogo,
