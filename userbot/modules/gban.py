@@ -34,7 +34,7 @@ async def get_full_user(event):
             user_obj = await event.client.get_entity(user)
         except Exception as err:
             return await event.edit(
-                "`Terjadi Kesalahan... Mohon Lapor Ke` @Kayyzyu", str(err)
+                "`Terjadi Kesalahan... Mohon Lapor Ke` @sayaabing", str(err)
             )
     return user_obj, extra
 
@@ -153,7 +153,7 @@ async def gben(userbot):
         f"││➢ **Pengguna:** [{user.first_name}](tg://user?id={user.id}) \n"
         f"││➢ **Aksi:** `Global Banned` \n"
         f"╰┈─────────────━\n\n"
-        f"➠ __by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨__")
+        f"➠ __by ⚡ ᴀʙɪɴɢ υѕєявσт ⚡__")
 
 
 @register(outgoing=True, pattern="^.ungban(?: |$)(.*)")
@@ -231,7 +231,7 @@ async def gunben(userbot):
         f"││➢ **Pengguna:** [{user.first_name}](tg://user?id={user.id}) \n"
         f"││➢ **Aksi:** `Membatalkan Global Banned` \n"
         f"╰┈─────────────━\n\n"
-        f"➠ __by ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨__")
+        f"➠ __by ⚡ ᴀʙɪɴɢ υѕєявσт ⚡__")
 
 
 CMD_HELP.update(
