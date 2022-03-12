@@ -171,8 +171,8 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
 
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "ALBY-Userbot"
-    auth_url = "https://github.com/PunyaAlby/ALBY-Userbot"
+    auth_name = "AbingxUserbot"
+    auth_url = "https://github.com/SayaAbing/AbingxUserbot"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=title,
