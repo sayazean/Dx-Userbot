@@ -506,10 +506,10 @@ async def bot_start(event):
                         \n**Jangan melakukan spam atau anda akan di Banned**\
                         \n\n**Powered by** [ALBY-Userbot](https://github.com/PunyaAlby/ALBY-Userbot)"
         buttons = [
-                (
-                    Button.inline("ɪɴꜰᴏ", data="infor"),
-                )
-            ]
+            (
+                Button.inline("ɪɴꜰᴏ", data="infor"),
+            )
+        ]
     else:
         start_msg = f"**Halo 👋 [{OWNER}](tg://user?id={OWNER_ID})**\n**Apa ada yang bisa saya bantu?**!"
         buttons = [

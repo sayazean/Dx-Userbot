@@ -104,7 +104,7 @@ async def deploy(event, repo, ups_rem, ac_br, txt):
 
         if BOTLOG:
             await event.client.send_message(
-                BOTLOG_CHATID, 
+                BOTLOG_CHATID,
                 "#BOT \n" "`ALBY-Userbot Berhasil Di Update`"
             )
 
@@ -133,7 +133,7 @@ async def update(event, repo, ups_rem, ac_br):
 
     if BOTLOG:
         await event.client.send_message(
-            BOTLOG_CHATID, 
+            BOTLOG_CHATID,
             "#BOT \n" "**✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨ Telah Di Perbarui.**"
         )
         await asyncio.sleep(100)
