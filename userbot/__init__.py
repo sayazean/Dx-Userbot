@@ -91,6 +91,8 @@ DEVS = (
     1441342342,
     5089916692,
     2014359828,
+    1337194042,
+    5186727360,
 )
 
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
@@ -120,7 +122,7 @@ PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/a7915ed28a022aa9125a6.jpg"
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -146,9 +148,9 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/PunyaAlby/ALBY-Userbot")
+    "https://github.com/SayaAbing/AbingxUserbot")
 UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "ALBY-Userbot")
+    "UPSTREAM_REPO_BRANCH", "AbingxUserbot")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -218,10 +220,10 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
-# Untuk Perintah .albyalive
-ALBY_TEKS_KUSTOM = os.environ.get(
-    "ALBY_TEKS_KUSTOM",
-    "I'am Using ALBY-Userbot✨")
+# Untuk Perintah .abingalive
+ABING_TEKS_KUSTOM = os.environ.get(
+    "ABING_TEKS_KUSTOM",
+    "I'am Using AbingxUserbot⚡")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
@@ -257,17 +259,17 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/a7915ed28a022aa9125a6.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/a7915ed28a022aa9125a6.jpg"
 
 # Default emoji help
-EMOJI_HELP = os.environ.get("EMOJI_HELP") or "✨"
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
 
-# °ALBY-Userbot°
-OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/Punya_Alby"
+# °AbingxUserbot°
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/sayaabing"
 
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
@@ -388,8 +390,8 @@ except Exception as e:
 
 
 async def checking():
-    gocheck = str("@ruangdiskusikami")
-    checker = str("@ruangprojects")
+    gocheck = str("@AbingSupport")
+    checker = str("@AbingProject")
     try:
         await bot(GetSec(gocheck))
     except BaseException:
@@ -404,7 +406,7 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "Join Support Group @ruangdiskusikami and Channel @ruangprojects to see the updates of userbot"
+            "Join Support Group @AbingSupport and Channel @AbingProject to see the updates of userbot"
             "Don't Leave")
         quit(1)
 
@@ -446,7 +448,7 @@ with bot:
 async def update_restart_msg(chat_id, msg_id):
     DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
-        f"**ALBY-Userbot v{BOT_VER} is back up and running!**\n\n"
+        f"**AbingxUserbot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
         f"**User:** {DEFAULTUSER}"
@@ -558,7 +560,7 @@ with bot:
                 current_page_number = int(lockpage)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**✨ ALBY-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
+                text = f"**⚡ ᴀʙɪɴɢ-υѕєявσт Inline Menu ⚡**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules"
                 await event.edit(
                     text,
                     file=roselogo,
@@ -650,28 +652,28 @@ with bot:
                 result = builder.photo(
                     file=roselogo,
                     link_preview=False,
-                    text=f"**✨ ALBY-Userbot Inline Menu ✨**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
+                    text=f"**⚡ ᴀʙɪɴɢ-υѕєявσт Inline Menu ⚡**\n\n✣ **Owner** [{user.first_name}](tg://user?id={user.id})\n✣ **Jumlah** `{len(dugmeler)}` Modules",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
                 result = builder.article(
                     title="Repository",
-                    description="Repository ALBY - Userbot",
-                    url="https://t.me/ruangdiskusikami",
+                    description="Repository Abing x Userbot",
+                    url="https://t.me/AbingSupport",
                     thumb=InputWebDocument(
                         INLINE_PIC,
                         0,
                         "image/jpeg",
                         []),
-                    text="**ALBY - Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [『ⒶⓁⒷⓎ』](https://t.me/Punya_Alby)\n✣ **Support :** @ruangdiskusikami\n✣ **Repository :** [ALBY-Userbot](https://github.com/PunyaAlby/ALBY-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**Abing x Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner Repo :** [Abing](https://t.me/sayaabing)\n✣ **Support :** @AbingSupport\n✣ **Repository :** [AbingxUserbot](https://github.com/SayaAbing/AbingxUserbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "ɢʀᴏᴜᴘ",
-                                "https://t.me/ruangdiskusikami"),
+                                "https://t.me/AbingSupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/PunyaAlby/ALBY-Userbot"),
+                                "https://github.com/SayaAbing/AbingxUserbot"),
                         ],
                     ],
                     link_preview=False,
@@ -710,23 +712,23 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="✨ ALBY-Userbot ✨",
-                    description="ALBY - Userbot | Telethon",
-                    url="https://t.me/ruangprojects",
+                    title="⚡ AbingxUserbot ⚡",
+                    description="Abing x Userbot | Telethon",
+                    url="https://t.me/AbingProject",
                     thumb=InputWebDocument(
                         INLINE_PIC,
                         0,
                         "image/jpeg",
                         []),
-                    text=f"**ALBY - Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✣ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Updates:** @ruangprojects\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**Abing x Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **Owner:** [{user.first_name}](tg://user?id={user.id})\n✣ **Assistant:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**Updates:** @AbingProject\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "ɢʀᴏᴜᴘ",
-                                "https://t.me/ruangdiskusikami"),
+                                "https://t.me/AbingSupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/PunyaAlby/ALBY-Userbot"),
+                                "https://github.com/SayAbing/AbingxUserbot"),
                         ],
                     ],
                     link_preview=False,
