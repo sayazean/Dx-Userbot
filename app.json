@@ -1,6 +1,6 @@
 {
-  "name": "ALBY-Userbot",
-  "description": "ALBY-USERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
+  "name": "AbingxUserbot",
+  "description": "ABINGxUSERBOT KHUSUS YANG DIGUNAKAN UNTUK BERSENANG-SENANG DI TELEGRAM.",
   "logo": "https://telegra.ph/file/cbe826936d4de9ec1838a.jpg",
   "keywords": [
     "telegram",
@@ -9,9 +9,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/PunyaAlby/ALBY-Userbot",
-  "telegram": "https://t.me/Punya_Alby",
-  "success_url": "https://t.me/ruangdiskusikami",
+  "repository": "https://github.com/SayaAbing/AbingxUserbot",
+  "telegram": "https://t.me/aabinggg",
+  "success_url": "https://t.me/AbingSupport",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -86,7 +86,7 @@
     },
     "DEFAULT_BIO": {
       "description": "Default Bio Mu.",
-      "value": "ALBY-Userbot",
+      "value": "AbingxUserbot",
       "required": false
     },
     "ALIVE_NAME": {
@@ -100,7 +100,7 @@
     },
     "ALBY_TEKS_KUSTOM": {
       "description": "Kustom Pesan Alive Mu Untuk Perintah .albyalive (Isi Terserah)",
-      "value": "I'am Using ALBY-Userbot ✨",
+      "value": "I'am Using AbingxUserbot ⚡",
       "required": false 
     },
     "S_PACK_NAME": {
