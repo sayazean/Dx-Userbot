@@ -28,7 +28,7 @@ absen = [
     "**Sungkem Lord Abing Datang** ",
     "**Ada Lord Abing Ya Ges Ya** ",
 
-roas = [
+roas= [
     "DUH GINI NIH BOCAH YG LAHIR DI GUBUK BAMBU REOT + GAPUNYA HARGA DIRI, PADAHAL MAH DARI KECIL DIAJARIN SM EMAKNYA GABOLEH SONGONG SM MAJIKAN MASIH AJA SONGONG, MENDING LO URUSIN DULU GOBLOK KELUARGA LO YG PENYAKITAN ITU, MANA BAPA LO KAKINYA BOROK BEGITU AJG BERNANAH BAU AMIS IDIH GELI BET GELI GUA LIATNYA, NAH SEKALIAN TUH URUSIN JUGA ADE LO TUH, KALO BUKAN KARENA GUA MAH ADE LO UDAH MENINGGAL KENA TUMOR TOLOL MAKANYA LO KUDU SUJUD DEPAN GUA YAKAN,EMAK LO JUGA TUH JAGAIN UDAH BISU BEGITU YAKAN TAKUTNYA JATOH GABISA TREAK, MAKANYA NIH YA JANGAN KEBANYAKAN KONSUMSI SASA MICIN GOBLOK LIAT KAN EFEKNYA LO JADI KEK BOCAH AYAN BEGITU, SAMPE² LO BERANI GITU YAKAN NYENGGET JEMURAN ORANG SAMPE LO DIPUKULIN TRUS DI INJEK² SAMA WARGA SEKAMPUNGAN, GINI YA GUA KASIH TAU NIH SAMA LO NIH KALO UDA MISKIN KAGA USAH BELAGU SEGALA TOLOL, MIKIR LO MAKAN AJA SUSAH SAMPE NGEMIS² DI KOMPLEK PERUMAHAN GUA SAMPE DI USIR SAMA SATPAM KOMPLEK GUA, BERAS AJA LO BOLEH DIBAGI SAMA EMAK GUA YAKAN LAUK PAUK IKAN, AYAM, DAGING SEGALA RUPA AJA LO BOLEH NYOLONG DARI PASAR BOCAH KAYA LO MAH GIZINYA KURANG DONGO SABAN HARI MAKAN INDOMI 1 PAKE TELOR DOANG ITU JUGA JOINAN SM KELUARGA LU, KARENA APA?, YA KARENA LO MISKIN GA MAMPU BELI MAKANAN YG BERGIZI, DIKASIH KUAH SAYUR KANGKUNG JUGA MAO TOLOL ITU JUGA UDAH BERSYUKUR BISA MAKAN MAKANAN SELAEN MI INSTAN YAKAN SECARA LO GABISA GITU KEK GUA YAKAN MAKAN APA YG GUA MAO LAH ELO MAKAN MAKANAN TONG SAMPAH JUGA UDAH ALHAMDULILLAH BANGET AJG",
     "BUAT LO KONTOL NIH KALO UDAH HINA GAUSAH SOK SOK NGEHINA HINA GUA KONTOL, GUA TERLALU SUCI BUAT LU YANG HINA ITU ADUHHH. SINI GUA LUDAHIN DLU LU BIAR DIRI LU SUCI KARENA LU TAU LUDAH GUA ITU MULIA SEKALI",
     "PUNYA EMAK JANGAN JELEK GUE TAU EMAK LO UDAH MUKA JELEK ITEM BAT ITEM KEK OLI MOTOR BELOM DI GANTI SETAHUN HAHA TERUS BADANNYA GENDUT BAT GENDUT TETENYA KONDOR LAGI PANTESAN AJA KAGA LAKU HAHAHA NIH GUA KASIH TAU YE SAMA LO BOKAP LO AJE KERJAANNYA MAEN JUDI MULU BORO BORO MENANG BOKAP LO AJE MAEN JUDI KALAH MULU TOLOL HAHA UDAH NGUTANG SANA SINI AMPE DI KEJAR DEB COLLECTOR ITU BOKAP LO LAGI DI BURU OLEH DEP COLECTOR MANGKANYA KALO UDAH TAU MISKIN KERJAANNYA JANGAN MAEN JUDI MULU TOLOL SAMA NGUTANG CARI KERJA YANG HALAL SONO HAHA",
@@ -41,7 +41,7 @@ roas = [
     "POHON KARET WKWK KOCAH LO MENDING JADI SUPER MARIO AJA NOH BILANG KE KAKE NENEK LO MENDING JADI SUPER MARIO KALO GA LOST SAGA HAHA JADI BOCAH POINT BLANK DIA BOLOT ANJING AHAHA MAKANYA KALO PUNYA KUPING YANG BENERAN DIKIT TOLOL KUPING LO CONGE NYA BLEBERAN SAMPE LUAR LUAR KALI YA AHAHA KASIHAN BANGET GUA LIAT LO BERPENYAKITAN SEGALA MACEM ADA WKWK DAN BURUK NYA LO TUH LO UDAH KAYA LEAK GITU UDAH ITU MULUT UDAH KAYA JULUNG JULUNG GITU JELEK BANGET KAYA NUGET GITU YA MUKA LO BIBIR LO SUMBING YA APA DOBLEH AHAHAH",
 ]
 
-pacar = [
+pacar= [
     "**Saya Hadir Untuk Membantu Tuan Abing**  ",
     "**Halo Lord Abing** ",
     "**Sungkem Lord Abing Datang Ges** ",
@@ -51,23 +51,23 @@ pacar = [
 
 
 async def get_readable_time(seconds: int) -> str:
-    count = 0
-    up_time = ""
-    time_list = []
-    time_suffix_list = ["Dtk", "Mnt", "Jam", "Hari"]
+    count= 0
+    up_time= ""
+    time_list= []
+    time_suffix_list= ["Dtk", "Mnt", "Jam", "Hari"]
 
     while count < 4:
         count += 1
-        remainder, result = divmod(
+        remainder, result= divmod(
             seconds, 60) if count < 3 else divmod(
             seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
-        seconds = int(remainder)
+        seconds= int(remainder)
 
     for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+        time_list[x]= str(time_list[x]) + time_suffix_list[x]
     if len(time_list) == 4:
         up_time += time_list.pop() + ", "
 
@@ -77,33 +77,33 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^.absen$")
+@ register(incoming=True, from_users=DEVS, pattern=r"^.absen$")
 async def _(kyy):
     await kyy.reply(random.choice(absen))
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^.roas$")
+@ register(incoming=True, from_users=DEVS, pattern=r"^.roas$")
 async def _(skyzuu):
     await skyzuu.reply(random.choice(roas))
 
 
-@register(incoming=True, from_users=DEVS, pattern=r"^.alby$")
+@ register(incoming=True, from_users=DEVS, pattern=r"^.alby$")
 async def _(kyy):
     await kyy.reply(random.choice(pacar))
 
 
-@register(outgoing=True, pattern="^.sping$")
+@ register(outgoing=True, pattern="^.sping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    start= datetime.now()
     await pong.edit("**✲**")
     await pong.edit("**✲✲**")
     await pong.edit("**✲✲✲**")
     await pong.edit("__DUARR💣__")
     await pong.edit("🔥")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
         f"**{ALIVE_NAME}**        \n"
         f"**➾Kecepatan : ** '%sms'  \n"
@@ -111,14 +111,14 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.lping$")
+@ register(outgoing=True, pattern="^.lping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    uptime= await get_readable_time((time.time() - StartTime))
+    start= datetime.now()
     await pong.edit("`Connecting...`")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
         f"**`{ALIVE_NAME}`**\n"
         f"✧ **-ꜱɪɢɴᴀʟ- :** "
@@ -128,11 +128,11 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.xping$")
+@ register(outgoing=True, pattern="^.xping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    uptime= await get_readable_time((time.time() - StartTime))
+    start= datetime.now()
     await pong.edit("__Sedang Memuat.__")
     await pong.edit("__Sedang Memuat..__")
     await pong.edit("__Sedang Memuat...__")
@@ -142,8 +142,8 @@ async def redis(pong):
     await pong.edit("__Sedang Memuat.__")
     await pong.edit("__Sedang Memuat..__")
     await pong.edit("__Sedang Memuat...__")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
         f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n"
         f"➾ __Signal__    __:__ "
@@ -153,11 +153,11 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.sinyal$")
+@ register(outgoing=True, pattern="^.sinyal$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    uptime= await get_readable_time((time.time() - StartTime))
+    start= datetime.now()
     await pong.edit("**Mengecek Sinyal...**")
     await pong.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
     await pong.edit("**20% ██▒▒▒▒▒▒▒▒**")
@@ -166,8 +166,8 @@ async def redis(pong):
     await pong.edit("**80% ████████▒▒**")
     await pong.edit("**100% ██████████**")
     await asyncio.sleep(2)
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
         f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
@@ -178,18 +178,18 @@ async def redis(pong):
     )
 
 
-@register(outgoing=True, pattern="^.ping$")
+@ register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    uptime= await get_readable_time((time.time() - StartTime))
+    start= datetime.now()
     await pong.edit("**✲**")
     await pong.edit("**✲✲**")
     await pong.edit("**✲✲✲**")
     await pong.edit("**✲✲✲✲**")
     await pong.edit("⚡")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
         f" **╼══❃PING!!!❃══╾** \n"
         f" **ᴘɪɴɢᴇʀ :** "
@@ -200,17 +200,17 @@ async def pingme(pong):
     )
 
 
-@register(outgoing=True, pattern="^.kecepatan$")
+@ register(outgoing=True, pattern="^.kecepatan$")
 async def speedtst(spd):
     """For .speed command, use SpeedTest to check server speeds."""
     await spd.edit("**Sedang Menjalankan Tes Kecepatan Jaringan,Mohon Tunggu...**")
-    test = Speedtest()
+    test= Speedtest()
 
     test.get_best_server()
     test.download()
     test.upload()
     test.results.share()
-    result = test.results.dict()
+    result= test.results.dict()
 
     await spd.edit(
         "**Kecepatan Jaringan:\n**"
@@ -233,33 +233,33 @@ def speed_convert(size):
     """
     Hi human, you can't read bytes?
     """
-    power = 2 ** 10
-    zero = 0
-    units = {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
+    power= 2 ** 10
+    zero= 0
+    units= {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
     while size > power:
         size /= power
         zero += 1
     return f"{round(size, 2)} {units[zero]}"
 
 
-@register(outgoing=True, pattern="^.pong$")
+@ register(outgoing=True, pattern="^.pong$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
-    start = datetime.now()
+    start= datetime.now()
     await pong.edit("**◕‿- PONG!!🏓**")
     await asyncio.sleep(1)
     await pong.edit("⚡️")
     await asyncio.sleep(2)
-    end = datetime.now()
-    duration = (end - start).microseconds / 9000
+    end= datetime.now()
+    duration= (end - start).microseconds / 9000
     await pong.edit(f"**⚡️ABINGName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
-@register(outgoing=True, pattern="^.pink$")
+@ register(outgoing=True, pattern="^.pink$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
+    uptime= await get_readable_time((time.time() - StartTime))
+    start= datetime.now()
     await pong.edit("8✊===D")
     await pong.edit("8=✊==D")
     await pong.edit("8==✊=D")
@@ -279,10 +279,11 @@ async def redis(pong):
     await pong.edit("8===✊D💦")
     await pong.edit("8====D💦💦")
     await pong.edit("**CROOTTTT PINGGGG!**")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
+    end= datetime.now()
+    duration= (end - start).microseconds / 1000
     await pong.edit(
-        f"**BABI!! **\n**NGENTOT** : %sms\n**Bot Uptime** : {uptime}🕛" % (duration)
+        f"**BABI!! **\n**NGENTOT** : %sms\n**Bot Uptime** : {uptime}🕛" % (
+            duration)
     )
 
 
