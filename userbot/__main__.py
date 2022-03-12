@@ -27,9 +27,9 @@ for module_name in ALL_MODULES:
 
 # bot.loop.run_until_complete(checking())
 LOGS.info(
-    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ruangdiskusikami")
+    f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AbingSupport")
 LOGS.info(
-    f"✨ALBY-Userbot✨ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+    f"⚡AbingxUserbot⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
 async def check_alive():
