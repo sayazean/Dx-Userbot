@@ -49,7 +49,7 @@ DEF_UNAPPROVED_MSG = (
     f"**Jika Anda Melakukan Spamming, Anda Akan Terblokir Otomatis!**\n"
     "╔═════════════════════╗\n"
     f"➠ **Owner :** {ALIVE_NAME} \n"
-    f"➠ **Pesan Otomatis by ALBY-Userbot** \n"
+    f"➠ **ᴘᴇsᴀɴ ᴏᴛᴏᴍᴀᴛɪs ʙʏ ᴀʙɪɴɢxυѕєявσт** \n"
     "╚═════════════════════╝")
 # =================================================================
 
