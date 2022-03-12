@@ -1,6 +1,6 @@
 # Ported By @VckyouuBitch From Geez - Projects
 # Copyright © Team Geez - Project
-#alby
+# alby
 
 from telethon.errors import (
     ChannelInvalidError,

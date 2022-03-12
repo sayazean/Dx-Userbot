@@ -12,6 +12,7 @@ from telethon.tl.types import InputMessagesFilterVideo
 from telethon.tl.types import InputMessagesFilterVoice
 from telethon.tl.types import InputMessagesFilterPhotos
 
+
 @kyy_cmd(pattern="asupan$")
 async def _(event):
     try:
@@ -31,6 +32,7 @@ async def _(event):
     except Exception:
         await event.edit("Tidak bisa menemukan video asupan.")
 
+
 @kyy_cmd(pattern="desah$")
 async def _(event):
     try:
@@ -49,7 +51,8 @@ async def _(event):
         await event.delete()
     except Exception:
         await event.edit("Tidak bisa menemukan desahan.")
-        
+
+
 @kyy_cmd(pattern="ayang$")
 async def _(event):
     try:

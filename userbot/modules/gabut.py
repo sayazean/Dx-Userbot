@@ -225,7 +225,6 @@ async def perkenalan(event):
 # KangenCerita
 
 
-
 CMD_HELP.update(
     {
         "gabut": "**Modules** - `Gabut`\
