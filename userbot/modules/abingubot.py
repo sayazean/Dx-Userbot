@@ -1,4 +1,4 @@
-# Copyright (C) 2021 ALBY - Userbot
+# Copyright (C) 2021 Abing x Userbot
 # Created by Kyy
 # Jangan hapus credit Anj!!!
 
