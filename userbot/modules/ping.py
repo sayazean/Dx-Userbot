@@ -16,21 +16,17 @@ from userbot import CMD_HELP, DEVS, StartTime, ALIVE_NAME
 from userbot.events import register
 
 absen = [
-    "**Hadir ganteng** 🥵",
-    "**Hadir bro** 😎",
-    "**Hadir kak** 😉",
-    "**Hadir bang** 😁",
-    "**Hadir kak maap telat** 🥺",
-    "**Hadir Tuan** 🙏🏻",
-    "**Hadir Majikan** 🙏🏻",
-    "**Hadir Sayang** 😳",
-    "**Hadir Bro Alby** 😁",
-    "**maaf ka habis nemenin ka Alby** 🥺",
-    "**maaf ka habis disuruh Tuan alby** 🥺🙏🏻",
-    "**Hadir Sayang** 🥵"
-    "**Hadir alby Akuuuuhhh** ☺️",
-    "**Hadir alby Pacar Aku** 🥰",
-]
+    "**Hadir ganteng** ",
+    "**Hadir bro** ",
+    "**Hadir kak** ",
+    "**Hadir bang** ",
+    "**Hadir kak maap telat** ",
+    "**Hadir Tuan** ",
+    "**Hadir Majikan** ",
+    "**Hadir Bro Abing** ",
+    "**maaf ka habis nemenin ka Alby** ",
+    "**Sungkem Lord Abing Datang** ",
+    "**Ada Lord Abing Ya Ges Ya** ",
 
 roas = [
     "DUH GINI NIH BOCAH YG LAHIR DI GUBUK BAMBU REOT + GAPUNYA HARGA DIRI, PADAHAL MAH DARI KECIL DIAJARIN SM EMAKNYA GABOLEH SONGONG SM MAJIKAN MASIH AJA SONGONG, MENDING LO URUSIN DULU GOBLOK KELUARGA LO YG PENYAKITAN ITU, MANA BAPA LO KAKINYA BOROK BEGITU AJG BERNANAH BAU AMIS IDIH GELI BET GELI GUA LIATNYA, NAH SEKALIAN TUH URUSIN JUGA ADE LO TUH, KALO BUKAN KARENA GUA MAH ADE LO UDAH MENINGGAL KENA TUMOR TOLOL MAKANYA LO KUDU SUJUD DEPAN GUA YAKAN,EMAK LO JUGA TUH JAGAIN UDAH BISU BEGITU YAKAN TAKUTNYA JATOH GABISA TREAK, MAKANYA NIH YA JANGAN KEBANYAKAN KONSUMSI SASA MICIN GOBLOK LIAT KAN EFEKNYA LO JADI KEK BOCAH AYAN BEGITU, SAMPE² LO BERANI GITU YAKAN NYENGGET JEMURAN ORANG SAMPE LO DIPUKULIN TRUS DI INJEK² SAMA WARGA SEKAMPUNGAN, GINI YA GUA KASIH TAU NIH SAMA LO NIH KALO UDA MISKIN KAGA USAH BELAGU SEGALA TOLOL, MIKIR LO MAKAN AJA SUSAH SAMPE NGEMIS² DI KOMPLEK PERUMAHAN GUA SAMPE DI USIR SAMA SATPAM KOMPLEK GUA, BERAS AJA LO BOLEH DIBAGI SAMA EMAK GUA YAKAN LAUK PAUK IKAN, AYAM, DAGING SEGALA RUPA AJA LO BOLEH NYOLONG DARI PASAR BOCAH KAYA LO MAH GIZINYA KURANG DONGO SABAN HARI MAKAN INDOMI 1 PAKE TELOR DOANG ITU JUGA JOINAN SM KELUARGA LU, KARENA APA?, YA KARENA LO MISKIN GA MAMPU BELI MAKANAN YG BERGIZI, DIKASIH KUAH SAYUR KANGKUNG JUGA MAO TOLOL ITU JUGA UDAH BERSYUKUR BISA MAKAN MAKANAN SELAEN MI INSTAN YAKAN SECARA LO GABISA GITU KEK GUA YAKAN MAKAN APA YG GUA MAO LAH ELO MAKAN MAKANAN TONG SAMPAH JUGA UDAH ALHAMDULILLAH BANGET AJG",
@@ -46,18 +42,11 @@ roas = [
 ]
 
 pacar = [
-    "**Saya Hadir Untuk Membantu Tuan Alby** 😎 ",
-    "**Iya Bang kenapa?**",
-    "**Hai ganteng** 🤭",
-    "**Alby I love U 💞💞 ,Mwahhh😘**",
-    "**Saya Hadir Untuk Melindungi Cewe Dari Laki Laki Sagapung** 😎",
-    "**Siap 86 Bang** 😎",
-    "**Ada apa alby Akuuuuhhh** ☺️",
-    "**Mau ga bang jadi pacar aku?** 😁",
-    "**Mending pc aku bang** 🥺",
-    "**Albyyy Aku Sayang Kamu ,Mwahhh😘**",
-    "**mau ga temenin aku🥺**",
-    "**mau ga telponan sama aku🥺**",
+    "**Saya Hadir Untuk Membantu Tuan Abing**  ",
+    "**Halo Lord Abing** ",
+    "**Sungkem Lord Abing Datang Ges** ",
+    "**Saya Hadir Untuk Melindungi Cewe Dari Laki Laki Sagapung** ",
+    "**Saya Hadir Untuk Membasmi Para Vcs Sampah Di Telegram** ",
 ]
 
 
@@ -118,7 +107,7 @@ async def redis(pong):
     await pong.edit(
         f"**{ALIVE_NAME}**        \n"
         f"**➾Kecepatan : ** '%sms'  \n"
-        f"**➾Branch : ** 'ALBY-Userbot` \n" % (duration)
+        f"**➾Branch : ** 'AbingxUserbot` \n" % (duration)
     )
 
 
@@ -156,7 +145,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨**\n"
+        f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n"
         f"➾ __Signal__    __:__ "
         f"`%sms` \n"
         f"➾ __Uptime__ __:__ "
@@ -180,7 +169,7 @@ async def redis(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
-        f"**✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨**\n\n"
+        f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
         f"`%sms` \n"
         f"** ▹  Uᴘᴛɪᴍᴇ  :** "
@@ -198,7 +187,7 @@ async def pingme(pong):
     await pong.edit("**✲✲**")
     await pong.edit("**✲✲✲**")
     await pong.edit("**✲✲✲✲**")
-    await pong.edit("✨")
+    await pong.edit("⚡")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
@@ -236,7 +225,7 @@ async def speedtst(spd):
         f"`{result['ping']}` \n"
         "✧ **ISP:** "
         f"`{result['client']['isp']}` \n"
-        "✧ **BOT:** ✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨"
+        "✧ **BOT:** ⚡ ᴀʙɪɴɢ υѕєявσт ⚡"
     )
 
 
@@ -263,7 +252,7 @@ async def pingme(pong):
     await asyncio.sleep(2)
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await pong.edit(f"**⚡️ALBYName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
+    await pong.edit(f"**⚡️ABINGName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
 @register(outgoing=True, pattern="^.pink$")
