@@ -52,23 +52,23 @@ pacar = [
 
 
 async def get_readable_time(seconds: int) -> str:
-    count= 0
-    up_time= ""
-    time_list= []
-    time_suffix_list= ["Dtk", "Mnt", "Jam", "Hari"]
+    count = 0
+    up_time = ""
+    time_list = []
+    time_suffix_list = ["Dtk", "Mnt", "Jam", "Hari"]
 
     while count < 4:
         count += 1
-        remainder, result= divmod(
+        remainder, result = divmod(
             seconds, 60) if count < 3 else divmod(
             seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
-        seconds= int(remainder)
+        seconds = int(remainder)
 
     for x in range(len(time_list)):
-        time_list[x]= str(time_list[x]) + time_suffix_list[x]
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
     if len(time_list) == 4:
         up_time += time_list.pop() + ", "
 
@@ -97,14 +97,14 @@ async def _(kyy):
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
     await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    start = datetime.now()
     await pong.edit("**✲**")
     await pong.edit("**✲✲**")
     await pong.edit("**✲✲✲**")
     await pong.edit("__DUARR💣__")
     await pong.edit("🔥")
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f"**{ALIVE_NAME}**        \n"
         f"**➾Kecepatan : ** '%sms'  \n"
@@ -115,11 +115,11 @@ async def redis(pong):
 @ register(outgoing=True, pattern="^.lping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime= await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
     await pong.edit("`Connecting...`")
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f"**`{ALIVE_NAME}`**\n"
         f"✧ **-ꜱɪɢɴᴀʟ- :** "
@@ -132,8 +132,8 @@ async def redis(pong):
 @ register(outgoing=True, pattern="^.xping$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime= await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
     await pong.edit("__Sedang Memuat.__")
     await pong.edit("__Sedang Memuat..__")
     await pong.edit("__Sedang Memuat...__")
@@ -143,8 +143,8 @@ async def redis(pong):
     await pong.edit("__Sedang Memuat.__")
     await pong.edit("__Sedang Memuat..__")
     await pong.edit("__Sedang Memuat...__")
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n"
         f"➾ __Signal__    __:__ "
@@ -157,8 +157,8 @@ async def redis(pong):
 @ register(outgoing=True, pattern="^.sinyal$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime= await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
     await pong.edit("**Mengecek Sinyal...**")
     await pong.edit("**0% ▒▒▒▒▒▒▒▒▒▒**")
     await pong.edit("**20% ██▒▒▒▒▒▒▒▒**")
@@ -167,8 +167,8 @@ async def redis(pong):
     await pong.edit("**80% ████████▒▒**")
     await pong.edit("**100% ██████████**")
     await asyncio.sleep(2)
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f"**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n\n"
         f"** ▹  Sɪɢɴᴀʟ   :** "
@@ -182,15 +182,15 @@ async def redis(pong):
 @ register(outgoing=True, pattern="^.ping$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime= await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
     await pong.edit("**✲**")
     await pong.edit("**✲✲**")
     await pong.edit("**✲✲✲**")
     await pong.edit("**✲✲✲✲**")
     await pong.edit("⚡")
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f" **╼══❃PING!!!❃══╾** \n"
         f" **ᴘɪɴɢᴇʀ :** "
@@ -205,13 +205,13 @@ async def pingme(pong):
 async def speedtst(spd):
     """For .speed command, use SpeedTest to check server speeds."""
     await spd.edit("**Sedang Menjalankan Tes Kecepatan Jaringan,Mohon Tunggu...**")
-    test= Speedtest()
+    test = Speedtest()
 
     test.get_best_server()
     test.download()
     test.upload()
     test.results.share()
-    result= test.results.dict()
+    result = test.results.dict()
 
     await spd.edit(
         "**Kecepatan Jaringan:\n**"
@@ -234,9 +234,9 @@ def speed_convert(size):
     """
     Hi human, you can't read bytes?
     """
-    power= 2 ** 10
-    zero= 0
-    units= {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
+    power = 2 ** 10
+    zero = 0
+    units = {0: "", 1: "Kb/s", 2: "Mb/s", 3: "Gb/s", 4: "Tb/s"}
     while size > power:
         size /= power
         zero += 1
@@ -246,21 +246,21 @@ def speed_convert(size):
 @ register(outgoing=True, pattern="^.pong$")
 async def pingme(pong):
     """For .ping command, ping the userbot from any chat."""
-    start= datetime.now()
+    start = datetime.now()
     await pong.edit("**◕‿- PONG!!🏓**")
     await asyncio.sleep(1)
     await pong.edit("⚡️")
     await asyncio.sleep(2)
-    end= datetime.now()
-    duration= (end - start).microseconds / 9000
+    end = datetime.now()
+    duration = (end - start).microseconds / 9000
     await pong.edit(f"**⚡️ABINGName : {ALIVE_NAME}**\n📗 `%sms`" % (duration))
 
 
 @ register(outgoing=True, pattern="^.pink$")
 async def redis(pong):
     """For .ping command, ping the userbot from any chat."""
-    uptime= await get_readable_time((time.time() - StartTime))
-    start= datetime.now()
+    uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
     await pong.edit("8✊===D")
     await pong.edit("8=✊==D")
     await pong.edit("8==✊=D")
@@ -280,8 +280,8 @@ async def redis(pong):
     await pong.edit("8===✊D💦")
     await pong.edit("8====D💦💦")
     await pong.edit("**CROOTTTT PINGGGG!**")
-    end= datetime.now()
-    duration= (end - start).microseconds / 1000
+    end = datetime.now()
+    duration = (end - start).microseconds / 1000
     await pong.edit(
         f"**BABI!! **\n**NGENTOT** : %sms\n**Bot Uptime** : {uptime}🕛" % (
             duration)
