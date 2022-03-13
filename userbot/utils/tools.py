@@ -9,7 +9,8 @@ from html_telegraph_poster import TelegraphPoster
 from PIL import Image
 from yt_dlp import YoutubeDL
 from typing import Optional, Union
-from userbot import LOGS, bot
+from userbot import bot, LOGS, SUDO_USERS
+
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
 
@@ -170,6 +171,21 @@ async def run_cmd(cmd: list) -> tuple[bytes, bytes]:
     return t_resp, e_resp
 
 
+# https://github.com/TeamUltroid/pyUltroid/blob/31c271cf4d35ab700e5880e952e54c82046812c2/pyUltroid/functions/helper.py#L154
+
+
+async def bash(cmd):
+    process = await asyncio.create_subprocess_shell(
+        cmd,
+        stdout=asyncio.subprocess.PIPE,
+        stderr=asyncio.subprocess.PIPE,
+    )
+    stdout, stderr = await process.communicate()
+    err = stderr.decode().strip()
+    out = stdout.decode().strip()
+    return out, err
+
+
 def post_to_telegraph(title, html_format_content):
     post_client = TelegraphPoster(use_api=True)
     auth_name = "AbingxUserbot"
@@ -182,6 +198,15 @@ def post_to_telegraph(title, html_format_content):
         text=html_format_content,
     )
     return post_page["url"]
+
+
+async def reply_id(event):
+    reply_to_id = None
+    if event.sender_id in SUDO_USERS:
+        reply_to_id = event.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    return reply_to_id
 
 
 async def edit_or_reply(
