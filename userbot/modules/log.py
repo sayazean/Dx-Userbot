@@ -1,7 +1,7 @@
 # Credits: cat userbot
 # Ported by @vckyaz
 # FROM GeezProjects <https://github.com/vckyou/GeezProjects>
-# ex by @Punya_Alby <https://github.com/PunyaAlby/ALBY-Userbot>
+# ex by @SayaAbing <https://github.com/SayaAbing/AbingxUserbot>
 
 import asyncio
 
