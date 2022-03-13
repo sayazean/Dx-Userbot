@@ -23,7 +23,7 @@
       "required": true
     },
      "STRING_SESSION": {
-      "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke @Punya_Alby di telegram",
+      "description": "Dapatkan String Session di termux caranya ada di repo, jika tidak tau reponya tanya ke @sayaabing di telegram",
       "required": true
     },
     "HEROKU_APP_NAME": {
@@ -98,7 +98,7 @@
       "value": "https://telegra.ph/file/8dad04830561de07c35d7.jpg",
       "required": false
     },
-    "ALBY_TEKS_KUSTOM": {
+    "ABING_TEKS_KUSTOM": {
       "description": "Kustom Pesan Alive Mu Untuk Perintah .albyalive (Isi Terserah)",
       "value": "I'am Using AbingxUserbot ⚡",
       "required": false 
@@ -109,7 +109,7 @@
     },
     "WEATHER_DEFCITY": {
       "description": "Set the default city for the userbot's weather module.",
-      "value": "Batam",
+      "value": "Jakarta",
       "required": false
     },
     "LOGSPAMMER": {
