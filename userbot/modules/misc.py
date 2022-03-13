@@ -19,7 +19,7 @@ from PIL import Image
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
-    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/PunyaAlby/ALBY-Userbot"
+    UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/SayaAbing/AbingxUserbot"
 # ============================================
 
 opener = urllib.request.build_opener()
@@ -59,7 +59,7 @@ async def sleepybot(time):
 @register(outgoing=True, pattern="^.shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Mematikan ALBY-Userbot....`")
+    await event.edit("`Mematikan AbingxUserbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
@@ -70,7 +70,7 @@ async def killdabot(event):
 
 @register(outgoing=True, pattern="^.restart$")
 async def killdabot(event):
-    await event.edit("`Restarting ALBY-Userbot...`")
+    await event.edit("`Restarting AbingxUserbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
@@ -87,7 +87,7 @@ async def killdabot(event):
 async def reedme(e):
     await e.edit(
         "Here's Something for You to Read :\n"
-        "\n[✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ Repo](https://github.com/PunyaAlby/ALBY-Userbot)"
+        "\n[⚡ ᴀʙɪɴɢxυѕєявσт Repo](https://github.com/SayaAbing/AbingxUserbot)"
         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
@@ -110,12 +110,12 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await wannasee.edit(
-        "**Hey**, I am using **✨ ᴀʟʙʏ ᴜꜱᴇʀʙᴏᴛ ✨** \n"
+        "**Hey**, I am using **⚡ ᴀʙɪɴɢxυѕєявσт ⚡** \n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/PunyaAlby/ALBY-Userbot)\n"
-        "➣ **Owner Bot       :** [『ⒶⓁⒷⓎ』](t.me/Punya_Alby)\n"
-        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/ruangdiskusikami)\n"
-        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ruangprojects)\n"
+        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)\n"
+        "➣ **Owner Bot       :** [ᴀʙɪɴɢ](t.me/sayaabing)\n"
+        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/AbingSupport)\n"
+        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject)\n"
         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
     )
 
@@ -124,7 +124,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await wannasee.edit(
-        f"➣ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
+        f"➣ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@nabilrmdaan/StringSession)\n"
     )
 
 
@@ -275,13 +275,13 @@ CMD_HELP.update({
     \n↳ : Dapatkan item acak dari daftar item.",
     "sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sleep <seconds>`\
     \n↳ : `.sleep`\
-    \n  •  **Function : Biarkan ALBY-Userbot tidur selama beberapa detik.",
+    \n  •  **Function : Biarkan AbingxUserbot tidur selama beberapa detik.",
     "shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.shutdown`\
     \n↳ : Mematikan bot",
     "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
-    \n↳ : Menampilan link Repository ALBY-Userbot.",
+    \n↳ : Menampilan link Repository AbingxUserbot.",
     "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
-    \n↳: Menampilkan link String ALBY-Userbot",
+    \n↳: Menampilkan link String AbingxUserbot",
     "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
     "repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repeat <no> <text>`\
