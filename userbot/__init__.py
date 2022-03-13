@@ -58,6 +58,17 @@ load_dotenv("config.env")
 StartTime = time.time()
 
 # Bot Logs setup:
+logging.basicConfig(
+    format="[%(name)s] - [%(levelname)s] - %(message)s",
+    level=logging.INFO,
+)
+logging.getLogger("asyncio").setLevel(logging.ERROR)
+logging.getLogger("pytgcalls").setLevel(logging.ERROR)
+logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
+logging.getLogger(
+    "telethon.network.connection.connection").setLevel(logging.ERROR)
+LOGS = getLogger(__name__)
+
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 if CONSOLE_LOGGER_VERBOSE:
