@@ -402,6 +402,7 @@ try:
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
+        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
