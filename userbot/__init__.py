@@ -16,7 +16,6 @@ from math import ceil
 
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
-from pytgcalls import PyTgCalls
 from pymongo import MongoClient
 from datetime import datetime
 from redis import StrictRedis
@@ -27,9 +26,7 @@ from telethon import Button
 from telethon.sync import TelegramClient, custom, events
 from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.tl.functions.channels import JoinChannelRequest as GetSec
-from telethon.network.connection.tcpabridged import ConnectionTcpAbridged
 from telethon.sessions import StringSession
-from telethon.sync import TelegramClient, custom, events
 from telethon import Button, events, functions, types
 from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
@@ -58,17 +55,6 @@ load_dotenv("config.env")
 StartTime = time.time()
 
 # Bot Logs setup:
-logging.basicConfig(
-    format="[%(name)s] - [%(levelname)s] - %(message)s",
-    level=logging.INFO,
-)
-logging.getLogger("asyncio").setLevel(logging.ERROR)
-logging.getLogger("pytgcalls").setLevel(logging.ERROR)
-logging.getLogger("telethon.network.mtprotosender").setLevel(logging.ERROR)
-logging.getLogger(
-    "telethon.network.connection.connection").setLevel(logging.ERROR)
-LOGS = getLogger(__name__)
-
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
 
 if CONSOLE_LOGGER_VERBOSE:
@@ -108,21 +94,6 @@ DEVS = (
     1337194042,
     5186727360,
 )
-
-# Blacklist User for use Kyy-Userbot
-while 0 < 6:
-    _BLACKLIST = get(
-        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
-    )
-    if _BLACKLIST.status_code != 200:
-        if 0 != 5:
-            continue
-        kyyblacklist = []
-        break
-    kyyblacklist = _BLACKLIST.json()
-    break
-
-del _BLACKLIST
 
 SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 BL_CHAT = {int(x) for x in os.environ.get("BL_CHAT", "").split()}
@@ -300,13 +271,6 @@ EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
 # °AbingxUserbot°
 OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/sayaabing"
 
-# Picture For VCPLUGIN
-PLAY_PIC = (os.environ.get("PLAY_PIC")
-            or "https://telegra.ph/file/6213d2673486beca02967.png")
-
-QUEUE_PIC = (os.environ.get("QUEUE_PIC")
-             or "https://telegra.ph/file/d6f92c979ad96b2031cba.png")
-
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
 DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
@@ -417,30 +381,23 @@ try:
         session=session,
         api_id=API_KEY,
         api_hash=API_HASH,
-        connection=ConnectionTcpAbridged,
         auto_reconnect=True,
         connection_retries=None,
     )
-    call_py = PyTgCalls(bot)
 except Exception as e:
     print(f"STRING_SESSION - {e}")
     sys.exit()
 
 
 async def checking():
-    gocheck = str(pybase64.b64decode("QE5hc3R5UHJvamVjdA=="))[2:15]
-    checker = str(pybase64.b64decode("QE5hc3R5U3VwcG9ydHQ="))[2:16]
-    checker2 = str(pybase64.b64decode("QGFoaHN1ZGFobGFoaGg="))[2:16]
+    gocheck = str("@AbingSupport")
+    checker = str("@AbingProject")
     try:
         await bot(GetSec(gocheck))
     except BaseException:
         pass
     try:
         await bot(GetSec(checker))
-    except BaseException:
-        pass
-    try:
-        await bot(GetSec(checker2))
     except BaseException:
         pass
 
