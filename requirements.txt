@@ -38,7 +38,6 @@ lxml
 oauth2client
 Pillow>=6.0.0
 fontTools
-py-tgcalls
 psycopg2
 psycopg2-binary
 pylast
@@ -57,7 +56,6 @@ wikipedia>=1.4.0
 coffeehouse>=2.1.0
 git+https://github.com/johnwmillr/LyricsGenius.git
 git+https://github.com/voins/google-images-download.git@2cd68173c961324a2c41c61e8b6f40a49663ce60
-git+https://github.com/yt-dlp/yt-dlp@master
 lyricsgenius
 redis>=3.3.10
 PyDrive2
@@ -85,7 +83,6 @@ pymongo[srv]
 youtube_search
 justwatch
 deezloader
-youtube-search-python==1.4.9
 zipfile38
 bitlyshortener
 validators
