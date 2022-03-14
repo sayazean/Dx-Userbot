@@ -7,53 +7,35 @@
 
 import sys
 from importlib import import_module
-
-import requests
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
-from userbot import (
-    BOTLOG_CHATID,
-    BOT_USERNAME,
-    BOT_TOKEN,
-    BOT_VER,
-    LOGS,
-    ALIVE_NAME,
-    kyyblacklist,
-    bot,
-    call_py,
-)
+from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
+from userbot import BOTLOG_CHATID, BOT_USERNAME, BOT_TOKEN, BOT_VER, LOGS, ALIVE_NAME, bot
+
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
+from userbot.utils import autobot, startupmessage
+
 
 try:
     bot.start()
-    call_py.start()
-    user = bot.get_me()
-    kyyblacklist = requests.get(
-        "https://raw.githubusercontent.com/muhammadrizky16/Kyyblack/master/kyyblacklist.json"
-    ).json()
-    if user.id in kyyblacklist:
-        LOGS.warning(
-            "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @IDnyaKosong"
-        )
-        sys.exit(1)
-except Exception as e:
-    LOGS.info(str(e), exc_info=True)
-    sys.exit(1)
+except PhoneNumberInvalidError:
+    print("The phone number is incorrect!")
+    exit(1)
 
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
+# bot.loop.run_until_complete(checking())
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AbingSupport")
 LOGS.info(
-    f"⚡AbingxUserbot⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+    f"⚡️AbingxUserbot⚡️ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "⚡ **Abing X Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 8.0@AbingxUserbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ")
+            await startupmessage()
     except Exception as e:
         LOGS.info(str(e))
     try:
