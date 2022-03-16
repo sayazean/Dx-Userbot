@@ -16,7 +16,8 @@ from userbot.events import register
 GCAST_BLACKLIST = [
     -1001638078842,  # RuangDiskusi
     -1001538752127,  # AbingSupport
-    -1001473548283,  # Sharing
+    -1001473548283,  # SharingBotTelegram
+    -1001692751821,  # Nasty Support
 ]
 
 
