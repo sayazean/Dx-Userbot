@@ -418,7 +418,7 @@ for binary, path in binaries.items():
 if STRING_SESSION:
     session = StringSession(str(STRING_SESSION))
 else:
-    session = "Kyy-Userbot"
+    session = "AbingxUserbot"
 try:
     bot = TelegramClient(
         session=session,
@@ -456,7 +456,7 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "Join Support Group @AbingSupport and Channel @AbingProject to see the updates of userbot"
+            "Join Support Group @NastySupportt and Channel @NastyProject to see the updates of userbot"
             "Don't Leave")
         quit(1)
 
