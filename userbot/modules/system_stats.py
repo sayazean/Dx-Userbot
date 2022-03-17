@@ -229,7 +229,7 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f" **⚡️ᴀʙɪɴɢxυѕєявσт⚡️** \n\n"
-        f"\n__**{KYY_TEKS_KUSTOM}**__\n\n\n"
+        f"\n__**{ABING_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
@@ -314,9 +314,9 @@ async def redis(alive):
         f"┣  **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
         f"┣  **Bot Ver  :** {BOT_VER} \n"
         f"┣  **Modules  :** {len(modules)} Modules \n"
-        f"┣  **GitHub   :** [el](https://github.com/SayaAbing/AbingxUserbot) \n"
-        f"┣  **Support  :** [Groups](https://t.me/AbingProject) \n"
-        f"┣  **Owner    :** [el](https://t.me/sayaabing) \n"
+        f"┣  **GitHub   :** [ᴀʙɪɴɢ](https://github.com/SayaAbing/AbingxUserbot) \n"
+        f"┣  **Support  :** [ɢʀᴏᴜᴘs](https://t.me/AbingProject) \n"
+        f"┣  **Owner    :** [ᴀʙɪɴɢ](https://t.me/sayaabing) \n"
         f"┗━━━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
