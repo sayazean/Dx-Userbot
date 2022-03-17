@@ -26,6 +26,7 @@ user = bot.get_me()
 DEFAULTUSER = user.first_name
 CUSTOM_HELP_EMOJI = "⚡"
 
+
 @kyy_cmd(pattern="help ?(.*)")
 async def cmd_list(event):
     args = event.pattern_match.group(1).lower()
