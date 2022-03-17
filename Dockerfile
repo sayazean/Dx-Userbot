@@ -4,7 +4,7 @@ RUN apt-get install -y --no-install-recommeds \
     curl \
     git \
     ffmpeg
-RUN curl -sl https://deb.nodesource.com/setup_16.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm i -g npm
 RUN git clone -b AbingxUserbot https://github.com/SayaAbing/AbingxUserbot /home/AbingxUserbot/ \
