@@ -1,6 +1,6 @@
 FROM kyyex/kyy-userbot:busterv2
 RUN apt-get update
-RUN apt-get install -y --no-install-recommeds \
+RUN apt-get install -y --no-install-recommends \
     curl \
     git \
     ffmpeg
