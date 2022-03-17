@@ -1,4 +1,4 @@
-FROM kyyex/kyy-userbot:buster v2
+FROM kyyex/kyy-userbot:busterv2
 RUN apt-get update
 RUN apt-get install -y --no-instal-recommeds \
     curl \
