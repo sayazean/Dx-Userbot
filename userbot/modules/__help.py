@@ -38,7 +38,7 @@ async def cmd_list(event):
     else:
         try:
             results = await bot.inline_query(  # pylint:disable=E0602
-                BOT_USERNAME, "@vuserrrbot"
+                BOT_USERNAME, "@sayaabing_bot"
             )
             await results[0].click(
                 event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
