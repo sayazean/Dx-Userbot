@@ -21,7 +21,7 @@ from userbot import (
 )
 
 
-def kyy_cmd(
+def bing_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,
@@ -44,25 +44,25 @@ def kyy_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global kyy_reg
+        global bing_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            kyy_reg = sudo_reg = re.compile(pattern)
+            bing_reg = sudo_reg = re.compile(pattern)
         else:
-            kyy_ = "\\" + CMD_HANDLER
+            bing_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            kyy_reg = re.compile(kyy_ + pattern)
+            bing_reg = re.compile(bing_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = kyy_ + command
+                cmd1 = bing_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (kyy_ +
+                    (bing_ +
                      pattern).replace(
                         "$",
                         "").replace(
@@ -85,9 +85,9 @@ def kyy_cmd(
         if not disable_edited:
             bot.add_event_handler(
                 func, events.MessageEdited(
-                    **args, outgoing=True, pattern=kyy_reg))
+                    **args, outgoing=True, pattern=bing_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=kyy_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=bing_reg)
         )
         if allow_sudo:
             if not disable_edited:
@@ -112,7 +112,7 @@ def kyy_cmd(
     return decorator
 
 
-def kyy_handler(
+def bing_handler(
     **args,
 ):
     def decorator(func):
