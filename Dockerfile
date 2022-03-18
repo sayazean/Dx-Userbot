@@ -1,7 +1,7 @@
 # Using Python Slim-Buster
 FROM kyyex/kyy-userbot:buster
-#━━━━━ Userbot Telegram ━━━━━
-#━━━━━ By AbingxUserbot ━━━━━━
+#━━━━━ Userbot Telegram ━━━━━━
+#━━━━━ By AbingxUserbot ━━━━━
 
 RUN git clone -b AbingxUserbot https://github.com/SayaAbing/AbingxUserbot /root/userbot
 RUN mkdir /root/userbot/.bin
