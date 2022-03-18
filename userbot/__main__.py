@@ -17,6 +17,7 @@ from userbot import (
     BOT_TOKEN,
     BOT_VER,
     LOGS,
+    BOTLOG,
     ALIVE_NAME,
     bingblacklist,
     bot,
