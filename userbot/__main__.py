@@ -18,7 +18,6 @@ from userbot import (
     BOT_VER,
     LOGS,
     ALIVE_NAME,
-    BOTLOG,
     bingblacklist,
     bot,
     call_py,
