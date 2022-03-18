@@ -8,10 +8,10 @@ import requests
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 from userbot.modules.sql_helper.globals import gvarstatus
-from userbot.utils import edit_delete, edit_or_reply, kyy_cmd
+from userbot.utils import edit_delete, edit_or_reply, bing_cmd
 
 
-@kyy_cmd(pattern="adzan(?:\\s|$)([\\s\\S]*)")
+@bing_cmd(pattern="adzan(?:\\s|$)([\\s\\S]*)")
 async def get_adzan(adzan):
     "Shows you the Islamic prayer times of the given city name"
     input_str = adzan.pattern_match.group(1)
