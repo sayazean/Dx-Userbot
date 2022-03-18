@@ -1,4 +1,4 @@
-FROM sayaabing/abingxuserbot:buster
+FROM kyyex/kyy-userbot:busterv3
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
     curl \
