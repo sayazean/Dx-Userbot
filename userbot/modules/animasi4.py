@@ -1,6 +1,6 @@
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, binh_cmd
+from userbot.utils import edit_or_reply
 from telethon import events
 import asyncio
 
