@@ -150,7 +150,7 @@ CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
 # Userbot logging feature switch.
-BOTLOG = sb(os.environ.get("BOTLOG", "True"))
+BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
 # Custom Pmpermit text
