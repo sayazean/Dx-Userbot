@@ -1,197 +1,198 @@
 # Copyright (C) 2021 Abing x Userbot
 # Created by Kyy
 # Jangan hapus credit Anj!!!
+# Recode By Abing
 
 
 from time import sleep
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, bing_cmd
 
 
-@register(outgoing=True, pattern="^.sadboy(?: |$)(.*)")
+@bing_cmd(pattern="sadboy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
-    await typew.edit("`Pertama-tama kamu cantik`")
+    xnxx = await edit_or_reply(typew, "`Pertama-tama kamu cantik`")
     sleep(2)
-    await typew.edit("`Kedua kamu manis`")
+    await xnxx.edit("`Kedua kamu manis`")
     sleep(1)
-    await typew.edit("`Dan yang terakhir adalah kamu bukan milikku`")
+    await xnxx.edit("`Dan yang terakhir adalah kamu bukan milikku`")
 
 
 # Create by myself @localheart
 
 
-@register(outgoing=True, pattern="^.lahk(?: |$)(.*)")
+@bing_cmd(pattern="lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Lahk, Lo tolol?`")
+    xnxx = await edit_or_reply(typew, "`Lahk, Lo tolol?`")
     sleep(1)
-    await typew.edit("`Apa dongok?`")
+    await xnxx.edit("`Apa dongok?`")
     sleep(1)
-    await typew.edit("`Gausah sok keras`")
+    await xnxx.edit("`Gausah sok keras`")
     sleep(1)
-    await typew.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
+    await xnxx.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
 
-@register(outgoing=True, pattern=r"^\.sok(?: |$)(.*)")
+@bing_cmd(pattern="sok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
-    await typew.edit("**WOII**")
+    xnxx = await edit_or_reply(typew, "**WOII**")
     sleep(1.5)
-    await typew.edit("**KONTOL**")
+    await xnxx.edit("**KONTOL**")
     sleep(1.5)
-    await typew.edit("**KALO MENTAL MASIH PATUNGAN**")
+    await xnxx.edit("**KALO MENTAL MASIH PATUNGAN**")
     sleep(1.5)
-    await typew.edit("**GAUSAH SOK KERAS DEH**")
+    await xnxx.edit("**GAUSAH SOK KERAS DEH**")
     sleep(1.5)
-    await typew.edit("**GA KEREN LO BEGITU NGENTOT**")
+    await xnxx.edit("**GA KEREN LO BEGITU NGENTOT**")
 
 
-@register(outgoing=True, pattern="^.wah(?: |$)(.*)")
+@bing_cmd(pattern="wah(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Wahh, War nya keren bang`")
+    xnxx = await edit_or_reply(typew, "`Wahh, War nya keren bang`")
     sleep(2)
-    await typew.edit("`Tapi, Yang gua liat, kok Kaya lawakan`")
+    await xnxx.edit("`Tapi, Yang gua liat, kok Kaya lawakan`")
     sleep(2)
-    await typew.edit("`Oh iya, Kan lo badut 🤡`")
+    await xnxx.edit("`Oh iya, Kan lo badut 🤡`")
     sleep(2)
-    await typew.edit("`Kosa kata pas ngelawak, Jangan di pake war bang`")
+    await xnxx.edit("`Kosa kata pas ngelawak, Jangan di pake war bang`")
     sleep(2)
-    await typew.edit("`Kesannya lo ngasih kita hiburan.`")
+    await xnxx.edit("`Kesannya lo ngasih kita hiburan.`")
     sleep(2)
-    await typew.edit("`Kasian badut🤡, Ga di hargain pengunjung, Eh lampiaskan nya ke Tele, Wkwkwk`")
+    await xnxx.edit("`Kasian badut🤡, Ga di hargain pengunjung, Eh lampiaskan nya ke Tele, Wkwkwk`")
     sleep(3)
-    await typew.edit("`Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak`")
+    await xnxx.edit("`Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak`")
 
 
-@register(outgoing=True, pattern="^.alay(?: |$)(.*)")
+@bing_cmd(pattern="alay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
-    await typew.edit("eh kamu, iya kamu")
+    xnxx = await edit_or_reply(typew, "eh kamu, iya kamu")
     sleep(1)
-    await typew.edit("**ALAY** bnget sih")
+    await xnxx.edit("**ALAY** bnget sih")
     sleep(1)
-    await typew.edit("spam bot mulu")
+    await xnxx.edit("spam bot mulu")
     sleep(1)
-    await typew.edit("baru jadi userbot ya?? xixixi")
+    await xnxx.edit("baru jadi userbot ya?? xixixi")
     sleep(1)
-    await typew.edit("pantes **NORAK**")
+    await xnxx.edit("pantes **NORAK**")
 
 
-@register(outgoing=True, pattern="^.erpe(?: |$)(.*)")
+@bing_cmd(pattern="erpe(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
-    await typew.edit("Hai, Kamu Anak Erpe Ya")
+    xnxx = await edit_or_reply(typew, "Hai, Kamu Anak Erpe Ya")
     sleep(1)
-    await typew.edit("Kok Pake Muka Orang sih?")
+    await xnxx.edit("Kok Pake Muka Orang sih?")
     sleep(1)
-    await typew.edit("Oh iya, Muka Anak Erpe Kan")
+    await xnxx.edit("Oh iya, Muka Anak Erpe Kan")
     sleep(1)
-    await typew.edit("**BURIK - BURIK**")
+    await xnxx.edit("**BURIK - BURIK**")
     sleep(1)
-    await typew.edit("Jadinya Pake Muka Orang")
+    await xnxx.edit("Jadinya Pake Muka Orang")
     sleep(1)
-    await typew.edit("Karena Muka Anak erpe")
+    await xnxx.edit("Karena Muka Anak erpe")
     sleep(1)
-    await typew.edit("**BURIK - BURIK**")
+    await xnxx.edit("**BURIK - BURIK**")
     sleep(1)
-    await typew.edit("Canda **BURIK**")
+    await xnxx.edit("Canda **BURIK**")
     sleep(1)
-    await typew.edit("Lari Ada Plastik KePanasan")
+    await xnxx.edit("Lari Ada Plastik KePanasan")
 
 
-@register(outgoing=True, pattern="^.ange(?: |$)(.*)")
+@bing_cmd(pattern="ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Ayanggggg😖`")
+    xnxx = await edit_or_reply(typew, "`Ayanggggg😖`")
     sleep(1)
-    await typew.edit("`Ange😫`")
+    await xnxx.edit("`Ange😫`")
     sleep(1)
-    await typew.edit("`Ayukkk Ewean Ayanggg🤤`")
+    await xnxx.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
-@register(outgoing=True, pattern=r"^\.virtual(?: |$)(.*)")
+@bing_cmd(pattern="virtual(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**OOOO**")
+    xnxx = await edit_or_reply(typew, "**OOOO**")
     sleep(1.5)
-    await typew.edit("**INI YANG VIRTUAL**")
+    await xnxx.edit("**INI YANG VIRTUAL**")
     sleep(1.5)
-    await typew.edit("**YANG KATANYA SAYANG BANGET**")
+    await xnxx.edit("**YANG KATANYA SAYANG BANGET**")
     sleep(1.5)
-    await typew.edit("**TAPI TETEP AJA DI TINGGAL**")
+    await xnxx.edit("**TAPI TETEP AJA DI TINGGAL**")
     sleep(1.5)
-    await typew.edit("**NI INGET**")
+    await xnxx.edit("**NI INGET**")
     sleep(1.5)
-    await typew.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
+    await xnxx.edit("**TANGANNYA AJA GA BISA DI PEGANG**")
     sleep(1.5)
-    await typew.edit("**APALAGI OMONGANNYA**")
+    await xnxx.edit("**APALAGI OMONGANNYA**")
     sleep(1.5)
-    await typew.edit("**BHAHAHAHA**")
+    await xnxx.edit("**BHAHAHAHA**")
     sleep(1.5)
-    await typew.edit("**KASIAN MANA MASIH MUDA**")
+    await xnxx.edit("**KASIAN MANA MASIH MUDA**")
 
 
-@register(outgoing=True, pattern="^.tittle(?: |$)(.*)")
+@bing_cmd(pattern="tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**OI ANAK TITLE**")
+    xnxx = await edit_or_reply(typew, "**OI ANAK TITLE**")
     sleep(2)
-    await typew.edit("**OOO INI YANG SOK JADI PAHLAWAN DI TELEGRAM?**")
+    await xnxx.edit("**OOO INI YANG SOK JADI PAHLAWAN DI TELEGRAM?**")
     sleep(3)
-    await typew.edit("**TITLE KEMANA MANA SAMPE MENUHIN NAMA**")
+    await xnxx.edit("**TITLE KEMANA MANA SAMPE MENUHIN NAMA**")
     sleep(2)
-    await typew.edit("**ADA YANG SAMPE 18+ LAH SEGALA MACEM**")
+    await xnxx.edit("**ADA YANG SAMPE 18+ LAH SEGALA MACEM**")
     sleep(2)
-    await typew.edit("**LO KIRA KEREN KEK GITU?**")
+    await xnxx.edit("**LO KIRA KEREN KEK GITU?**")
     sleep(2)
-    await typew.edit("**KERJAAN CUMA NGURUSIN GRUP DI TELEGRAM SAMA NGAJAK ORANG WAR**")
+    await xnxx.edit("**KERJAAN CUMA NGURUSIN GRUP DI TELEGRAM SAMA NGAJAK ORANG WAR**")
     sleep(4)
-    await typew.edit("**YAELAH BRO MENTAL LO CUMA DI SOSMED APA GIMANE?**")
+    await xnxx.edit("**YAELAH BRO MENTAL LO CUMA DI SOSMED APA GIMANE?**")
     sleep(2)
-    await typew.edit("**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**")
+    await xnxx.edit("**PERASAAN DULU TELEGRAM GAADA DEH BOCAH BOCAH SOK JAGO KEK GINI**")
     sleep(2)
-    await typew.edit("**GILIRAN TITLE NYA DI EJEK NGADU KE OWNER NYA**")
+    await xnxx.edit("**GILIRAN TITLE NYA DI EJEK NGADU KE OWNER NYA**")
     sleep(4)
-    await typew.edit("**TRUS NGAJAK WAR**")
+    await xnxx.edit("**TRUS NGAJAK WAR**")
     sleep(2)
-    await typew.edit("**BUSET DAH BANG**")
+    await xnxx.edit("**BUSET DAH BANG**")
     sleep(2)
-    await typew.edit("**UDAH SEJAGO APESI SAMPE GC DIBELA BELA**")
+    await xnxx.edit("**UDAH SEJAGO APESI SAMPE GC DIBELA BELA**")
     sleep(3)
-    await typew.edit("**ORANG TUA LO NOH ADA YANG NAGIH UTANG UDA LO BELA BELOM?**")
+    await xnxx.edit("**ORANG TUA LO NOH ADA YANG NAGIH UTANG UDA LO BELA BELOM?**")
     sleep(4)
-    await typew.edit("**RELA NGUTANG DEMI NGIDUPIN LU**")
+    await xnxx.edit("**RELA NGUTANG DEMI NGIDUPIN LU**")
     sleep(2)
-    await typew.edit("**EH ANAKNYA MALAH NGEBELAIN GC GAJELAS HAHAHA**")
+    await xnxx.edit("**EH ANAKNYA MALAH NGEBELAIN GC GAJELAS HAHAHA**")
     sleep(3)
-    await typew.edit("**MANA VIRTUAL LAGI, SOK JAGO LAGI DUH**")
+    await xnxx.edit("**MANA VIRTUAL LAGI, SOK JAGO LAGI DUH**")
     sleep(3)
-    await typew.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
+    await xnxx.edit("**SEMOGA CEPET SADAR YA HAHAHAHA**")
 
 
 CMD_HELP.update({
-    "albyubot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sadboy`\
+    "bingubot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
     \n↳ : Biasalah sadboy hikss\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wah`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wah`\
     \n↳ : Ngatain orang war\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sok`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sok`\
     \n↳ : Ngatain orang sok keras2\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.lahk`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}lahk`\
     \n↳ : Ngatain orang sok keras.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.alay`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}alay`\
     \n↳ : Ngatain orang alay\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.erpe`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}erpe`\
     \n↳ : Ngatain anak erpe\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ange`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ange`\
     \n↳ : Sangean\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.virtual`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}virtual`\
     \n↳ : Ngatain bocah virtual.\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tittle`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tittle`\
     \n↳ : Ngatain bocah gila tittle."
 })
