@@ -17,6 +17,7 @@ from userbot import (
     SUDO_HANDLER,
     SUDO_USERS,
     bot,
+    tgbot,
 )
 
 
