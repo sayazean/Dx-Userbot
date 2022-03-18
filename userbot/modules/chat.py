@@ -5,7 +5,7 @@
 """ Userbot module containing userid, chatid and log commands"""
 
 from asyncio import sleep
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, ALIVE_NAME
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, bot, owner, CMD_HANDLER as cmd
 from datetime import datetime
 from telethon import functions
 from emoji import emojize
@@ -19,12 +19,13 @@ from telethon.errors import (
     ChannelPublicGroupNaError)
 from telethon.utils import get_input_location
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
+from userbot.utils import edit_delete, edit_or_reply, bing_cmd
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from telethon.utils import pack_bot_file_id
 
 
-@register(outgoing=True, pattern="^.id(?: |$)(.*)")
+@bing_cmd(pattern="id(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -33,28 +34,28 @@ async def _(event):
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`\nID Bot File API: `{}`".format(str(event.chat_id), str(r_msg.from_id), bot_api_file_id))
+            await edit_or_reply(event, "ID Grup: `{}`\nID Dari Pengguna : `{}`\nID Bot File API: `{}`".format(str(event.chat_id), str(r_msg.from_id), bot_api_file_id))
         else:
-            await event.edit("ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
+            await edit_or_reply(event, "ID Grup: `{}`\nID Dari Pengguna : `{}`".format(str(event.chat_id), str(r_msg.from_id)))
     else:
-        await event.edit("ID Grup: `{}`".format(str(event.chat_id)))
+        await edit_or_reply(event, "ID Grup: `{}`".format(str(event.chat_id)))
 
 
-@register(outgoing=True, pattern="^.link(?: |$)(.*)")
+@bing_cmd(pattern="link(?: |$)(.*)")
 async def permalink(mention):
     """ For .link command, generates a link to the user's PM with a custom text. """
     user, custom = await get_user_from_event(mention)
     if not user:
         return
     if custom:
-        await mention.edit(f"[{custom}](tg://user?id={user.id})")
+        await edit_or_reply(mention, f"[{custom}](tg://user?id={user.id})")
     else:
         tag = user.first_name.replace("\u2060",
                                       "") if user.first_name else user.username
-        await mention.edit(f"[{tag}](tg://user?id={user.id})")
+        await edit_or_reply(mention, f"[{tag}](tg://user?id={user.id})")
 
 
-@register(outgoing=True, pattern="^.getbot(?: |$)(.*)")
+@bing_cmd(pattern="getbot(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -69,7 +70,7 @@ async def _(event):
         try:
             chat = await bot.get_entity(input_str)
         except Exception as e:
-            await event.edit(str(e))
+            await edit_or_reply(event, str(e))
             return None
     try:
         async for x in bot.iter_participants(chat, filter=ChannelParticipantsBots):
@@ -81,10 +82,10 @@ async def _(event):
                     x.first_name, x.id, x.id)
     except Exception as e:
         mentions += " " + str(e) + "\n"
-    await event.edit(mentions)
+    await edit_or_reply(event, mentions)
 
 
-@register(outgoing=True, pattern=r"^.logit(?: |$)([\s\S]*)")
+@bing_cmd(pattern=r"logit(?: |$)([\s\S]*)")
 async def log(log_text):
     """ For .log command, forwards a message or the command argument to the bot logs group """
     if BOTLOG:
@@ -96,49 +97,43 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await bot.send_message(BOTLOG_CHATID, textx)
         else:
-            await log_text.edit("`Apa Yang Harus Saya Log?`")
+            await edit_delete(log_text, "`Apa Yang Harus Saya Log?`")
             return
-        await log_text.edit("`Logged Berhasil!`")
+        await edit_or_reply(log_text, "`Logged Berhasil!`")
     else:
-        await log_text.edit("`Fitur Ini Mengharuskan Loging Diaktifkan!`")
-    await sleep(2)
-    await log_text.delete()
+        await edit_delete(log_text, "`Fitur Ini Mengharuskan Loging Diaktifkan!`")
 
 
-@register(outgoing=True, pattern="^.kickme$")
+@bing_cmd(pattern="kickme$")
 async def kickme(leave):
     """ Basically it's .kickme command """
-    await leave.edit(f"**{ALIVE_NAME} Telah Meninggalkan Group,See You Semua!!**")
+    await edit_or_reply(leave, f"**{owner} Telah Meninggalkan Group,See You Semua!!**")
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
-@register(outgoing=True, pattern="^.unmutechat$")
+@bing_cmd(pattern="unmutechat$")
 async def unmute_chat(unm_e):
     """ For .unmutechat command, unmute a muted chat. """
     try:
         from userbot.modules.sql_helper.keep_read_sql import unkread
     except AttributeError:
-        await unm_e.edit('`Running on Non-SQL Mode!`')
+        await edit_delete(unm_e, '`Running on Non-SQL Mode!`')
         return
     unkread(str(unm_e.chat_id))
-    await unm_e.edit("```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
-    await sleep(2)
-    await unm_e.delete()
+    await edit_delete(unm_e, "```Berhasil Dibuka, Obrolan Tidak Lagi Dibisukan```")
 
 
-@register(outgoing=True, pattern="^.mutechat$")
+@bing_cmd(pattern="mutechat$")
 async def mute_chat(mute_e):
     """ For .mutechat command, mute any chat. """
     try:
         from userbot.modules.sql_helper.keep_read_sql import kread
     except AttributeError:
-        await mute_e.edit("`Running on Non-SQL mode!`")
+        await edit_delete(mute_e, "`Running on Non-SQL mode!`")
         return
-    await mute_e.edit(str(mute_e.chat_id))
+    await edit_or_reply(mute_e, str(mute_e.chat_id))
     kread(str(mute_e.chat_id))
-    await mute_e.edit("`Ssshssh Anda Telah Membisukan Obrolan !`")
-    await sleep(2)
-    await mute_e.delete()
+    await edit_delete(mute_e, "`Ssshssh Anda Telah Membisukan Obrolan !`")
     if BOTLOG:
         await mute_e.client.send_message(
             BOTLOG_CHATID,
@@ -163,7 +158,7 @@ async def keep_read(message):
 regexNinja = False
 
 
-@register(outgoing=True, pattern="^s/")
+@bing_cmd(pattern="s/")
 async def sedNinja(event):
     """Untuk Modul Regex-Ninja, Perintah Hapus Otomatis Yang Dimulai Dengans/"""
     if regexNinja:
@@ -171,32 +166,28 @@ async def sedNinja(event):
         await event.delete()
 
 
-@register(outgoing=True, pattern="^.regexninja (on|off)$")
+@bing_cmd(pattern="regexninja (on|off)$")
 async def sedNinjaToggle(event):
     """ Aktifkan Atau Nonaktifkan Modul Regex Ninja. """
     global regexNinja
     if event.pattern_match.group(1) == "on":
         regexNinja = True
-        await event.edit("`Berhasil Mengaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
+        await edit_delete(event, "`Berhasil Mengaktifkan Mode Regex Ninja.`")
     elif event.pattern_match.group(1) == "off":
         regexNinja = False
-        await event.edit("`Berhasil Menonaktifkan Mode Regex Ninja.`")
-        await sleep(1)
-        await event.delete()
+        await edit_delete(event, "`Berhasil Menonaktifkan Mode Regex Ninja.`")
 
 
-@register(pattern=".chatinfo(?: |$)(.*)", outgoing=True)
+@bing_cmd(pattern="chatinfo(?: |$)(.*)")
 async def info(event):
-    await event.edit("`Menganalisis Obrolan Ini...`")
+    await edit_delete(event, "`Menganalisis Obrolan Ini...`")
     chat = await get_chatinfo(event)
     caption = await fetch_info(chat, event)
     try:
-        await event.edit(caption, parse_mode="html")
+        await edit_or_reply(event, caption, parse_mode="html")
     except Exception as e:
         print("Exception:", e)
-        await event.edit("`Terjadi Kesalah Yang Tidak Terduga.`")
+        await edit_delete(event, "`Terjadi Kesalah Yang Tidak Terduga.`")
     return
 
 
@@ -221,16 +212,16 @@ async def get_chatinfo(event):
         try:
             chat_info = await event.client(GetFullChannelRequest(chat))
         except ChannelInvalidError:
-            await event.edit("`Group/Channel Tidak Valid`")
+            await edit_or_reply(event, "`Group/Channel Tidak Valid`")
             return None
         except ChannelPrivateError:
-            await event.edit("`Ini Adalah Group/Channel Privasi Atau Mungkin Anda Telah Terbanned Dari Sana`")
+            await edit_or_reply(event, "`Ini Adalah Group/Channel Privasi Atau Mungkin Anda Telah Terbanned Dari Sana`")
             return None
         except ChannelPublicGroupNaError:
-            await event.edit("`Channel Atau Supergroup Tidak Ditemukan`")
+            await edit_or_reply(event, "`Channel Atau Supergroup Tidak Ditemukan`")
             return None
         except (TypeError, ValueError) as err:
-            await event.edit(str(err))
+            await edit_or_reply(event, str(err))
             return None
     return chat_info
 
@@ -392,13 +383,13 @@ async def fetch_info(chat, event):
     return caption
 
 
-@register(outgoing=True, pattern="^.invite(?: |$)(.*)")
+@bing_cmd(pattern="invite(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await event.edit("`.invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
+        await edit_delete(event, f"`{cmd}invite` Pengguna Ke Obrolan, Tidak Ke Pesan Pribadi")
     else:
         if not event.is_channel and event.is_group:
             # https://lonamiwebs.github.io/Telethon/methods/messages/add_chat_user.html
@@ -411,7 +402,7 @@ async def _(event):
                     ))
                 except Exception as e:
                     await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+            await edit_or_reply(event, "`Berhasil Menambahkan Pengguna Ke Obrolan`")
         else:
             # https://lonamiwebs.github.io/Telethon/methods/channels/invite_to_channel.html
             for user_id in to_add_users.split(" "):
@@ -422,29 +413,29 @@ async def _(event):
                     ))
                 except Exception as e:
                     await event.reply(str(e))
-            await event.edit("`Berhasil Menambahkan Pengguna Ke Obrolan`")
+            await edit_or_reply(event, "`Berhasil Menambahkan Pengguna Ke Obrolan`")
 
 CMD_HELP.update({
     "chat":
-    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getid`\
+    f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getid`\
 \n↳ : Dapatkan ID dari media Telegram mana pun, atau pengguna mana pun\
-\n\n: `.getbot`\
+\n\n: `{cmd}getbot`\
 \n↳ : Dapatkan Bot dalam obrolan apa pun.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.logit`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}logit`\
 \n↳ : Meneruskan pesan yang telah Anda balas di grup log bot Anda.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.exit`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}exit`\
 \n↳ : Keluar dari grup.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.unmutechat`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}unmutechat`\
 \n↳ : Membuka obrolan yang dibisukan.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.mutechat`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}mutechat`\
 \n↳ : Memungkinkan Anda membisukan obrolan apa pun.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.link` <username/userid>: <opsional teks> (atau) balas pesan seseorang dengan .link <teks opsional>\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}link` <username/userid>: <opsional teks> (atau) balas pesan seseorang dengan .link <teks opsional>\
 \n↳ : Buat tautan permanen ke profil pengguna dengan teks ubahsuaian opsional.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.regexninja` enable/disabled\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}regexninja` enable/disabled\
 \n↳ : Mengaktifkan/menonaktifkan modul ninja regex secara global.\
 \nModul Regex Ninja membantu menghapus pesan pemicu bot regex.\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.chatinfo [opsional: <reply/tag/chat id/invite link>]`\
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}chatinfo [opsional: <reply/tag/chat id/invite link>]`\
 \n↳ : Mendapatkan info obrolan. Beberapa info mungkin dibatasi karena izin yang hilang..\
-\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.invite` \
+\n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}invite` \
 \n↳ : Menambahkan pengguna ke obrolan, bukan ke pesan pribadi. "
 })
