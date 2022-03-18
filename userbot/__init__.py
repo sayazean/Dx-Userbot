@@ -33,7 +33,6 @@ from telethon.sync import TelegramClient, custom, events
 from telethon import Button, events, functions, types
 from telethon.tl.types import InputWebDocument
 from telethon.utils import get_display_name
-from userbot.utils import bing_cmd
 
 from .storage import Storage
 
@@ -106,17 +105,17 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
-    1337194042,
     1663258664,
-    1938616056,
-    810227767,
-    1441342342,
-    5089916692,
-    2014359828,
+    1416529201,
+    2122770443,
+    955903284,
+    2130526178,
+    1337194042,
     5186727360,
+    2014359828,
 )
 
-# Blacklist User for use Abing-Userbot
+# Blacklist User for use AbingxUserbot
 while 0 < 6:
     _BLACKLIST = get(
         "https://raw.githubusercontent.com/SayaAbing/Bingblack/master/bingblacklist.json"
@@ -150,7 +149,7 @@ CMD_HANDLER = os.environ.get("CMD_HANDLER") or "."
 SUDO_HANDLER = os.environ.get("SUDO_HANDLER") or "$"
 
 # Userbot logging feature switch.
-BOTLOG = sb(os.environ.get("BOTLOG", "False"))
+BOTLOG = sb(os.environ.get("BOTLOG", "True"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
 # Custom Pmpermit text
@@ -256,15 +255,13 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .abingalive
-ABING_TEKS_KUSTOM = os.environ.get(
-    "ABING_TEKS_KUSTOM",
-    "I'am Using AbingxUserbot⚡")
+ABING_TEKS_KUSTOM = os.environ.get("ABING_TEKS_KUSTOM", "I'am Using AbingxUserbot⚡")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
 
 # Default .alive Name
-ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
+ALIVE_NAME = os.environ.get("ALIVE_NAME", "Abing")
 
 # Time & Date - Country and Time Zone
 COUNTRY = str(os.environ.get("COUNTRY", "ID"))
@@ -497,12 +494,11 @@ with bot:
 
 
 async def update_restart_msg(chat_id, msg_id):
-    DEFAULTUSER = ALIVE_NAME or "Set `ALIVE_NAME` ConfigVar!"
     message = (
         f"**AbingxUserbot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
-        f"**User:** {DEFAULTUSER}"
+        f"**User:** {owner}"
     )
     await bot.edit_message(chat_id, msg_id, message)
     return True
@@ -599,7 +595,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        binglogo = INLINE_PIC
+        binglogo = ALIVE_LOGO
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
@@ -611,7 +607,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**⚡️ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡️**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=binglogo,
@@ -698,12 +694,12 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@vuserrrbot"):
+            if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
                     file=binglogo,
                     link_preview=False,
-                    text=f"**⚡️ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡️**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -712,11 +708,11 @@ with bot:
                     description="Repository Abing x Userbot",
                     url="https://t.me/AbingSupport",
                     thumb=InputWebDocument(
-                        INLINE_PIC,
+                        ALIVE_LOGO,
                         0,
                         "image/jpeg",
                         []),
-                    text="**ᴀʙɪɴɢxυѕєявσт**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [A̸ʙɪɴɢ-ᴇx](https://t.me/sayaabing)\n✣ **sᴜᴘᴘᴏʀᴛ :** @AbingSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [ᴀʙɪɴɢxυѕєявσт](https://github.com/SayaAbing/AbingxUserbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**AbingxUserbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Abing-Ex](https://t.me/sayaabing)\n✣ **sᴜᴘᴘᴏʀᴛ :** @AbingSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [AbingxUserbot](https://github.com/SayaAbing/AbingxUserbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
@@ -763,20 +759,20 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="⚡️ ᴀʙɪɴɢxυѕєявσт ⚡️",
+                    title="⚡ ᴀʙɪɴɢxυѕєявσт ⚡",
                     description="Abing x Userbot | Telethon",
-                    url="https://t.me/AbingSupport",
+                    url="https://t.me/AbingProject",
                     thumb=InputWebDocument(
-                        INLINE_PIC,
+                        ALIVE_LOGO,
                         0,
                         "image/jpeg",
                         []),
-                    text=f"**ᴀʙɪɴɢxυѕєявσт**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ:** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @AbingProject\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**AbingxUserbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ:** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @AbingProject\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "ɢʀᴏᴜᴘ",
-                                "https://t.me/AbinSupport"),
+                                "https://t.me/AbingSupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
                                 "https://github.com/SayaAbing/AbingxUserbot"),
@@ -802,7 +798,7 @@ with bot:
                 await event.edit(buttons=buttons)
             else:
                 reply_pop_up_alert = (
-                    f"Kamu Tidak diizinkan, ini Userbot Milik {ALIVE_NAME}"
+                    f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
