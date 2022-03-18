@@ -13,7 +13,6 @@ from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
 
 from userbot import (
     BOTLOG_CHATID,
-    BOTLOG,
     BOT_USERNAME,
     BOT_TOKEN,
     BOT_VER,
