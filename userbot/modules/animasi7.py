@@ -1,13 +1,13 @@
 from time import sleep
 
-from userbot import CMD_HELP
-from userbot.events import register
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, bing_cmd
 
 
-@register(outgoing=True, pattern="^.sange$")
+@bing_cmd(pattern="sange$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
-        await e.edit("SAYANGGGGGGGGG 💕")
+        e = await edit_or_reply(e, "SAYANGGGGGGGGG 💕")
         sleep(1)
         await e.edit("💝💘💓💗")
         sleep(1)
@@ -50,13 +50,13 @@ async def koc(e):
         sleep(1)
         await e.edit("OH BABY")
         sleep(1)
-        await e.edit("AKU SAYANG KAMU💞")
+        await e.edit("AKU SANGE SAYANG💞")
 
 
-@register(outgoing=True, pattern="^.orgil(?: |$)(.*)")
+@bing_cmd(pattern="orgil(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`ANJING ADA ORANG GILA.....`")
+    typew = await edit_or_reply(typew, "`ANJING ADA ORANG GILA.....`")
     sleep(1)
     await typew.edit("`ORANG GILAAAAAA!!`")
     sleep(1)
@@ -111,10 +111,10 @@ async def typewriter(typew):
     await typew.edit("`-TAMAT-`")
 
 
-@register(outgoing=True, pattern="^.ass(?: |$)(.*)")
+@bing_cmd(pattern="ass(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Salam dulu biar sopan....`")
+    typew = await edit_or_reply(typew, "`Salam dulu biar sopan....`")
     sleep(2)
     await typew.edit("`A`")
     await typew.edit("`As`")
@@ -133,19 +133,18 @@ async def typewriter(typew):
     await typew.edit("`Assalamu'alaikum`")
     sleep(3)
     await typew.edit("**YANG GA JAWAB, FIX ATHEISS!!**")
-# Create by myself @ram-ubot
 
 
 CMD_HELP.update({
-    "animasi7": "`.gabut` ; `.orgil`\
+    "animasi6": f"`{cmd}gabut` ; `{cmd}orgil`\
     \nUsage: ntahlah gabut doang.\
-    \n\n`.ass`\
+    \n\n`{cmd}ass`\
     \nUsage: Salam dulu biar sopan."
 })
 
 CMD_HELP.update({
-    "animasi8": "`.cinta`\
+    "animasi7": f"`{cmd}cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
-    \n\n`.sange` :\
+    \n\n`{cmd}sange` :\
     \nUsage: cobalah sndiri ngentot."
 })
