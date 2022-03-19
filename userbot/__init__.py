@@ -119,14 +119,14 @@ DEVS = (
 # Blacklist User for use AbingxUserbot
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/SayaAbing/BingBlacklist/master/bingblacklist.json"
+        "https://raw.githubusercontent.com/SayaAbing/AbingBlacklist/master/abingblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        bingblacklist = []
+        abingblacklist = []
         break
-    bingblacklist = _BLACKLIST.json()
+    abingblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
