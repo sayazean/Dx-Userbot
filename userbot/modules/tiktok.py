@@ -1,17 +1,17 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from userbot import bot, CMD_HELP
-from userbot.events import register
+from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 
 
-@register(outgoing=True, pattern="^.tiktok(?: |$)(.*)")
+@bing_cmd(pattern="tiktok(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
     d_link = event.pattern_match.group(1)
     if ".com" not in d_link:
-        await event.edit("`Mohon Maaf, Saya Membutuhkan Link Video Tiktok Untuk Mendownload Nya`")
+        await edit_delete(event, "`Mohon Maaf, Saya Membutuhkan Link Video Tiktok Untuk Mendownload Nya`")
     else:
-        await event.edit("```Video Sedang Diproses.....```")
+        xx = await edit_or_reply(event, "```Video Sedang Diproses.....```")
     chat = "@ttsavebot"
     async with bot.conversation(chat) as conv:
         try:
@@ -23,17 +23,17 @@ async def _(event):
             """ - don't spam notif - """
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            await event.edit("**Kesalahan:** `Mohon Buka Blokir` @ttsavebot `Dan Coba Lagi !`")
+            await xx.edit("**Kesalahan:** `Mohon Buka Blokir` @ttsavebot `Dan Coba Lagi !`")
             return
         await bot.send_file(event.chat_id, video)
         await event.client.delete_messages(conv.chat_id,
                                            [msg_start.id, r.id, msg.id, details.id, video.id])
-        await event.delete()
+        await xx.delete()
 
 
 CMD_HELP.update(
     {
-        "tiktok": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiktok <Link tiktok>`"
+        "tiktok": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tiktok <Link tiktok>`"
         "\n• : Download Video Tiktok Tanpa Watermark"
     }
 )
