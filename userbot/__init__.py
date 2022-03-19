@@ -118,14 +118,14 @@ DEVS = (
 # Blacklist User for use AbingxUserbot
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/SayaAbing/Bingblack/master/bingblacklist.json"
+        "https://raw.githubusercontent.com/SayaAbing/Abingblack/master/abingblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        bingblacklist = []
+        abingblacklist = []
         break
-    bingblacklist = _BLACKLIST.json()
+    abingblacklist = _BLACKLIST.json()
     break
 
 del _BLACKLIST
@@ -597,7 +597,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        binglogo = ALIVE_LOGO
+        abinglogo = ALIVE_LOGO
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
@@ -612,7 +612,7 @@ with bot:
                 text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
-                    file=binglogo,
+                    file=abinglogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -699,7 +699,7 @@ with bot:
             if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=binglogo,
+                    file=abinglogo,
                     link_preview=False,
                     text=f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
