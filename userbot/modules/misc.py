@@ -83,7 +83,7 @@ async def killdabot(event):
 async def reedme(e):
     await edit_or_reply(e,
                         "Here's Something for You to Read :\n"
-                        "\n[⚡ AbingxUserbot Repo](https://github.com/SayaAbing/AbingxUserbot/blob/AbingxUserbot/README.md)"
+                        "\n[⚡ ᴀʙɪɴɢxυѕєявσт Repo](https://github.com/SayaAbing/AbingxUserbot/blob/AbingxUserbot/README.md)"
                         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
                         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
