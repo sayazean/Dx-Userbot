@@ -21,7 +21,7 @@ from userbot import (
 )
 
 
-def abing_cmd(
+def bing_cmd(
     pattern: str = None,
     allow_sudo: bool = True,
     disable_edited: bool = False,
@@ -44,25 +44,25 @@ def abing_cmd(
         args["chats"] = black_list_chats
 
     if pattern is not None:
-        global abing_reg
+        global bing_reg
         global sudo_reg
         if (
             pattern.startswith(r"\#")
             or not pattern.startswith(r"\#")
             and pattern.startswith(r"^")
         ):
-            abing_reg = sudo_reg = re.compile(pattern)
+            bing_reg = sudo_reg = re.compile(pattern)
         else:
-            abing_ = "\\" + CMD_HANDLER
+            bing_ = "\\" + CMD_HANDLER
             sudo_ = "\\" + SUDO_HANDLER
-            abing_reg = re.compile(abing_ + pattern)
+            bing_reg = re.compile(bing_ + pattern)
             sudo_reg = re.compile(sudo_ + pattern)
             if command is not None:
-                cmd1 = abing_ + command
+                cmd1 = bing_ + command
                 cmd2 = sudo_ + command
             else:
                 cmd1 = (
-                    (abing_ +
+                    (bing_ +
                      pattern).replace(
                         "$",
                         "").replace(
@@ -85,9 +85,9 @@ def abing_cmd(
         if not disable_edited:
             bot.add_event_handler(
                 func, events.MessageEdited(
-                    **args, outgoing=True, pattern=abing_reg))
+                    **args, outgoing=True, pattern=bing_reg))
         bot.add_event_handler(
-            func, events.NewMessage(**args, outgoing=True, pattern=abing_reg)
+            func, events.NewMessage(**args, outgoing=True, pattern=bing_reg)
         )
         if allow_sudo:
             if not disable_edited:
