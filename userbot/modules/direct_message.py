@@ -1,11 +1,8 @@
-from userbot.events import register
-from userbot import CMD_HELP
-
-# Ported By @VckyouuBitch From GeezProject
-# Devoted To GeezProject
+from userbot.utils import edit_delete, edit_or_reply, bing_cmd
+from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@register(outgoing=True, pattern=r"^\.(?:dm)\s?(.*)?")
+@bing_cmd(pattern="(?:dm)\\s?(.*)?")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
@@ -22,19 +19,19 @@ async def remoteaccess(event):
     mssg = await event.get_reply_message()
     if event.reply_to_msg_id:
         await event.client.send_message(chat_id, mssg)
-        await event.edit("`Success Mengirim Pesan Anda.`")
+        await edit_or_reply(event, "`Success Mengirim Pesan Anda.`")
     for i in m[1:]:
         msg += i + " "
     if msg == "":
         return
     try:
         await event.client.send_message(chat_id, msg)
-        await event.edit("`Success Mengirim Pesan Anda.`")
+        await edit_or_reply(event, "`Success Mengirim Pesan Anda.`")
     except BaseException:
-        await event.edit("**Terjadi Error. Gagal Mengirim Pesan.**")
+        await edit_delete(event, "**Terjadi Error. Gagal Mengirim Pesan.**")
 
 CMD_HELP.update(
     {
-        "message": "`.dm`\
+        "message": f"`{cmd}dm`\
     \nMengirim Pesan Dengan Jarak Jauh Dengan .dm <username> <pesan>."
     })
