@@ -12,8 +12,8 @@ from pytz import country_names as c_n
 from pytz import country_timezones as c_tz
 from pytz import timezone as tz
 
-from userbot import CMD_HELP, COUNTRY, TZ_NUMBER
-from userbot.events import register
+from userbot import CMD_HELP, COUNTRY, TZ_NUMBER, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 
 
 async def get_tz(con):
@@ -41,7 +41,7 @@ async def get_tz(con):
         return
 
 
-@register(outgoing=True, pattern="^.time(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
+@bing_cmd(pattern="time(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
 async def time_func(tdata):
     """ For .time command, return the time of
         1. The country passed as an argument,
@@ -65,11 +65,11 @@ async def time_func(tdata):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await tdata.edit(f"`It's`  **{dt.now().strftime(t_form)}**  `here.`")
+        xx = await edit_or_reply(tdata, f"`It's`  **{dt.now().strftime(t_form)}**  `here.`")
         return
 
     if not timezones:
-        await tdata.edit("`Invaild country.`")
+        await edit_delete(tdata, "`Invaild country.`")
         return
 
     if len(timezones) == 1:
@@ -88,23 +88,23 @@ async def time_func(tdata):
             return_str += "in the command.`\n"
             return_str += f"`Example: .time {c_name} 2`"
 
-            await tdata.edit(return_str)
+            await xx.edit(return_str)
             return
 
     dtnow = dt.now(tz(time_zone)).strftime(t_form)
 
     if c_name != COUNTRY:
-        await tdata.edit(
+        await xx.edit(
             f"`It's`  **{dtnow}**  `in {c_name}({time_zone} timezone).`")
         return
 
     elif COUNTRY:
-        await tdata.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
-                         f"({time_zone} timezone).`")
+        await xx.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
+                      f"({time_zone} timezone).`")
         return
 
 
-@register(outgoing=True, pattern="^.date(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
+@bing_cmd(pattern="date(?: |$)(.*)(?<![0-9])(?: |$)([0-9]+)?")
 async def date_func(dat):
     """ For .date command, return the date of
         1. The country passed as an argument,
@@ -128,11 +128,11 @@ async def date_func(dat):
         tz_num = TZ_NUMBER
         timezones = await get_tz(COUNTRY)
     else:
-        await dat.edit(f"`It's`  **{dt.now().strftime(d_form)}**  `here.`")
+        xx = await edit_or_reply(dat, f"`It's`  **{dt.now().strftime(d_form)}**  `here.`")
         return
 
     if not timezones:
-        await dat.edit("`Invaild country.`")
+        await edit_delete(dat, "`Invaild country.`")
         return
 
     if len(timezones) == 1:
@@ -157,20 +157,20 @@ async def date_func(dat):
     dtnow = dt.now(tz(time_zone)).strftime(d_form)
 
     if c_name != COUNTRY:
-        await dat.edit(
+        await xx.edit(
             f"`It's`  **{dtnow}**  `in {c_name}({time_zone} timezone).`")
         return
 
     elif COUNTRY:
-        await dat.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
-                       f"({time_zone} timezone).`")
+        await xx.edit(f"`It's`  **{dtnow}**  `here, in {COUNTRY}"
+                      f"({time_zone} timezone).`")
         return
 
 
 CMD_HELP.update({
     "timedate":
-    "`.time` <country name/code> <timezone number>\
+    f"`{cmd}time` <country name/code> <timezone number>\
 \nUsage: Usage: Get the time of a country. If a country has multiple timezones, it will list all of them and let you select one.\
-\n\n`.date` <country name/code> <timezone number>\
+\n\n`{cmd}date` <country name/code> <timezone number>\
 \nUsage: Get the date of a country. If a country has multiple timezones, it will list all of them and let you select one."
 })
