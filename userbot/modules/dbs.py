@@ -5,15 +5,9 @@
 #
 """ Userbot module for getting information about the server. """
 
-from platform import uname
 
-
-from userbot import ALIVE_NAME, BOT_VER, is_mongo_alive, is_redis_alive
+from userbot import owner, BOT_VER, is_mongo_alive, is_redis_alive
 from userbot.events import register
-
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
-# ============================================
 
 
 @register(outgoing=True, pattern="^.db$")
@@ -27,7 +21,7 @@ async def amireallydbs(dbs):
     else:
         db = "Databases functioning normally!"
     await dbs.edit(""
-                   f"**User :** `{DEFAULTUSER}` \n"
+                   f"**User :** `{owner}` \n"
                    f"**Status Database:** `{db}`\n"
-                   f"**Kyy-Userbot :** `{BOT_VER}`"
+                   f"**AbingxUserbot :** `{BOT_VER}`"
                    "")
