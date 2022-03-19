@@ -1,188 +1,196 @@
 from platform import uname
-from userbot import ALIVE_NAME, CMD_HELP
-from userbot.events import register
+from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, bing_cmd
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@register(outgoing=True, pattern='^.d(?: |$)(.*)')
+@bing_cmd(pattern='d(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
+    await edit_or_reply(typew, "**BACOT NGENTOTTT!!BAPA LU SURUH RIBUT SAMA GUA**")
 
 
-@register(outgoing=True, pattern='^.e(?: |$)(.*)')
+@bing_cmd(pattern='e(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**GAK USAH SOK KERAS GOBLOK!!KENCING MASIH BERDIRI AJA BELAGU**")
+    await edit_or_reply(typew, "**GAK USAH SOK KERAS GOBLOK!!KENCING MASIH BERDIRI AJA BELAGU**")
 
 
-@register(outgoing=True, pattern='^.f(?: |$)(.*)')
+@bing_cmd(pattern='f(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**MUKA LU SEMUA KAYA KONTOL HAHAHAHA!!**")
+    await edit_or_reply(typew, "**MUKA LU SEMUA KAYA KONTOL HAHAHAHA!!**")
 
 
-@register(outgoing=True, pattern='^.i(?: |$)(.*)')
+@bing_cmd(pattern='i(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**KONTOL MASIH BENGKOK AJA BANGGA LU HAHAHAHA!!**")
+    await edit_or_reply(typew, "**KONTOL MASIH BENGKOK AJA BANGGA LU HAHAHAHA!!**")
 
 
-@register(outgoing=True, pattern='^.r(?: |$)(.*)')
+@bing_cmd(pattern='r(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**KONTOL KONTOL APA YANG BESAR?KONTOL LU LAH HAHAHAHA!!**")
+    await edit_or_reply(typew, "**KONTOL KONTOL APA YANG BESAR?KONTOL LU LAH HAHAHAHA!!**")
 
 
-@register(outgoing=True, pattern='^.t(?: |$)(.*)')
+@bing_cmd(pattern='t(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BABI!!KONTOL!!NGENTOT!!!**")
+    await edit_or_reply(typew, "**BABI!!KONTOL!!NGENTOT!!!**")
 
 
-@register(outgoing=True, pattern='^.u(?: |$)(.*)')
+@bing_cmd(pattern='u(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BABI LU GOBLOK!!GANTENGAN JUGA GUA HAHAHAHA**")
+    await edit_or_reply(typew, "**BABI LU GOBLOK!!GANTENGAN JUGA GUA HAHAHAHA**")
 
 
-@register(outgoing=True, pattern='^.w(?: |$)(.*)')
+@bing_cmd(pattern='w(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BABI LU GOBLOK!!CANTIKAN JUGA GUA HAHAHAHA**")
+    await edit_or_reply(typew, "**BABI LU GOBLOK!!CANTIKAN JUGA GUA HAHAHAHA**")
 
 
-@register(outgoing=True, pattern='^.z(?: |$)(.*)')
+@bing_cmd(pattern='z(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
+    await edit_or_reply(typew, "**BACOTAN LU GAK BIKIN GUA TREMOR GOBLOK HAHAHAHA!!**")
 
 
-@register(outgoing=True, pattern='^.k(?: |$)(.*)')
+@bing_cmd(pattern='k(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**HAI PERKENALKAN NAMA SAYA GAK TAU LUPA!!**")
+    await edit_or_reply(typew, "**HAI PERKENALKAN NAMA SAYA GAK TAU LUPA!!**")
 
 
-@register(outgoing=True, pattern='^.n(?: |$)(.*)')
+@bing_cmd(pattern='n(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**GIMANA KABAR KAMU SAYANG??APAKAH BAIK?**")
+    await edit_or_reply(typew, "**GIMANA KABAR KAMU SAYANG??APAKAH BAIK?**")
 
 
-@register(outgoing=True, pattern='^.b(?: |$)(.*)')
+@bing_cmd(pattern='b(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**ELEEEHHHH SOK BANGET KEPINTERAN KAMU!!**")
+    await edit_or_reply(typew, "**ELEEEHHHH SOK BANGET KEPINTERAN KAMU!!**")
 
 
-@register(outgoing=True, pattern='^.m(?: |$)(.*)')
+@bing_cmd(pattern='m(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**INI GRUB APA KUBURAN SEPI BANGET ASTAGFIRULLAH!!**")
+    await edit_or_reply(typew, "**INI GRUB APA KUBURAN SEPI BANGET ASTAGFIRULLAH!!**")
 
 
-@register(outgoing=True, pattern='^.c(?: |$)(.*)')
+@bing_cmd(pattern='c(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**KAN UDAH GUA BILANG??MAKANYA JANGAN NGEYEL!!**")
+    await edit_or_reply(typew, "**KAN UDAH GUA BILANG??MAKANYA JANGAN NGEYEL!!**")
 
 
-@register(outgoing=True, pattern='^.s(?: |$)(.*)')
+@bing_cmd(pattern='s(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**GAUSAH SOKAP DEH KAMU!!**")
+    await edit_or_reply(typew, "**GAUSAH SOKAP DEH KAMU!!**")
 
 
-@register(outgoing=True, pattern='^.v(?: |$)(.*)')
+@bing_cmd(pattern='v(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**MACAM BAGUS AE LU BEGITU HMM!!**")
+    await edit_or_reply(typew, "**MACAM BAGUS AE LU BEGITU HMM!!**")
 
 
-@register(outgoing=True, pattern='^.j(?: |$)(.*)')
+@bing_cmd(pattern='j(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**MAAF BUKAN JAGOAN HAHAHAHA!!**")
+    await edit_or_reply(typew, "**MAAF BUKAN JAGOAN HAHAHAHA!!**")
 
 
-@register(outgoing=True, pattern='^.a(?: |$)(.*)')
+@bing_cmd(pattern='a(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**BISMILLAH SLEEP CALL!!😁**")
+    await edit_or_reply(typew, "**BISMILLAH SLEEP CALL!!😁**")
 
 
-@register(outgoing=True, pattern='^.g(?: |$)(.*)')
+@bing_cmd(pattern='g(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**GANTENG LU BEGITU???**")
+    await edit_or_reply(typew, "**GANTENG LU BEGITU???**")
 
 
-@register(outgoing=True, pattern='^.y(?: |$)(.*)')
+@bing_cmd(pattern='y(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
+    await edit_or_reply(typew, "**War War Tai anjing, Ketrigger minta sharelok, Udah di sharelok Ga nyamperin,Keras di sosmed Bhakss...**")
 
 
-@register(outgoing=True, pattern='^.h(?: |$)(.*)')
+@bing_cmd(pattern='h(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**CANTIK LU BEGITU???**")
+    await edit_or_reply(typew, "**CANTIK LU BEGITU???**")
 
 
-@register(outgoing=True, pattern='^.o(?: |$)(.*)')
+@bing_cmd(pattern='o(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
+    await edit_or_reply(typew, "**MENTANG MENTANG PUNYA BOT MAINNYA BOT!!PANTES MUKANYA KAYA BOT😁**")
+
+
+@bing_cmd(pattern='1(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    await edit_or_reply(typew, "**NORAK LU KONTOL!! MAKE USERBOT CUMAN BUAT WAR MALAH SOK KERAS**")
 
 
 CMD_HELP.update({
     "toxic":
-    "d\
+    f"{cmd}d\
 \nUsage: Bacotin Orang.\
-\n\n e\
+\n\n{cmd}e\
 \nUsage: Buat Orang Yang Sok Keras.\
-\n\n f\
+\n\n{cmd}f\
 \nUsage: Ngatain Orang Wkwkkw.\
-\n\n i\
+\n\n{cmd}i\
 \nUsage: Kontol Orang Ngatain.\
-\n\n r\
+\n\n{cmd}r\
 \nUsage: Pantun Anjing.\
-\n\n t\
+\n\n{cmd}t\
 \nUsage: Nyebutin Binatang.\
-\n\nbu\
+\n\n{cmd}u\
 \nUsage: Biar Dikata Ganteng.\
-\n\n w\
+\n\n{cmd}w\
 \nUsage: Biar Dikata Cantik.\
-\n\n z\
+\n\n{cmd}z\
 \nUsage: Tremor Kan Lu.\
-\n\n k\
+\n\n{cmd}k\
 \nUsage: Memperkenalkan Diri.\
-\n\n n\
+\n\n{cmd}n\
 \nUsage: Menanyakan Kabar.\
-\n\n b\
+\n\n{cmd}b\
 \nUsage: Sok Kepinteran.\
-\n\n m\
+\n\n{cmd}m\
 \nUsage: Gc Nya Kaya kuburan.\
-\n\n c\
+\n\\{cmd}c\
 \nUsage: Dia tuh Ngeyel banget.\
-\n\n s\
+\n\n{cmd}s\
 \nUsage: Haha sokap.\
-\n\n v\
+\n\n{cmd}v\
 \nUsage: Merendah.\
-\n\n a\
+\n\n{cmd}a\
 \nUsage: Nyari Sleep Call.\
-\n\n j\
+\n\n{cmd}j\
 \nUsage: Hujat yang gapunya muka.\
-\n\n g\
+\n\n{cmd}g\
 \nUsage: Kegantengan.\
-\n\n y\
+\n\n{cmd}y\
 \nUsage: teruntuk petarung.\
-\n\n h\
+\n\n{cmd}h\
 \nUsage: Kecantikan.\
-\n\n o\
-\nUsage: Ngatain org norak."
+\n\n{cmd}o\
+\nUsage: Ngatain org norak.\
+\n\n{cmd}1\
+\nUsage: Ngatain Petarunx Tele."
 })
