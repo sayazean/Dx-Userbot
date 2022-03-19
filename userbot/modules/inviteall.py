@@ -56,9 +56,9 @@ async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
-       bing = await event.reply("`processing...`")
+        bing = await event.reply("`processing...`")
     else:
-       bing = await edit_or_reply(event, "`processing...`")
+        bing = await edit_or_reply(event, "`processing...`")
     geezteam = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
