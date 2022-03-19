@@ -106,10 +106,10 @@ async def repeat(rep):
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
     await edit_or_reply(wannasee,
-                        "**Hey**, I am using **⚡ҡʏʏ-υѕєявσт⚡** \n"
+                        "**Hey**, I am using **⚡ᴀʙɪɴɢxυѕєявσт⚡** \n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)\n"
-                        "➣ **Owner Bot :** [ҡʏʏ](t.me/sayaabing)\n"
+                        "➣ **Owner Bot :** [ᴀʙɪɴɢ](t.me/sayaabing)\n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Support :** [sᴜᴘᴘᴏʀᴛ](https://t.me/AbingSupport)\n"
                         "➣ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject)\n"
@@ -121,7 +121,7 @@ async def repo_is_here(wannasee):
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
     await edit_or_reply(wannasee,
-                        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
+                        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/BingStringBot)\n"
                         f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
                         )
 
