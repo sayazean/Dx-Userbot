@@ -112,7 +112,7 @@ def bing_cmd(
     return decorator
 
 
-def abing_handler(
+def bing_handler(
     **args,
 ):
     def decorator(func):
