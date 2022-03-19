@@ -1,13 +1,13 @@
 from random import randint
 from time import sleep
-from os import execl
+from os import environ, execle
 import asyncio
 import sys
 import os
 import io
 import sys
-from userbot import ALIVE_NAME, UPSTREAM_REPO_URL, BOTLOG, BOTLOG_CHATID, CMD_HELP, bot
-from userbot.events import register
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, UPSTREAM_REPO_URL, bot, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 from userbot.utils import time_formatter
 import urllib
 import requests
@@ -16,8 +16,6 @@ import re
 from PIL import Image
 
 
-# ================= CONSTANT =================
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 REPOLINK = str(
     UPSTREAM_REPO_URL) if UPSTREAM_REPO_URL else "https://github.com/SayaAbing/AbingxUserbot"
 # ============================================
@@ -27,7 +25,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 9; SM-G960F Build/PPR1.180610.011; wv) 
 opener.addheaders = [('User-agent', useragent)]
 
 
-@register(outgoing=True, pattern="^.random")
+@bing_cmd(pattern="random")
 async def randomise(items):
     """ For .random command, get a random item from the list of items. """
     itemo = (items.text[8:]).split()
@@ -41,11 +39,11 @@ async def randomise(items):
                      itemo[index] + "`")
 
 
-@register(outgoing=True, pattern="^.sleep ([0-9]+)$")
+@bing_cmd(pattern="sleep ([0-9]+)$")
 async def sleepybot(time):
     """ For .sleep command, let the userbot snooze for a few second. """
     counter = int(time.pattern_match.group(1))
-    await time.edit("`I am sulking and snoozing...`")
+    xx = await edit_or_reply(time, "`I am sulking and snoozing...`")
     if BOTLOG:
         str_counter = time_formatter(counter)
         await time.client.send_message(
@@ -53,13 +51,13 @@ async def sleepybot(time):
             f"You put the bot to sleep for {str_counter}.",
         )
     sleep(counter)
-    await time.edit("`OK, I'm awake now.`")
+    await xx.edit("`OK, I'm awake now.`")
 
 
-@register(outgoing=True, pattern="^.shutdown$")
+@bing_cmd(pattern="shutdown$")
 async def killdabot(event):
     """ For .shutdown command, shut the bot down."""
-    await event.edit("`Mematikan AbingxUserbot....`")
+    await edit_or_reply(event, "`Mematikan AbingxUserbot....`")
     await asyncio.sleep(7)
     await event.delete()
     if BOTLOG:
@@ -68,31 +66,29 @@ async def killdabot(event):
     await bot.disconnect()
 
 
-@register(outgoing=True, pattern="^.restart$")
+@bing_cmd(pattern="restart$")
 async def killdabot(event):
-    await event.edit("`Restarting AbingxUserbot...`")
+    await edit_or_reply(event, "`Restarting AbingxUserbot...`")
     await asyncio.sleep(10)
     await event.delete()
     if BOTLOG:
         await event.client.send_message(BOTLOG_CHATID, "#RESTARTBOT \n"
                                         "`Userbot Telah Di Restart`")
-    await bot.disconnect()
     # Spin a new instance of bot
-    execl(sys.executable, sys.executable, *sys.argv)
-    # Shut the existing one down
-    exit()
+    args = [sys.executable, "-m", "userbot"]
+    execle(sys.executable, *args, environ)
 
 
-@register(outgoing=True, pattern="^.readme$")
+@bing_cmd(pattern="readme$")
 async def reedme(e):
-    await e.edit(
-        "Here's Something for You to Read :\n"
-        "\n[⚡ ᴀʙɪɴɢxυѕєявσт Repo](https://github.com/SayaAbing/AbingxUserbot)"
-        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
-        "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
+    await edit_or_reply(e,
+                        "Here's Something for You to Read :\n"
+                        "\n[⚡ AbingxUserbot Repo](https://github.com/SayaAbing/AbingxUserbot/blob/AbingxUserbot/README.md)"
+                        "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
+                        "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
 
-@register(outgoing=True, pattern="^.repeat (.*)")
+@bing_cmd(pattern="repeat (.*)")
 async def repeat(rep):
     cnt, txt = rep.pattern_match.group(1).split(' ', 1)
     replyCount = int(cnt)
@@ -106,29 +102,31 @@ async def repeat(rep):
     await rep.edit(replyText)
 
 
-@register(outgoing=True, pattern="^.repo$")
+@bing_cmd(pattern="repo$")
 async def repo_is_here(wannasee):
     """ For .repo command, just returns the repo URL. """
-    await wannasee.edit(
-        "**Hey**, I am using **⚡ ᴀʙɪɴɢxυѕєявσт ⚡** \n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)\n"
-        "➣ **Owner Bot       :** [ᴀʙɪɴɢ](t.me/sayaabing)\n"
-        "➣ **Support           :** [sᴜᴘᴘᴏʀᴛ](https://t.me/AbingSupport)\n"
-        "➣ **Channel           :** [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject)\n"
-        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
-    )
+    await edit_or_reply(wannasee,
+                        "**Hey**, I am using **⚡ҡʏʏ-υѕєявσт⚡** \n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)\n"
+                        "➣ **Owner Bot :** [ҡʏʏ](t.me/sayaabing)\n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        "➣ **Support :** [sᴜᴘᴘᴏʀᴛ](https://t.me/AbingSupport)\n"
+                        "➣ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject)\n"
+                        "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
+                        )
 
 
-@register(outgoing=True, pattern=r"^\.string$")
+@bing_cmd(pattern="string$")
 async def repo_is_here(wannasee):
     """For .repo command, just returns the repo URL."""
-    await wannasee.edit(
-        f"➣ **GET STRING SESSION TELEGRAM :** [KLIK DISINI](https://replit.com/@nabilrmdaan/StringSession)\n"
-    )
+    await edit_or_reply(wannasee,
+                        f"➣ **GET STRING SESSION VIA BOT    :** [KLIK DISINI](https://t.me/NastyStringbot)\n"
+                        f"➣ **GET STRING SESSION VIA REPLIT :** [KLIK DISINI](https://replit.com/@rizkyhmdanii16/StringSession)\n"
+                        )
 
 
-@register(outgoing=True, pattern="^.raw$")
+@bing_cmd(pattern="raw$")
 async def raw(event):
     the_real_message = None
     reply_to_id = None
@@ -152,7 +150,7 @@ async def raw(event):
             caption="`Here's the decoded message data !!`")
 
 
-@register(outgoing=True, pattern=r"^.reverse(?: |$)(\d*)")
+@bing_cmd(pattern="reverse(?: |$)(\\d*)")
 async def okgoogle(img):
     """ For .reverse command, Google search images and stickers. """
     if os.path.isfile("okgoogle.png"):
@@ -163,15 +161,15 @@ async def okgoogle(img):
         photo = io.BytesIO()
         await bot.download_media(message, photo)
     else:
-        await img.edit("`Harap Reply Di Gambar...`")
+        await edit_delete(img, "`Harap Reply Di Gambar...`")
         return
 
     if photo:
-        await img.edit("`Processing...`")
+        xx = await edit_or_reply(img, "`Processing...`")
         try:
             image = Image.open(photo)
         except OSError:
-            await img.edit('`Gambar tidak di dukung`')
+            await edit_delete(img, '`Gambar tidak di dukung`')
             return
         name = "okgoogle.png"
         image.save(name, "PNG")
@@ -188,10 +186,10 @@ async def okgoogle(img):
         fetchUrl = response.headers['Location']
 
         if response != 400:
-            await img.edit("`Image successfully uploaded to Google. Maybe.`"
-                           "\n`Parsing source now. Maybe.`")
+            await xx.edit("`Image successfully uploaded to Google. Maybe.`"
+                          "\n`Parsing source now. Maybe.`")
         else:
-            await img.edit("`Google told me to fuck off.`")
+            await xx.edit("`Google told me to fuck off.`")
             return
 
         os.remove(name)
@@ -201,9 +199,9 @@ async def okgoogle(img):
         imgspage = match['similar_images']
 
         if guess and imgspage:
-            await img.edit(f"[{guess}]({fetchUrl})\n\n`Looking for images...`")
+            await xx.edit(f"[{guess}]({fetchUrl})\n\n`Looking for images...`")
         else:
-            await img.edit("`Couldn't find anything for your uglyass.`")
+            await xx.edit("`Couldn't find anything for your uglyass.`")
             return
 
         if img.pattern_match.group(1):
@@ -223,7 +221,7 @@ async def okgoogle(img):
                                        reply_to=img)
         except TypeError:
             pass
-        await img.edit(
+        await xx.edit(
             f"[{guess}]({fetchUrl})\n\n[Visually similar images]({imgspage})")
 
 
@@ -271,23 +269,23 @@ async def scam(results, lim):
 
 
 CMD_HELP.update({
-    "random": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.random <item1> <item2> ... <itemN>`\
+    "random": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}random <item1> <item2> ... <itemN>`\
     \n↳ : Dapatkan item acak dari daftar item.",
-    "sleep": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.sleep <seconds>`\
-    \n↳ : `.sleep`\
+    "sleep": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sleep <seconds>`\
+    \n↳ : `{cmd}sleep`\
     \n  •  **Function : Biarkan AbingxUserbot tidur selama beberapa detik.",
-    "shutdown": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.shutdown`\
+    "shutdown": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}shutdown`\
     \n↳ : Mematikan bot",
-    "repo": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repo`\
+    "repo": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repo`\
     \n↳ : Menampilan link Repository AbingxUserbot.",
-    "string": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.string`\
+    "string": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}string`\
     \n↳: Menampilkan link String AbingxUserbot",
-    "readme": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.readme`\
+    "readme": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}readme`\
     \n↳ : Menyediakan tautan untuk mengatur userbot dan modulnya.",
-    "repeat": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.repeat <no> <text>`\
+    "repeat": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}repeat <no> <text>`\
     \n↳ : Mengulangi teks untuk beberapa kali. Jangan bingung ini dengan spam tho.",
-    "restart": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.restart`\
+    "restart": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}restart`\
     \n↳ : Merestart bot",
-    "raw": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.raw`\
+    "raw": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}raw`\
     \n↳ : Dapatkan data berformat seperti JSON terperinci tentang pesan yang dibalas.",
 })
