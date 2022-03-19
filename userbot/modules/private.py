@@ -1,3 +1,10 @@
+# Copyright (C) 2020 Catuserbot <https://github.com/sandy1709/catuserbot>
+# Copyright (C) 2021 TeamUltroid <https://github.com/TeamUltroid/Ultroid>
+# Recode by @mrismanaziz
+# FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
+# t.me/SharingUserbot & t.me/Lunatic0de
+
+
 import io
 import re
 import time
@@ -171,10 +178,8 @@ async def alivemenu(event):
                 Button.inline("ᴀʟɪᴠᴇ ʟᴏɢᴏ", data="alvlogo"),
             ],
             [
-                Button.inline("ᴀʟɪᴠᴇ ɴᴀᴍᴇ", data="alvname"),
                 Button.inline("ʙᴀᴄᴋ", data="apiset"),
             ],
-            [Button.inline("ʙᴀᴄᴋ", data="settings")],
         ],
     )
 
@@ -186,7 +191,6 @@ async def inlinemenu(event):
         buttons=[
             [
                 Button.inline("ɪɴʟɪɴᴇ ᴇᴍᴏᴊɪ", data="inmoji"),
-                Button.inline("ɪɴʟɪɴᴇ ᴘɪᴄ", data="inpics"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
@@ -237,7 +241,7 @@ async def users(event):
                 event.chat_id,
                 fileuser,
                 force_document=True,
-                thumb="userbot/files/20220119_195302.png",
+                thumb="resources/extras/IMG_20211216_160240_756.jpg",
                 caption="**Total Pengguna Di Bot anda.**",
                 allow_cache=False,
                 buttons=[
@@ -255,7 +259,7 @@ async def botsettings(event):
     if event.query.user_id == OWNER_ID:
         await tgbot.send_message(
             event.chat_id,
-            message=f"**Halo👋 [{OWNER}](tg://user?id={OWNER_ID})**\n**Apa ada yang bisa saya bantu?**",
+            message=f"**Menu ini Hanya Terlihat Oleh [{OWNER}](tg://user?id={OWNER_ID})** ..!",
             buttons=[
                 (Button.inline("sᴇᴛᴛɪɴɢs ᴠᴀʀ", data="apiset"),),
                 (
@@ -278,10 +282,7 @@ async def alivemenu(event):
         buttons=[
             [
                 Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏɴ", data="pmon"),
-                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏᴏꜰ", data="pmoff"),
-            ],
-            [
-                Button.inline("ᴀʟɪᴠᴇ ɴᴀᴍᴇ", data="alvname"),
+                Button.inline("ᴘᴍᴘᴇʀᴍɪᴛ ᴏғғ", data="pmoff"),
             ],
             [Button.inline("ʙᴀᴄᴋ", data="apiset")],
         ],
@@ -366,30 +367,6 @@ async def sdhndlr(event):
                 f"{name} **Berhasil diganti Menjadi** `{themssg}`",
                 buttons=get_back_button("hndlrmenu"),
             )
-
-
-@callback(data=re.compile(b"inpics"))
-async def inpics(event):
-    await event.delete()
-    pru = event.sender_id
-    var = "INLINE_PIC"
-    async with event.client.conversation(pru) as conv:
-        await conv.send_message(
-            "**Silahkan Kirimkan Link Telegraph Untuk var INLINE_PIC anda**\n\nGunakan /cancel untuk membatalkan."
-        )
-        response = conv.wait_event(events.NewMessage(chats=pru))
-        response = await response
-        themssg = response.message.message
-        if themssg == "/cancel":
-            return await conv.send_message(
-                "Membatalkan Proses Settings VAR!",
-                buttons=get_back_button("inlinemenu"),
-            )
-        await setit(event, var, themssg)
-        await conv.send_message(
-            f"**INLINE_PIC Berhasil di Ganti Menjadi** `{themssg}`\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan.",
-            buttons=get_back_button("inlinemenu"),
-        )
 
 
 @callback(data=re.compile(b"inmoji"))
@@ -500,18 +477,17 @@ async def bot_start(event):
                 my_mention=my_mention,
             )
         else:
-            start_msg = f"**👋 Hai** {mention}**!**\
-                        \n\n**Saya adalah {my_first}** \
-                        \n**Anda dapat menghubungi [{OWNER}](tg://user?id={OWNER_ID}) dari sini.**\
-                        \n**Jangan melakukan spam atau anda akan di Banned**\
-                        \n\n**Powered by** [ALBY-Userbot](https://github.com/PunyaAlby/ALBY-Userbot)"
-        buttons = [
-            (
-                Button.inline("ɪɴꜰᴏ", data="infor"),
-            )
-        ]
+            start_msg = f"**Users**: {mention}\
+                        \n\n**Bot**: [{OWNER}](tg://user?id={OWNER_ID}) \
+                        \n**Forward**: True\
+                        \n\n**Powered by**: [AbingxUserbot](https://github.com/SayaAbing/AbingxUserbot)"
+            buttons = [
+                (
+                    Button.inline("ɪɴꜰᴏ", data="infor"),
+                )
+            ]
     else:
-        start_msg = f"**Halo 👋 [{OWNER}](tg://user?id={OWNER_ID})**\n**Apa ada yang bisa saya bantu?**!"
+        start_msg = f"**Menu ini Hanya Terlihat Oleh [{OWNER}](tg://user?id={OWNER_ID})** ..!"
         buttons = [
             (Button.inline("sᴇᴛᴛɪɴɢs ᴠᴀʀ", data="apiset"),),
             (
@@ -550,7 +526,7 @@ async def _(event):
     await event.answer(pin, cache_time=0, alert=True)
 
 
-@asst_cmd(pattern="^/ping$")
+@callback(data=re.compile(b"pingbot"))
 async def _(event):
     start = datetime.now()
     end = datetime.now()
@@ -563,7 +539,7 @@ async def _(event):
 async def infor(event):
     await tgbot.send_message(
         event.chat_id,
-        message=f"**Groups**: [sᴜᴘᴘᴏʀᴛ](t.me/ruangdiskusikami)\n**Github**: [ALBY-Userbot](https://github.com/PunyaAlby/ALBY-Userbot)",
+        message=f"**Groups**: [sᴜᴘᴘᴏʀᴛ](t.me/NastySupportt)\n**Github**: [AbingxUserbot](https://github.com/SayaAbing/AbingxUserbot)\n**Deploy**: [Heroku](https://dashboard.heroku.com/new?template=https://github.com/SayaAbing/AbingxUserbot)",
         buttons=[
             [
                 custom.Button.inline(
