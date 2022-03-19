@@ -15,9 +15,6 @@ from re import findall
 from re import match
 from urllib.error import HTTPError
 from time import sleep
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from urllib.parse import quote_plus
 from random import choice
 from requests import get, post, exceptions
 from humanize import naturalsize
@@ -54,17 +51,14 @@ from userbot import (
     CMD_HELP,
     TEMP_DOWNLOAD_DIRECTORY,
     LOGS,
-    GOOGLE_CHROME_BIN,
-    CHROME_DRIVER,
     OCR_SPACE_API_KEY,
     REM_BG_API_KEY,
     bot
 )
-
-from userbot.events import register
+from userbot import CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 from userbot.utils import chrome, googleimagesdownload, progress, options
 
-CARBONLANG = "auto"
 TTS_LANG = "id"
 TRT_LANG = "id"
 TEMP_DOWNLOAD_DIRECTORY = "/root/userbot/.bin"
@@ -104,80 +98,14 @@ DOGBIN_URL = "https://del.dog/"
 NEKOBIN_URL = "https://nekobin.com/"
 
 
-@register(outgoing=True, pattern="^.crblangg (.*)")
+@bing_cmd(pattern="crblangg (.*)")
 async def setlang(prog):
     global CARBONLANG
     CARBONLANG = prog.pattern_match.group(1)
     await prog.edit(f"Language for carbon.now.sh set to {CARBONLANG}")
 
 
-@register(outgoing=True, pattern="^.carbond")
-async def carbon_api(e):
-    """ A Wrapper for carbon.now.sh """
-    await e.edit("`Processing..`")
-    CARBON = 'https://carbon.now.sh/?l={lang}&code={code}'
-    global CARBONLANG
-    textx = await e.get_reply_message()
-    pcode = e.text
-    if pcode[8:]:
-        pcode = str(pcode[8:])
-    elif textx:
-        pcode = str(textx.message)  # Importing message to module
-    code = quote_plus(pcode)  # Converting to urlencoded
-    await e.edit("`Processing..\n25%`")
-    if os.path.isfile("/root/userbot/.bin/carbon.png"):
-        os.remove("/root/userbot/.bin/carbon.png")
-    url = CARBON.format(code=code, lang=CARBONLANG)
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.binary_location = GOOGLE_CHROME_BIN
-    chrome_options.add_argument("--window-size=1920x1080")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-gpu")
-    prefs = {'download.default_directory': '/root/userbot/.bin'}
-    chrome_options.add_experimental_option('prefs', prefs)
-    driver = webdriver.Chrome(executable_path=CHROME_DRIVER,
-                              options=chrome_options)
-    driver.get(url)
-    await e.edit("`Processing..\n50%`")
-    download_path = '/root/userbot/.bin'
-    driver.command_executor._commands["send_command"] = (
-        "POST", '/session/$sessionId/chromium/send_command')
-    params = {
-        'cmd': 'Page.setDownloadBehavior',
-        'params': {
-            'behavior': 'allow',
-            'downloadPath': download_path
-        }
-    }
-    driver.execute("send_command", params)
-    driver.find_element_by_xpath("//button[contains(text(),'Export')]").click()
-   # driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
-   # driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
-    await e.edit("`Processing..\n75%`")
-    # Waiting for downloading
-    while not os.path.isfile("/root/userbot/.bin/carbon.png"):
-        await sleep(0.5)
-    await e.edit("`Processing..\n100%`")
-    file = '/root/userbot/.bin/carbon.png'
-    await e.edit("`Uploading..`")
-    await e.client.send_file(
-        e.chat_id,
-        file,
-        caption="Made using [Carbon](https://carbon.now.sh/about/),\
-        \na project by [Dawn Labs](https://dawnlabs.io/)",
-        force_document=True,
-        reply_to=e.message.reply_to_msg_id,
-    )
-
-    os.remove('/root/userbot/.bin/carbon.png')
-    driver.quit()
-    # Removing carbon.png after uploading
-    await e.delete()  # Deleting msg
-
-
-@register(outgoing=True, pattern="^.images (.*)")
+@bing_cmd(pattern="images (.*)")
 async def img_sampler(event):
     """ For .img command, search and return images matching the query. """
     await event.edit("Mencari Gambar...")
@@ -208,7 +136,7 @@ async def img_sampler(event):
     await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.currency (.*)")
+@bing_cmd(pattern="currency (.*)")
 async def moni(event):
     input_str = event.pattern_match.group(1)
     input_sgra = input_str.split(" ")
@@ -236,7 +164,7 @@ async def moni(event):
         return await event.edit("`Invalid syntax.`")
 
 
-@register(outgoing=True, pattern=r"^\.google (.*)")
+@bing_cmd(pattern="google(.*)")
 async def gsearch(q_event):
     match = q_event.pattern_match.group(1)
     page = findall(r"page=\d+", match)
@@ -269,7 +197,7 @@ async def gsearch(q_event):
         )
 
 
-@register(outgoing=True, pattern=r"^\.wiki (.*)")
+@bing_cmd(pattern="wiki (.*)")
 async def wiki(wiki_q):
     match = wiki_q.pattern_match.group(1)
     try:
@@ -298,21 +226,21 @@ async def wiki(wiki_q):
         )
 
 
-@register(outgoing=True, pattern=r"^\.ud (.*)")
+@bing_cmd(pattern="ud (.*)")
 async def urban_dict(ud_e):
-    await ud_e.edit("Processing...")
+    xx = await edit_or_reply(ud_e, "Processing...")
     query = ud_e.pattern_match.group(1)
     try:
         define(query)
     except HTTPError:
-        return await ud_e.edit(f"Sorry, couldn't find any results for: {query}")
+        return await edit_delete(ud_e, f"Sorry, couldn't find any results for: {query}")
     mean = define(query)
     deflen = sum(len(i) for i in mean[0]["def"])
     exalen = sum(len(i) for i in mean[0]["example"])
     meanlen = deflen + exalen
     if int(meanlen) >= 0:
         if int(meanlen) >= 4096:
-            await ud_e.edit("`Output too large, sending as file.`")
+            await xx.edit("`Output too large, sending as file.`")
             file = open("output.txt", "w+")
             file.write(
                 "Text: "
@@ -332,7 +260,7 @@ async def urban_dict(ud_e):
             if os.path.exists("output.txt"):
                 os.remove("output.txt")
             return await ud_e.delete()
-        await ud_e.edit(
+        await xx.edit(
             "Text: **"
             + query
             + "**\n\nMeaning: **"
@@ -347,10 +275,10 @@ async def urban_dict(ud_e):
                 BOTLOG_CHATID, "ud query `" + query + "` executed successfully."
             )
     else:
-        await ud_e.edit("No result found for **" + query + "**")
+        await edit_delete(ud_e, "No result found for **" + query + "**")
 
 
-@register(outgoing=True, pattern=r"^\.tts(?: |$)([\s\S]*)")
+@bing_cmd(pattern="tts(?: |$)([\\s\\S]*)")
 async def text_to_speech(query):
     textx = await query.get_reply_message()
     message = query.pattern_match.group(1)
@@ -359,21 +287,21 @@ async def text_to_speech(query):
     elif textx:
         message = textx.text
     else:
-        return await query.edit(
-            "`Give a text or reply to a message for Text-to-Speech!`"
-        )
+        return await edit_delete(query,
+                                 "`Give a text or reply to a message for Text-to-Speech!`"
+                                 )
 
     try:
         gTTS(message, lang=TTS_LANG)
     except AssertionError:
-        return await query.edit(
-            "The text is empty.\n"
-            "Nothing left to speak after pre-precessing, tokenizing and cleaning."
-        )
+        return await edit_delete(query,
+                                 "The text is empty.\n"
+                                 "Nothing left to speak after pre-precessing, tokenizing and cleaning."
+                                 )
     except ValueError:
-        return await query.edit("Language is not supported.")
+        return await edit_delete(query, "Language is not supported.")
     except RuntimeError:
-        return await query.edit("Error loading the languages dictionary.")
+        return await edit_delete(query, "Error loading the languages dictionary.")
     tts = gTTS(message, lang=TTS_LANG)
     tts.save("k.mp3")
     with open("k.mp3", "rb") as audio:
@@ -393,7 +321,7 @@ async def text_to_speech(query):
 
 
 # kanged from Blank-x ;---;
-@register(outgoing=True, pattern=r"^\.imdb (.*)")
+@bing_cmd(pattern="imdb (.*)")
 async def imdb(e):
     try:
         movie_name = e.pattern_match.group(1)
@@ -488,7 +416,7 @@ async def imdb(e):
         await cs.edit("Plox enter **Valid movie name** kthx")
 
 
-@register(outgoing=True, pattern=r"^\.tr(?: |$)([\s\S]*)")
+@bing_cmd(pattern="tr(?: |$)([\\s\\S]*)")
 async def translateme(trans):
     translator = Translator()
     textx = await trans.get_reply_message()
@@ -498,18 +426,18 @@ async def translateme(trans):
     elif textx:
         message = textx.text
     else:
-        return await trans.edit("`Give a text or reply to a message to translate!`")
+        return await edit_delete(trans, "`Give a text or reply to a message to translate!`")
 
     try:
         reply_text = translator.translate(deEmojify(message), dest=TRT_LANG)
     except ValueError:
-        return await trans.edit("Invalid destination language.")
+        return await edit_delete(trans, "Invalid destination language.")
 
     source_lan = LANGUAGES[f"{reply_text.src.lower()}"]
     transl_lan = LANGUAGES[f"{reply_text.dest.lower()}"]
     reply_text = f"From **{source_lan.title()}**\nTo **{transl_lan.title()}:**\n\n{reply_text.text}"
 
-    await trans.edit(reply_text)
+    await edit_or_reply(trans, reply_text)
     if BOTLOG:
         await trans.client.send_message(
             BOTLOG_CHATID,
@@ -517,7 +445,7 @@ async def translateme(trans):
         )
 
 
-@register(pattern=r"^\.lang (tr|tts) (.*)", outgoing=True)
+@bing_cmd(pattern="lang (tr|tts) (.*)")
 async def lang(value):
     util = value.pattern_match.group(1).lower()
     if util == "tr":
@@ -528,9 +456,9 @@ async def lang(value):
             TRT_LANG = arg
             LANG = LANGUAGES[arg]
         else:
-            return await value.edit(
-                f"`Invalid Language code !!`\n`Available language codes for TRT`:\n\n`{LANGUAGES}`"
-            )
+            return await edit_delete(value,
+                                     f"`Invalid Language code !!`\n`Available language codes for TRT`:\n\n`{LANGUAGES}`"
+                                     )
     elif util == "tts":
         scraper = "Text to Speech"
         global TTS_LANG
@@ -539,17 +467,17 @@ async def lang(value):
             TTS_LANG = arg
             LANG = tts_langs()[arg]
         else:
-            return await value.edit(
-                f"`Invalid Language code !!`\n`Available language codes for TTS`:\n\n`{tts_langs()}`"
-            )
-    await value.edit(f"`Language for {scraper} changed to {LANG.title()}.`")
+            return await edit_delete(value,
+                                     f"`Invalid Language code !!`\n`Available language codes for TTS`:\n\n`{tts_langs()}`"
+                                     )
+    await edit_or_reply(value, f"`Language for {scraper} changed to {LANG.title()}.`")
     if BOTLOG:
         await value.client.send_message(
             BOTLOG_CHATID, f"`Language for {scraper} changed to {LANG.title()}.`"
         )
 
 
-@register(outgoing=True, pattern=r"^\.wolfram (.*)")
+@bing_cmd(pattern="wolfram (.*)")
 async def wolfram(wvent):
     if WOLFRAM_ID is None:
         await wvent.edit(
@@ -570,7 +498,7 @@ async def wolfram(wvent):
         )
 
 
-@register(outgoing=True, pattern=r"^\.ytsearch (.*)")
+@bing_cmd(pattern="ytsearch (.*)")
 async def yt_search(video_q):
     query = video_q.pattern_match.group(1)
     if not query:
@@ -588,7 +516,7 @@ async def yt_search(video_q):
     await video_q.edit(output, link_preview=False)
 
 
-@register(outgoing=True, pattern=r"\.(aud|vid) (.*)")
+@bing_cmd(pattern="(aud|vid) (.*)")
 async def download_video(v_url):
     url = v_url.pattern_match.group(2)
     url = v_url.pattern_match.group(1).lower()
@@ -700,7 +628,7 @@ def deEmojify(inputString):
     return get_emoji_regexp().sub("", inputString)
 
 
-@register(pattern=r".ocr (.*)", outgoing=True)
+@bing_cmd(pattern="ocr (.*)")
 async def ocr(event):
     if not OCR_SPACE_API_KEY:
         return await event.edit(
@@ -724,7 +652,7 @@ async def ocr(event):
     os.remove(downloaded_file_name)
 
 
-@register(pattern="^.ss (.*)", outgoing=True)
+@bing_cmd(pattern="ss (.*)")
 async def capture(url):
     """ For .ss command, capture a website's screenshot and send the photo. """
     await url.edit("`Processing...`")
@@ -773,7 +701,7 @@ async def capture(url):
         await url.delete()
 
 
-@register(outgoing=True, pattern=r"^\.nekko(?: |$)([\s\S]*)")
+@bing_cmd(pattern="nekko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -826,7 +754,7 @@ async def neko(nekobin):
         )
 
 
-@register(outgoing=True, pattern=r"^\.neko(?: |$)([\s\S]*)")
+@bing_cmd(pattern="neko(?: |$)([\\s\\S]*)")
 async def neko(nekobin):
     """For .paste command, pastes the text directly to dogbin."""
     nekobin_final_url = ""
@@ -874,7 +802,7 @@ async def neko(nekobin):
     await nekobin.edit(reply_text)
 
 
-@register(outgoing=True, pattern=r"^\.getpaste(?: |$)(.*)")
+@bing_cmd(pattern="getpaste(?: |$)(.*)")
 async def get_dogbin_content(dog_url):
     textx = await dog_url.get_reply_message()
     message = dog_url.pattern_match.group(1)
@@ -926,69 +854,7 @@ async def get_dogbin_content(dog_url):
         )
 
 
-@register(outgoing=True, pattern=r"^\.paste(?: |$)([\s\S]*)")
-async def paste(pstl):
-    dogbin_final_url = ""
-    match = pstl.pattern_match.group(1).strip()
-    reply_id = pstl.reply_to_msg_id
-
-    if not match and not reply_id:
-        return await pstl.edit("`Elon Musk said I cannot paste void.`")
-
-    if match:
-        message = match
-    elif reply_id:
-        message = await pstl.get_reply_message()
-        if message.media:
-            downloaded_file_name = await pstl.client.download_media(
-                message,
-                TEMP_DOWNLOAD_DIRECTORY,
-            )
-            m_list = None
-            with open(downloaded_file_name, "rb") as fd:
-                m_list = fd.readlines()
-            message = ""
-            for m in m_list:
-                message += m.decode("UTF-8")
-            os.remove(downloaded_file_name)
-        else:
-            message = message.message
-
-    # Dogbin
-    await pstl.edit("`Pasting text . . .`")
-    resp = post(DOGBIN_URL + "documents", data=message.encode("utf-8"))
-
-    if resp.status_code == 200:
-        response = resp.json()
-        key = response["key"]
-        dogbin_final_url = DOGBIN_URL + key
-
-        if response["isUrl"]:
-            reply_text = (
-                "`Pasted successfully!`\n\n"
-                f"[Shortened URL]({dogbin_final_url})\n\n"
-                "`Original(non-shortened) URLs`\n"
-                f"[Dogbin URL]({DOGBIN_URL}v/{key})\n"
-                f"[View RAW]({DOGBIN_URL}raw/{key})"
-            )
-        else:
-            reply_text = (
-                "`Pasted successfully!`\n\n"
-                f"[Dogbin URL]({dogbin_final_url})\n"
-                f"[View RAW]({DOGBIN_URL}raw/{key})"
-            )
-    else:
-        reply_text = "`Failed to reach Dogbin`"
-
-    await pstl.edit(reply_text)
-    if BOTLOG:
-        await pstl.client.send_message(
-            BOTLOG_CHATID,
-            "Paste query was executed successfully",
-        )
-
-
-@register(outgoing=True, pattern="^.removebg(?: |$)(.*)")
+@bing_cmd(pattern="removebg(?: |$)(.*)")
 async def kbg(remob):
     """ For .rbg command, Remove Image Background. """
     if REM_BG_API_KEY is None:
@@ -1071,7 +937,7 @@ async def ReTrieveURL(input_url):
     return r
 
 
-@register(outgoing=True, pattern=r"^.direct(?: |$)([\s\S]*)")
+@bing_cmd(pattern="direct(?: |$)([\\s\\S]*)")
 async def direct_link_generator(request):
     """ direct links generator """
     await request.edit("`Processing...`")
@@ -1374,7 +1240,7 @@ def useragent():
     return user_agent.text
 
 
-@register(pattern=r"^.decode$", outgoing=True)
+@bing_cmd(pattern="decode$")
 async def parseqr(qr_e):
     """ For .decode command, get QR Code/BarCode content from the replied photo. """
     downloaded_file_name = await qr_e.client.download_media(
@@ -1404,7 +1270,7 @@ async def parseqr(qr_e):
     await qr_e.edit(qr_contents)
 
 
-@register(pattern=r".barcode(?: |$)([\s\S]*)", outgoing=True)
+@bing_cmd(pattern="barcode(?: |$)([\\s\\S]*)")
 async def bq(event):
     """ For .barcode command, genrate a barcode containing the given content. """
     await event.edit("`Processing..`")
@@ -1446,7 +1312,7 @@ async def bq(event):
     await event.delete()
 
 
-@register(pattern=r".makeqr(?: |$)([\s\S]*)", outgoing=True)
+@bing_cmd(pattern="makeqr(?: |$)([\\s\\S]*)")
 async def make_qr(makeqr):
     """ For .makeqr command, make a QR Code containing the given content. """
     input_str = makeqr.pattern_match.group(1)
@@ -1489,124 +1355,117 @@ async def make_qr(makeqr):
 
 CMD_HELP.update(
     {
-        "images": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.images <search_query>`\
+        "images": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}images <search_query>`\
          \n↳ : Does an image search on Google and shows 5 images."
     }
 )
 CMD_HELP.update(
     {
-        "currency": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.currency <amount> <from> <to>`\
+        "currency": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}currency <amount> <from> <to>`\
          \n↳ : Converts various currencies for you."
     }
 )
 CMD_HELP.update(
     {
-        "carbon2": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.carbon <text> [or reply messages]`\
-         \n↳ : Beautify your code using carbon.now.sh\
-         \n**How to Use** > `.crblang` <text> to set language for your code."
-    }
-)
-CMD_HELP.update(
-    {
-        "google": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.google <query>`\
+        "google": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}google <query>`\
          \n↳ : Does a search on Google."
     }
 )
 CMD_HELP.update(
     {
-        "wiki": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wiki <query>`\
+        "wiki": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wiki <query>`\
          \n↳ : Does a search on Wikipedia."
     }
 )
 CMD_HELP.update(
     {
-        "ud": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ud <query>`\
+        "ud": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ud <query>`\
          \n↳ : Does a search on Urban Dictionary."
     }
 )
 CMD_HELP.update(
     {
-        "tts": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tts <text> [or reply]`\
+        "tts": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tts <text> [or reply]`\
          \n↳ : Translates text to speech for the language which is set.\
          \n**How to Use** > `.lang tts <language code>` to set language for tts. (Default is English.)"
     }
 )
 CMD_HELP.update(
     {
-        "translate": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tr` <text> [or reply]\
+        "translate": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tr` <text> [or reply]\
          \n↳ : Translates text to the language which is set.\
          \n**How to Use** > `.lang tr` <language code> to set language for tr. (Default is English)"
     }
 )
 CMD_HELP.update(
     {
-        "imdb": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.imdb <movie-name>`\
+        "imdb": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}imdb <movie-name>`\
          \n↳ : Shows movie info and other stuff."
     }
 )
 CMD_HELP.update(
     {
-        "wolfram": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.wolfram` <query>\
+        "wolfram": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wolfram` <query>\
          \n↳ : Get answers to questions using WolframAlpha Spoken Results API."
     }
 )
 CMD_HELP.update(
     {
-        "screenshot": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ss <url>`\
+        "screenshot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ss <url>`\
          \n↳ : Takes a screenshot of a website and sends the screenshot.\
          \n**Example of a valid URL** : `https://www.google.com`"
     }
 )
 CMD_HELP.update(
     {
-        "nekobin": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.neko` <text/reply>\
+        "nekobin": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}neko` <text/reply>\
          \n↳ : Create a paste or a shortened url using dogbin"
     }
 )
 CMD_HELP.update(
     {
-        "getpaste": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.getpaste` <text/reply>\
+        "getpaste": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}getpaste` <text/reply>\
          \n↳ : Create a paste or a shortened url using dogbin"
     }
 )
 CMD_HELP.update(
     {
-        "removebg": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.rbg` <Link to Image> atau reply ke file gambar (Peringatan: ini tidak akan bekerja untuk sticker.)\
+        "removebg": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}rbg` <Link to Image> atau reply ke file gambar (Peringatan: ini tidak akan bekerja untuk sticker.)\
          \n↳ : Manghapus latar belakang gambar."
     }
 )
 CMD_HELP.update(
     {
-        "ocr": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.ocr` <language/bahasa>\
+        "ocr": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}ocr` <language/bahasa>\
          \n↳ : Reply to an image or sticker to extract text from it."
     }
 )
 CMD_HELP.update(
     {
-        "direct": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙`.direct` <url>\
+        "direct": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙`{cmd}direct` <url>\
          \n↳ : Reply to a link or paste a URL to generate a direct download link.\n**Supported Urls** : `Google Drive` - `Cloud Mail` - `Yandex.Disk` - `AFH` - `ZippyShare` - `MediaFire` - `SourceForge` - `OSDN` - `GitHub`"
     }
 )
 CMD_HELP.update(
     {
-        "rcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.makeqr <content>`\
+        "rcode": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}makeqr <content>`\
          \n↳ : Make a QR Code from the given content.\nExample: .makeqr www.google.com\nNote: use .decode <reply to barcode/qrcode> to get decoded content."
     }
 )
 CMD_HELP.update(
     {
-        "barcode": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `.barcode` <content>"
+        "barcode": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 `{cmd}barcode` <content>"
     }
 )
 
 CMD_HELP.update(
     {
         "youtube":
-        "𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.aud <link yt>`\
+        f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}aud <link yt>`\
     \n↳ : Downloads the AUDIO from the given link\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.vid <link yt>`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vid <link yt>`\
     \n↳ : Downloads the VIDEO from the given link\
-    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `.ytsearch <search>`\
+    \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}ytsearch <search>`\
     \n↳ : Does a Youtube Search."
     }
 )
