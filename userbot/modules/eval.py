@@ -14,18 +14,18 @@ from getpass import getuser
 from os import remove
 from sys import executable
 
-from userbot import CMD_HELP, TERM_ALIAS
-from userbot.events import register
+from userbot import CMD_HELP, TERM_ALIAS, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, bing_cmd
 
 
-@register(outgoing=True, pattern=r"^\.eval(?: |$|\n)([\s\S]*)")
+@bing_cmd(pattern="eval(?: |$|\n)([\\s\\S]*)")
 async def _(event):
     if event.fwd_from:
         return
-    s_m_ = await event.edit("Processing ...")
+    xx = await edit_or_reply(event, "Processing ...")
     cmd = event.pattern_match.group(1)
     if not cmd:
-        return await s_m_.edit("`What should i eval...`")
+        return await xx.edit("`What should i eval...`")
 
     old_stderr = sys.stderr
     old_stdout = sys.stdout
@@ -34,7 +34,7 @@ async def _(event):
     stdout, stderr, exc = None, None, None
 
     try:
-        returned = await aexec(cmd, s_m_)
+        returned = await aexec(cmd, xx)
     except Exception:
         exc = traceback.format_exc()
 
@@ -59,10 +59,10 @@ async def _(event):
     if len(final_output) >= 4096:
         with io.BytesIO(str.encode(final_output)) as out_file:
             out_file.name = "eval.txt"
-            await s_m_.reply(cmd, file=out_file)
-            await event.delete()
+            await xx.reply(cmd, file=out_file)
+            await xx.delete()
     else:
-        await s_m_.edit(final_output)
+        await xx.edit(final_output)
 
 
 async def aexec(code, smessatatus):
@@ -77,7 +77,7 @@ async def aexec(code, smessatatus):
     return await locals()["__aexec"](message, reply, message.client)
 
 
-@register(outgoing=True, pattern=r"^\.exec(?: |$|\n)([\s\S]*)")
+@bing_cmd(pattern="exec(?: |$|\n)([\\s\\S]*)")
 async def run(run_q):
     """ For .exec command, which executes the dynamically created program """
     code = run_q.pattern_match.group(1)
@@ -141,7 +141,7 @@ async def run(run_q):
         )
 
 
-@register(outgoing=True, pattern=r"^\.term(?: |$|\n)(.*)")
+@bing_cmd(pattern="term(?: |$|\n)(.*)")
 async def terminal_runner(term):
     """ For .term command, runs bash commands and scripts on your server. """
     curruser = TERM_ALIAS if TERM_ALIAS else getuser()
@@ -193,7 +193,10 @@ async def terminal_runner(term):
         await term.edit(f"`{curruser}:~$ {command}\n{result}`")
 
 
-CMD_HELP.update({"eval": ">`.eval print('world')`"
-                 "\nUsage: Just like exec.", "exec": ">`.exec print('hello')`"
-                 "\nUsage: Execute small python scripts.", "term": ">`.term <cmd>`"
-                 "\nUsage: Run bash commands and scripts on your server.", })
+CMD_HELP.update({"eval": f">`{cmd}eval print('world')`"
+                 "\nUsage: Just like exec.",
+                 "exec": f">`{cmd}exec print('hello')`"
+                 "\nUsage: Execute small python scripts.",
+                 "term": f">`{cmd}term <cmd>`"
+                 "\nUsage: Run bash commands and scripts on your server.",
+                 })
