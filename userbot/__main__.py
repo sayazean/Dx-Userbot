@@ -18,7 +18,7 @@ from userbot import (
     BOT_VER,
     LOGS,
     ALIVE_NAME,
-    bingblacklist,
+    abingblacklist,
     bot,
     call_py,
 )
@@ -29,10 +29,10 @@ try:
     bot.start()
     call_py.start()
     user = bot.get_me()
-    bingblacklist = requests.get(
-        "https://raw.githubusercontent.com/SayaAbing/Bingblack/master/bingblacklist.json"
+    abingblacklist = requests.get(
+        "https://raw.githubusercontent.com/SayaAbing/Abingblack/master/abingblacklist.json"
     ).json()
-    if user.id in bingblacklist:
+    if user.id in abingblacklist:
         LOGS.warning(
             "MAKANYA GA USAH BERTINGKAH GOBLOK, USERBOTnya GUA MATIIN NAJIS BANGET DIPAKE ORANG KEK LU.\nCredits: @moonscrsh"
         )
