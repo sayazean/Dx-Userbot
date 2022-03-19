@@ -33,7 +33,7 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t 𑁍  "
-        await event.edit("**⚡ ᴀʙɪɴɢ υѕєявσт ⚡**\n\n"
+        await event.edit("**⚡ ᴀʙɪɴɢ x υѕєявσт ⚡**\n\n"
                          f"**◉ Bᴏᴛ ᴏꜰ {DEFAULTUSER}**\n**◉ Mᴏᴅᴜʟᴇꜱ : {len(modules)}**\n\n"
                          "**• Mᴀɪɴ Mᴇɴᴜ :**\n"
                          f"◉ {string}◉\n\n✐ **ɴᴏᴛᴇꜱ :**  `kamu bisa melihat dan menggunakan setiap perintah yang ada di atas dengan cara ketik .help (kata perintah)`\n»  PEMILIK : @sayaabing")
