@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HANDLER as cmd, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, abing_cmd
 
 
 # ================= CONSTANT =================
@@ -58,7 +58,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@bing_cmd(pattern="spc")
+@abing_cmd(pattern="spc")
 async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -116,7 +116,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-@bing_cmd(pattern="sysd$")
+@abing_cmd(pattern="sysd$")
 async def sysdetails(sysd):
     if not sysd.text[0].isalpha() and sysd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -136,7 +136,7 @@ async def sysdetails(sysd):
             await sysd.edit("`Install neofetch first !!`")
 
 
-@bing_cmd(pattern="botver$")
+@abing_cmd(pattern="botver$")
 async def bot_ver(event):
     if event.text[0].isalpha() or event.text[0] in ("/", "#", "@", "!"):
         return
@@ -175,7 +175,7 @@ async def bot_ver(event):
         )
 
 
-@bing_cmd(pattern="pip(?: |$)(.*)")
+@abing_cmd(pattern="pip(?: |$)(.*)")
 async def pipcheck(pip):
     if pip.text[0].isalpha() or pip.text[0] in ("/", "#", "@", "!"):
         return
@@ -223,7 +223,7 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@bing_cmd(pattern="(?:abingalive)\\s?(.)?")
+@abing_cmd(pattern="(?:abingalive)\\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -259,7 +259,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@bing_cmd(pattern="(?:venzon)\\s?(.)?")
+@abing_cmd(pattern="(?:venzon)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -292,7 +292,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@bing_cmd(pattern="(?:alive|on)\\s?(.)?")
+@abing_cmd(pattern="(?:alive|on)\\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -338,7 +338,7 @@ async def redis(alive):
         await xx.delete()
 
 
-@bing_cmd(pattern="aliveu")
+@abing_cmd(pattern="aliveu")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -351,7 +351,7 @@ async def amireallyaliveuser(username):
     await username.edit("`" f"{output}" "`")
 
 
-@bing_cmd(pattern="resetalive$")
+@abing_cmd(pattern="resetalive$")
 async def amireallyalivereset(ureset):
     global DEFAULTUSER  # global statement
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
