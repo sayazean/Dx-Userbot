@@ -1,7 +1,7 @@
 import asyncio
 
 from userbot import ALIVE_NAME, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import abing_cmd
 from platform import uname
 
 # ================= CONSTANT =================
@@ -9,7 +9,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
 
-@bing_cmd(pattern="deploy ?(.*)")
+@abing_cmd(pattern="deploy ?(.*)")
 async def _(event):
 
     if event.fwd_from:
