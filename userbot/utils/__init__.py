@@ -17,7 +17,7 @@ from .start import startupmessage
 from . import format as _format
 from .format import parse_pre
 from .chrome import chrome, options
-from .decorator import asst_cmd, callback, abing_cmd, abing_handler
+from .decorator import asst_cmd, callback, bing_cmd, bing_handler
 from .google_images_download import googleimagesdownload
 from .progress import progress, CancelProcess
 from .tools import (
