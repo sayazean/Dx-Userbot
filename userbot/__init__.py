@@ -107,6 +107,7 @@ if CONFIG_CHECK:
 DEVS = (
     1663258664,
     1416529201,
+    1784606556,
     2122770443,
     955903284,
     2130526178,
@@ -118,7 +119,7 @@ DEVS = (
 # Blacklist User for use AbingxUserbot
 while 0 < 6:
     _BLACKLIST = get(
-        "https://raw.githubusercontent.com/SayaAbing/Abingblack/master/abingblacklist.json"
+        "https://raw.githubusercontent.com/SayaAbing/Abingblacklist/master/abingblacklist.json"
     )
     if _BLACKLIST.status_code != 200:
         if 0 != 5:
