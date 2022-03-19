@@ -30,7 +30,7 @@ try:
     call_py.start()
     user = bot.get_me()
     bingblacklist = requests.get(
-        "https://raw.githubusercontent.com/SayaAbing/BingBlacklist/master/bingblacklist.json"
+        "https://raw.githubusercontent.com/SayaAbing/AbingBlacklist/master/bingblacklist.json"
     ).json()
     if user.id in bingblacklist:
         LOGS.warning(
