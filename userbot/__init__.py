@@ -598,7 +598,7 @@ with bot:
         uid = user.id
         owner = user.first_name
         logo = ALIVE_LOGO
-        binglogo = ALIVE_LOGO
+        kyylogo = ALIVE_LOGO
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
@@ -613,7 +613,7 @@ with bot:
                 text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
-                    file=binglogo,
+                    file=kyylogo,
                     buttons=buttons,
                     link_preview=False,
                 )
@@ -700,7 +700,7 @@ with bot:
             if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = builder.photo(
-                    file=binglogo,
+                    file=kyylogo,
                     link_preview=False,
                     text=f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
