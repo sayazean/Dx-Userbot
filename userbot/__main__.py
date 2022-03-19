@@ -30,7 +30,7 @@ try:
     call_py.start()
     user = bot.get_me()
     abingblacklist = requests.get(
-        "https://raw.githubusercontent.com/SayaAbing/Abingblack/master/abingblacklist.json"
+        "https://raw.githubusercontent.com/SayaAbing/AbingBlacklist/master/abingblacklist.json"
     ).json()
     if user.id in abingblacklist:
         LOGS.warning(
