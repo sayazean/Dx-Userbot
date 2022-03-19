@@ -27,7 +27,7 @@ async def stickerpack_spam(event):
     try:
         stickerset_attr = reply.document.attributes[1]
         bing = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
-                                  )
+                                   )
     except BaseException:
         await bing.edit("`This is not a sticker. Reply to a sticker.`", 5)
         return
@@ -42,7 +42,7 @@ async def stickerpack_spam(event):
         )
     except Exception:
         return await bing.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
-                              )
+                               )
     try:
         hmm = Get(hmm)
         await event.client(hmm)
