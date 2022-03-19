@@ -4,17 +4,17 @@
 from PIL import Image
 import cv2
 import os
-from userbot.events import register
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 from userbot import CMD_HELP, bot
 
 
-@register(outgoing=True, pattern="^.tiny(?: |$)(.*)", disable_errors=True)
+@bing_cmd(pattern="tiny(?: |$)(.*)")
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
-        await event.edit("`Mohon Balas Ke Sticker`")
+        await edit_delete(event, "`Mohon Balas Ke Sticker`")
         return
-    xx = await event.edit("`Memproses Tiny....`")
+    xx = await edit_or_reply(event, "`Memproses Tiny....`")
     ik = await bot.download_media(reply)
     im1 = Image.open("resources/sky_blank.png")
     if ik.endswith(".tgs"):
@@ -82,5 +82,5 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.tiny`\
+    f"tiny": "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}tiny`\
     \nUsage : Untuk Memperkecil Sticker."})
