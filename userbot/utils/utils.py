@@ -1,7 +1,7 @@
 # Credits: @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
-# Ported By @IDnyaKosong
+# Ported By @sayaabing
 
 import asyncio
 import importlib
@@ -93,7 +93,7 @@ async def autobot():
             await asyncio.sleep(1)
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
-            await bot.send_file(bf, "resources/extras/photo_2022-03-12_22-44-50.jpg")
+            await bot.send_file(bf, "resources/extras/IMG_20220320_204738_835.jpg")
             await asyncio.sleep(3)
             await bot.send_message(bf, "/setabouttext")
             await asyncio.sleep(1)
@@ -135,7 +135,7 @@ async def autobot():
         await asyncio.sleep(1)
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
-        await bot.send_file(bf, "resources/extras/photo_2022-03-12_22-44-50.jpg")
+        await bot.send_file(bf, "resources/extras/IMG_20220320_204738_835.jpg")
         await asyncio.sleep(3)
         await bot.send_message(bf, "/setabouttext")
         await asyncio.sleep(1)
@@ -144,7 +144,7 @@ async def autobot():
         await bot.send_message(bf, f"Managed With ☕️ By {who.first_name}")
         await asyncio.sleep(3)
         await bot.send_message(bf, "/setdescription")
-        await asyncio.sleep(1)
+        await asyncio.sleep(1)44
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
