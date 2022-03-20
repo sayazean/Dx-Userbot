@@ -10,20 +10,26 @@
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from userbot import CMD_HELP
+from userbot import CMD_HELP, CMD_HANDLER as cmd
+from userbot.utils import edit_or_reply, edit_delete, bing_cmd
 from userbot.events import register
 
+# KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
+
 GCAST_BLACKLIST = [
-    -1001638078842,  # RuangDiskusi
     -1001538752127,  # AbingSupport
-    -1001473548283,  # SharingBotTelegram
-    -1001692751821,  # Nasty Support
     -1001687155877,  # CilikSupport
+    -1001380293847,  # NastySupport
+    -1001473548283,  # SharingUserbot
+    -1001578091827,  # PrimeSupportGroup
+    -1001752592753,  # SkyzuSupport
+    -1001638078842,  # RuangDiskusi 
+
 ]
 
 
-@register(outgoing=True, pattern=r"^\.gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1337194042,
+@bing_cmd(pattern="gcast(?: |$)(.*)")
+@register(incoming=True, from_users=1663258664,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
@@ -32,9 +38,8 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
-        return
-    kk = await event.edit("`GCAST MULU NANTI LIMIT MAMPUS LU...`")
+        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
+    kk = await edit_or_reply(event, "`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -49,11 +54,11 @@ async def gcast(event):
             except BaseException:
                 er += 1
     await kk.edit(
-        f"**Alhamdulillah Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Karna Kamu Miskin Di** `{er}` **Grup**"
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{er}` **Grup**"
     )
 
 
-@register(outgoing=True, pattern=r"^\.gucast(?: |$)(.*)")
+@bing_cmd(pattern="gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
@@ -61,9 +66,8 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit("**Berikan Sebuah Pesan atau Reply**")
-        return
-    kk = await event.edit("`Sedang Mengirim Pesan Secara Global... 📢`")
+        return await edit_delete(event, "**Berikan Sebuah Pesan atau Reply**")
+    kk = await edit_or_reply(event, "`Sedang Mengirim Pesan Secara Global... 📢`")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -81,8 +85,8 @@ async def gucast(event):
 
 CMD_HELP.update(
     {
-        "gcast": "**Plugin : **`gcast`\
-        \n\n  •  **Syntax :** `.gcast` <text/reply media>\
+        "gcast": f"**Plugin : **`gcast`\
+        \n\n  •  **Syntax :** `{cmd}gcast` <text/reply media>\
         \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Grup yang kamu masuk. (Bisa Mengirim Media/Sticker)\
     "
     }
@@ -91,8 +95,8 @@ CMD_HELP.update(
 
 CMD_HELP.update(
     {
-        "gucast": "**Plugin : **`gucast`\
-        \n\n  •  **Syntax :** `.gucast` <text/reply media>\
+        "gucast": f"**Plugin : **`gucast`\
+        \n\n  •  **Syntax :** `{cmd}gucast` <text/reply media>\
         \n  •  **Function : **Mengirim Global Broadcast pesan ke Seluruh Private Massage / PC yang masuk. (Bisa Mengirim Media/Sticker)\
     "
     }
