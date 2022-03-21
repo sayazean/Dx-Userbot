@@ -47,5 +47,8 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu-userbot
 *   [ALBY](https://github.com/PunyaAlby/ALBY-Userbot)   ALBY-Userbot
-*   [Abing](https://github.com/SayaAbing/AbingxUserbot) AbingxUserbot
+*   [Abing](https://github.com/SayaAbing/AbingxUserbot)  AbingxUserbot
+*   [Grey](https://github.com/grey423/CilikUserbot)  CilikUserbot
+
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
+
