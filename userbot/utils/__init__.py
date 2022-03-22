@@ -32,7 +32,7 @@ from .tools import (
     runcmd,
     edit_delete,
     edit_or_reply,
-    edit_set,
+    text_set,
     media_type,
 )
 from .utils import autobot, load_module, remove_plugin, start_assistant, create_supergroup
