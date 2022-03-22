@@ -5,7 +5,7 @@
 import os
 
 from PIL import Image, ImageDraw, ImageFont
-from userbot.utils import bing_cmd, edit_or_replay, edit_delete, text_set
+from userbot.utils import bing_cmd, edit_delete, text_set
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 
