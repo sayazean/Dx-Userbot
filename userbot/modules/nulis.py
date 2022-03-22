@@ -5,9 +5,10 @@
 import os
 
 from PIL import Image, ImageDraw, ImageFont
-from userbot.utils import toni_cmd, edit_or_reply, edit_delete, text_set
+from userbot.utils import edit_delete, edit_or_reply, text_set
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
+
 
 @bing_cmd(pattern="nulis(?: |$)(.*)")
 async def writer(event):
