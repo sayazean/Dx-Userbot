@@ -24,6 +24,7 @@ GCAST_BLACKLIST = [
     -1001578091827,  # PrimeSupportGroup
     -1001752592753,  # SkyzuSupport
     -1001638078842,  # RuangDiskusi
+    -1001736842222,  # KenzhuSupport
 
 ]
 
