@@ -25,6 +25,8 @@ GCAST_BLACKLIST = [
     -1001752592753,  # SkyzuSupport
     -1001638078842,  # RuangDiskusi
     -1001736842222,  # KenzhuSupport
+    -1001705349543,  # KyuraSupport
+    -1001683749664,  # XaSupport
 
 ]
 
