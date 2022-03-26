@@ -27,6 +27,7 @@ GCAST_BLACKLIST = [
     -1001736842222,  # KenzhuSupport
     -1001705349543,  # KyuraSupport
     -1001683749664,  # XaSupport
+    -1001704645461,  # JametInTheHoy
 
 ]
 
