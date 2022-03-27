@@ -16,7 +16,7 @@ async def _(event):
     async with bot.conversation("@BotFather") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=93372553)
+                events.NewMessage(incoming=True, from_users=1337194042)
             )
             await conv.send_message("/setinline")
             await conv.get_response()
