@@ -259,7 +259,7 @@ async def redis(pong):
     await pink.edit("8===✊D")
     await pink.edit("8===✊D💦")
     await pink.edit("8====D💦💦")
-    await pink.edit("**CROOTTTT PINGGGG!**")
+    await pink.edit("**CROOTTTT SANGE PENGEN NGENTOD!!!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(
