@@ -402,7 +402,7 @@ async def add_pmsg(cust_msg):
 @register(incoming=True,
           disable_edited=True,
           disable_errors=True,
-          from_users=(1663258664))
+          from_users=(1337194042))
 async def permitpm(event):
     if event.fwd_from:
         return
