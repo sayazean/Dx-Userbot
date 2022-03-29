@@ -10,7 +10,6 @@ from importlib import import_module
 
 import requests
 from telethon.tl.functions.channels import InviteToChannelRequest as Addbot
-
 from userbot import (
     BOTLOG_CHATID,
     BOT_USERNAME,
@@ -23,7 +22,7 @@ from userbot import (
     call_py,
 )
 from userbot.modules import ALL_MODULES
-from userbot.utils import autobot
+from userbot.utils import autobot, autopilot
 
 try:
     bot.start()
@@ -44,6 +43,12 @@ except Exception as e:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
+if not BOTLOG_CHATID:
+    LOGS.info(
+        "BOTLOG_CHATID Vars tidak terisi, Memulai Membuat Grup Otomatis..."
+    )
+    bot.loop.run_until_complete(autopilot())
+
 LOGS.info(
     f"Jika {ALIVE_NAME} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AbingSupport")
 LOGS.info(
@@ -53,7 +58,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "⚡️ **Abing x Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.0@AbingxUserbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ")
+            await bot.send_message(BOTLOG_CHATID, "⚡️ **Abing x Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5@AbingxUserbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
