@@ -21,7 +21,6 @@ from userbot import (
     bot,
     call_py,
 )
-from userbot import CMD_HANDLER as cmd
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, autopilot
 
