@@ -463,6 +463,7 @@ with bot:
             "Don't Leave")
         quit(1)
 
+
 async def update_restart_msg(chat_id, msg_id):
     message = (
         f"**AbingxUserbot v{BOT_VER} is back up and running!**\n\n"
