@@ -217,7 +217,7 @@ async def pipcheck(pip):
             await pip.edit(
                 "**Query: **\n`"
                 f"pip3 search {pipmodule}"
-                "`\n**Result: **\n`No Result Returned/False`"
+                "`\n**Result: **\n :`No Result Returned/False`"
             )
     else:
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
