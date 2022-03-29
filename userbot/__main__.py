@@ -21,6 +21,7 @@ from userbot import (
     bot,
     call_py,
 )
+from userbot import CMD_HANDLER as cmd
 from userbot.modules import ALL_MODULES
 from userbot.utils import autobot, autopilot
 
@@ -58,7 +59,7 @@ LOGS.info(
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "⚡️ **Abing x Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5@AbingxUserbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ")
+            await bot.send_file(BOTLOG_CHATID, ALIVE_LOGO, caption=f"⚡️**Abing x Userbot Berhasil Diaktifkan**!!\n━━━━━━━━━━━━━━━\n➠ **Userbot Version** - 3.1.5@AbingxUserbot\n➠ **Ketik** `.ping` **Untuk Mengecheck Bot**\n━━━━━━━━━━━━━━━\n➠ **Powered By:** @AbingProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
