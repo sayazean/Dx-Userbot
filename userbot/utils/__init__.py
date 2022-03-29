@@ -35,7 +35,7 @@ from .tools import (
     text_set,
     media_type,
 )
-from .utils import
+from .utils import (
     autobot,
     load_module,
     remove_plugin,
