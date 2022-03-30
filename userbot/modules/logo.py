@@ -18,7 +18,7 @@ async def _(event):
         await edit_or_reply(event, "`Give a name too!`")
     else:
         await edit_or_reply(event, "`Processing`")
-    chat = "@abingxmusic_bot"
+    chat = "@AbingxRoBot"
     async with event.client.conversation(chat) as conv:
         try:
             msg = await conv.send_message(f"/logo {text}")
@@ -28,7 +28,7 @@ async def _(event):
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await event.edit(
-                "**Error: Mohon Buka Blokir** @AbingMusic_Bot **Dan Coba Lagi!**"
+                "**Error: Mohon Buka Blokir** @AbingxRoBot **Dan Coba Lagi!**"
             )
             return
         await asyncio.sleep(0.5)
