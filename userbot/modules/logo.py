@@ -28,7 +28,7 @@ async def _(event):
             await event.client.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             await event.edit(
-                "**Error: Mohon Buka Blokir** @abingxmusic_bot **Dan Coba Lagi!**"
+                "**Error: Mohon Buka Blokir** @AbingMusic_Bot **Dan Coba Lagi!**"
             )
             return
         await asyncio.sleep(0.5)
