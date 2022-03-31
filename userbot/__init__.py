@@ -296,11 +296,11 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/8dad04830561de07c35d7.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/2108e2482c01af307c7f5.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/8dad04830561de07c35d7.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/713ec30645a7113941a8a.jpg"
 
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
