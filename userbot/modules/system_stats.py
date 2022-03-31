@@ -259,7 +259,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@bing_cmd(pattern="(?:venzon)\\s?(.)?")
+@bing_cmd(pattern="(?:bingon)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
