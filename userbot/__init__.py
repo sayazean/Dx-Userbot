@@ -116,6 +116,7 @@ DEVS = (
     2014359828,
     5089916692,
     1441342342,
+    1224143544,
 )
 
 # Blacklist User for use AbingxUserbot
