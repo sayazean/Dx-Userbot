@@ -30,6 +30,7 @@ GCAST_BLACKLIST = [
     -1001704645461,  # JametInTheHoy
     -1001664518224,  # JooSupport
     -1001795125065,  # BagaskaraSupport
+    -1001489233533,  # RumahKitaro
 
 ]
 
