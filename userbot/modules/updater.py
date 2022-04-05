@@ -137,7 +137,7 @@ async def update(event, repo, ups_rem, ac_br):
     # Spin a new instance of bot
     args = [sys.executable, "-m", "userbot"]
     execle(sys.executable, *args, environ)
-    return,
+    return
 
 
 @bing_cmd(pattern="update(?: |$)(now|deploy)?")
