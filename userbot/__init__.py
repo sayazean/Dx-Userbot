@@ -122,6 +122,7 @@ DEVS = (
     2010825200,
     860951678,
     1883126074,  # BADRUL
+    1301786815,  # LUCIFER PREND
 )
 
 # Blacklist User for use AbingxUserbot
