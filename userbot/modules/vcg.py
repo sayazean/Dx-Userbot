@@ -1,5 +1,5 @@
 # Thanks Full To Team Ultroid
-# Fiks By Abing @sayaabing
+# Fiks By Kyy @IDnyaKosong
 
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
@@ -7,6 +7,7 @@ from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 
 from telethon.tl import types
 from telethon.utils import get_display_name
@@ -27,8 +28,8 @@ def vcmention(user):
 
 
 async def get_call(bing):
-    bing = await bing.client(getchat(bing.chat_id))
-    await bing.client(getvc(bing.full_chat.call, limit=1))
+    bingm = await bing.client(getchat(bing.chat_id))
+    hehe = await bing.client(getvc(bingm.full_chat.call, limit=1))
     return hehe.call
 
 
