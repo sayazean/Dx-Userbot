@@ -265,7 +265,9 @@ YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
 # Untuk Perintah .abingalive
-ABING_TEKS_KUSTOM = os.environ.get("ABING_TEKS_KUSTOM", "I'am Using AbingxUserbot⚡")
+ABING_TEKS_KUSTOM = os.environ.get(
+    "ABING_TEKS_KUSTOM",
+    "I'am Using AbingxUserbot⚡")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
@@ -685,7 +687,8 @@ with bot:
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@AbingxUserbot"):
+            if event.query.user_id == uid and query.startswith(
+                    "@AbingxUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = await event.builder.photo(
                     file=binglogo,
@@ -828,20 +831,19 @@ with bot:
                 await event.edit(f"""
 Voice chat group menu untuk {owner}
 """,
-                    buttons=[
-                        [
-                            Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ ⚙️",
-                                          data="vcplugin"),
-                            Button.inline("ᴠᴄ ᴛᴏᴏʟs ⚙️",
-                                           data="vctools")],
-                        [custom.Button.inline(
-                            "ʙᴀᴄᴋ", data="gcback")],
-                    ]
-                )
+                                 buttons=[
+                                     [
+                                         Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ ⚙️",
+                                                       data="vcplugin"),
+                                         Button.inline("ᴠᴄ ᴛᴏᴏʟs ⚙️",
+                                                       data="vctools")],
+                                     [custom.Button.inline(
+                                         "ʙᴀᴄᴋ", data="gcback")],
+                                 ]
+                                 )
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -852,7 +854,7 @@ Voice chat group menu untuk {owner}
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
                     f"""
-✘ **Commands available in vcplugin** ✘ 
+✘ **Commands available in vcplugin** ✘
 
   𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}play` <Judul Lagu/Link YT>
   ↳ : Untuk Memutar Lagu di voice chat group dengan akun kamu
@@ -896,24 +898,24 @@ Voice chat group menu untuk {owner}
             if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
                 text = (
                     f"""
-✘ **Commands available in vctools** ✘ 
+✘ **Commands available in vctools** ✘
 
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}startvc`        
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}startvc`
   ↳ : Untuk Memulai voice chat group
-        
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}stopvc`        
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}stopvc`
   ↳ : Untuk Memberhentikan voice chat group
-        
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vctitle` <title vcg>        
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vctitle` <title vcg>
   ↳ : Untuk Mengubah title/judul voice chat group
-       
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vcinvite`        
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vcinvite`
   ↳ : Mengundang Member group ke voice chat group
-        
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}joinvc`        
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}joinvc`
   ↳ : Melakukan Fake voice chat group
-   
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}leavevc`        
+
+  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}leavevc`
   ↳ : Memberhentikan Fake voice chat group
 """)
                 await event.edit(
@@ -924,7 +926,6 @@ Voice chat group menu untuk {owner}
             else:
                 reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
