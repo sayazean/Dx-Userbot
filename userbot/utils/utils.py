@@ -1,7 +1,7 @@
 # Credits: @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
-# Ported By @sayaabing
+# Ported By Abing @sayaabing
 
 import asyncio
 import importlib
@@ -14,6 +14,8 @@ import heroku3
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.tl.functions.channels import (
     CreateChannelRequest,
+    EditPhotoRequest,
+    EditAdminRequest
 )
 from telethon.tl.types import (
     ChatAdminRights,
@@ -49,7 +51,7 @@ async def autobot():
     if who.username:
         username = who.username + "_ubot"
     else:
-        username = "abing" + (str(who.id))[5:] + "ubot"
+        username = "Abing" + (str(who.id))[5:] + "ubot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -82,7 +84,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "abing" + (str(who.id))[6:] + str(ran) + "ubot"
+        username = "Abing" + (str(who.id))[6:] + str(ran) + "ubot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
@@ -98,7 +100,7 @@ async def autobot():
             await asyncio.sleep(1)
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
-            await bot.send_file(bf, "resources/extras/IMG_20220331_010725.jpg")
+            await bot.send_file(bf, "resources/extras/IMG_20220331_010725")
             await asyncio.sleep(3)
             await bot.send_message(bf, "/setabouttext")
             await asyncio.sleep(1)
@@ -111,7 +113,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"⚡️ Owner ~ {who.first_name} ⚡️\n\n⚡️ Powered By ~ @AbingProject ⚡️"
+                bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @AbingProject ⚡"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
@@ -121,6 +123,19 @@ async def autobot():
                 BOTLOG_CHATID,
                 "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
             )
+            rights = ChatAdminRights(
+                add_admins=False,
+                invite_users=True,
+                change_info=True,
+                ban_users=True,
+                delete_messages=True,
+                pin_messages=True,
+                anonymous=False,
+                manage_call=True,
+            )
+            await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀʙɪɴɢ ᴀssɪsᴛᴀɴᴛ"))
+            kntl = "resources/extras/IMG_20220331_010725.jpg"
+            await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
         else:
@@ -153,7 +168,7 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"⚡️ Owner ~ {who.first_name} ⚡️\n\n⚡️ Powered By ~ @AbingProject ⚡️"
+            bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @AbingProject ⚡"
         )
         await bot.send_message(
             BOTLOG_CHATID,
@@ -163,6 +178,19 @@ async def autobot():
             BOTLOG_CHATID,
             "**Tunggu Sebentar, Sedang MeRestart Heroku untuk Menerapkan Perubahan.**",
         )
+        rights = ChatAdminRights(
+            add_admins=False,
+            invite_users=True,
+            change_info=True,
+            ban_users=True,
+            delete_messages=True,
+            pin_messages=True,
+            anonymous=False,
+            manage_call=True,
+        )
+        await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀʙɪɴɢ ᴀssɪsᴛᴀɴᴛ"))
+        kntl = "resources/extras/IMG_20220331_010725.jpg"
+        await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
     else:
@@ -238,7 +266,7 @@ def remove_plugin(shortname):
         raise ValueError
 
 
-# bye Kyy-Userbot
+# by Kyy-Userbot
 
 async def create_supergroup(group_name, client, botusername, descript):
     try:
