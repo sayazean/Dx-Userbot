@@ -1,9 +1,9 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 
-@bing_cmd(pattern='santet(?: |$)(.*)')
+@zean_cmd(pattern='santet(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`Anda Telah Mengaktifkan Perintah Santet Online ツ`")
