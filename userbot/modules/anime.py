@@ -25,7 +25,7 @@ from telethon.tl.types import (DocumentAttributeAnimated,
 from telethon.utils import is_image, is_video
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 jikan = Jikan()
 
@@ -194,7 +194,7 @@ def replace_text(text):
         "")
 
 
-@bing_cmd(pattern="anime ?(.*)")
+@zean_cmd(pattern="anime ?(.*)")
 async def anime(event):
     query = event.pattern_match.group(1)
     reply = await event.get_reply_message()
@@ -270,7 +270,7 @@ async def anime(event):
     await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@bing_cmd(pattern="manga ?(.*)")
+@zean_cmd(pattern="manga ?(.*)")
 async def manga(event):
     query = event.pattern_match.group(1)
     await event.edit("`Searching Manga...`")
@@ -318,7 +318,7 @@ async def manga(event):
         await event.edit(rep, parse_mode="HTML", link_preview=False)
 
 
-@bing_cmd(pattern="a(kaizoku|kayo) ?(.*)")
+@zean_cmd(pattern="a(kaizoku|kayo) ?(.*)")
 async def site_search(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(2)
@@ -367,7 +367,7 @@ async def site_search(event):
             await event.edit(result, parse_mode="HTML")
 
 
-@bing_cmd(pattern="char ?(.*)")
+@zean_cmd(pattern="char ?(.*)")
 async def character(event):
     message = await event.get_reply_message()
     search_query = event.pattern_match.group(1)
@@ -416,7 +416,7 @@ async def character(event):
     )
 
 
-@bing_cmd(pattern="upcoming ?(.*)")
+@zean_cmd(pattern="upcoming ?(.*)")
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
     later = jikan.season_later()
@@ -430,7 +430,7 @@ async def upcoming(message):
         await message.edit(rep, parse_mode="html")
 
 
-@bing_cmd(pattern="scanime ?(.*)")
+@zean_cmd(pattern="scanime ?(.*)")
 async def get_anime(message):
     try:
         query = message.pattern_match.group(1)
@@ -535,7 +535,7 @@ async def get_anime(message):
     await message.client.send_file(message.chat_id, file=main_poster, caption=captions)
 
 
-@bing_cmd(pattern="smanga ?(.*)")
+@zean_cmd(pattern="smanga ?(.*)")
 async def manga(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -551,7 +551,7 @@ async def manga(message):
     )
 
 
-@bing_cmd(pattern="sanime ?(.*)")
+@zean_cmd(pattern="sanime ?(.*)")
 async def anime(message):
     search_query = message.pattern_match.group(1)
     await message.get_reply_message()
@@ -573,7 +573,7 @@ async def anime(message):
         )
 
 
-@bing_cmd(pattern="whatanime")
+@zean_cmd(pattern="whatanime")
 async def whatanime(e):
     media = e.media
     if not media:
