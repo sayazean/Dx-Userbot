@@ -19,7 +19,7 @@ import time
 from datetime import datetime
 import psutil
 from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HANDLER as cmd, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
 # ================= CONSTANT =================
@@ -58,7 +58,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@bing_cmd(pattern="spc")
+@zean_cmd(pattern="spc")
 async def psu(event):
     uname = platform.uname()
     softw = "**Informasi Sistem**\n"
@@ -116,7 +116,7 @@ def get_size(bytes, suffix="B"):
         bytes /= factor
 
 
-@bing_cmd(pattern="sysd$")
+@zean_cmd(pattern="sysd$")
 async def sysdetails(sysd):
     if not sysd.text[0].isalpha() and sysd.text[0] not in ("/", "#", "@", "!"):
         try:
@@ -136,7 +136,7 @@ async def sysdetails(sysd):
             await sysd.edit("`Install neofetch first !!`")
 
 
-@bing_cmd(pattern="botver$")
+@zean_cmd(pattern="botver$")
 async def bot_ver(event):
     if event.text[0].isalpha() or event.text[0] in ("/", "#", "@", "!"):
         return
@@ -164,8 +164,8 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "**⚜-**⚡️ᴀʙɪɴɢxυѕєявσт⚡️ Versi:** \n "
-            f"heads/AbingxUserbot-0-x634i7u1"
+            "**⚜-**⚡️ᴅx-ᴜsᴇʀʙᴏᴛ⚡️ Versi:** \n "
+            f"heads/Dx-Userbot-0-x634i7u1"
             "\n**⚜-**Revisi:**\n "
             f"{revout}"
         )
@@ -175,7 +175,7 @@ async def bot_ver(event):
         )
 
 
-@bing_cmd(pattern="pip(?: |$)(.*)")
+@zean_cmd(pattern="pip(?: |$)(.*)")
 async def pipcheck(pip):
     if pip.text[0].isalpha() or pip.text[0] in ("/", "#", "@", "!"):
         return
@@ -223,13 +223,13 @@ async def pipcheck(pip):
         await pip.edit("Gunakan `.help pip` Untuk Melihat Contoh")
 
 
-@bing_cmd(pattern="(?:abingalive)\\s?(.)?")
+@zean_cmd(pattern="(?:zeanalive)\\s?(.)?")
 async def amireallyalive(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
         f" **⚡️ᴀʙɪɴɢxυѕєявσт⚡️** \n\n"
-        f"\n__**{ABING_TEKS_KUSTOM}**__\n\n\n"
+        f"\n__**{ZEAN_TEKS_KUSTOM}**__\n\n\n"
         f"╭✠╼━━━━━━━━━━━━━━━✠╮\n"
         f"◙ `Name       :` {DEFAULTUSER} \n"
         f"◙ `Username   :` @{user.username} \n"
@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/AbingSupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/AbingProject) | [ᴏᴡɴᴇʀ](https://t.me/sayaabing) | [ɢɪᴛʜᴜʙ](https://github.com/SayaAbing/AbingxUserbot)")
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/ZeanSupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ZeannProject) | [ᴏᴡɴᴇʀ](https://t.me/zeannihbos) | [ɢɪᴛʜᴜʙ](https://github.com/sayazean/Dx-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -259,13 +259,13 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@bing_cmd(pattern="(?:bingon)\\s?(.)?")
+@zean_cmd(pattern="(?:zeanon)\\s?(.)?")
 async def amireallyalive(alive):
     await bot.get_me()
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[A̸ʙɪɴɢ-ᴇx](t.me/sayaabing) \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[ZEAN](t.me/zeannihbos) \n"
         f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
         f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
         f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
@@ -292,7 +292,7 @@ async def amireallyalive(alive):
         await alive.delete()
 
 
-@bing_cmd(pattern="(?:alive|on)\\s?(.)?")
+@zean_cmd(pattern="(?:alive|on)\\s?(.)?")
 async def redis(alive):
     user = await bot.get_me()
     await get_readable_time((time.time() - StartTime))
@@ -306,7 +306,7 @@ async def redis(alive):
     await xx.edit("⚡️")
     await asyncio.sleep(2)
     output = (
-        f"┏━━━━⚡️ᴀʙɪɴɢxυѕєявσт⚡️━━━━ \n"
+        f"┏━━━━⚡️ᴅx-ᴜsᴇʀʙᴏᴛ⚡️━━━━ \n"
         f"┣  **Name     :** {DEFAULTUSER} \n"
         f"┣  **Username :** @{user.username} \n"
         f"┣  **Telethon :** Ver {version.__version__} \n"
@@ -314,9 +314,9 @@ async def redis(alive):
         f"┣  **Branch   :** {UPSTREAM_REPO_BRANCH} \n"
         f"┣  **Bot Ver  :** {BOT_VER} \n"
         f"┣  **Modules  :** {len(modules)} Modules \n"
-        f"┣  **GitHub   :** [ᴀʙɪɴɢ](https://github.com/SayaAbing/AbingxUserbot) \n"
-        f"┣  **Support  :** [ɢʀᴏᴜᴘs](https://t.me/AbingProject) \n"
-        f"┣  **Owner    :** [ᴀʙɪɴɢ](https://t.me/sayaabing) \n"
+        f"┣  **GitHub   :** [ᴀʙɪɴɢ](https://github.com/sayazean/Dx-Userbot) \n"
+        f"┣  **Support  :** [ɢʀᴏᴜᴘs](https://t.me/ZeannProject) \n"
+        f"┣  **Owner    :** [ZEAN](https://t.me/zeannihbos) \n"
         f"┗━━━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
@@ -338,7 +338,7 @@ async def redis(alive):
         await xx.delete()
 
 
-@bing_cmd(pattern="aliveu")
+@zean_cmd(pattern="aliveu")
 async def amireallyaliveuser(username):
     """ For .aliveu command, change the username in the .alive command. """
     message = username.text
@@ -351,7 +351,7 @@ async def amireallyaliveuser(username):
     await username.edit("`" f"{output}" "`")
 
 
-@bing_cmd(pattern="resetalive$")
+@zean_cmd(pattern="resetalive$")
 async def amireallyalivereset(ureset):
     global DEFAULTUSER  # global statement
     DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
