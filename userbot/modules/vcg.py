@@ -14,7 +14,7 @@ from telethon.utils import get_display_name
 
 from userbot import owner
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_delete, edit_or_reply, bing_cmd
+from userbot.utils import edit_delete, edit_or_reply, zean_cmd
 from userbot.events import register
 
 NO_ADMIN = "`Maaf Kamu Bukan Admin 👮`"
@@ -27,9 +27,9 @@ def vcmention(user):
     return f"[{full_name}](tg://user?id={user.id})"
 
 
-async def get_call(bing):
-    bingm = await bing.client(getchat(bing.chat_id))
-    hehe = await bing.client(getvc(bingm.full_chat.call, limit=1))
+async def get_call(zean):
+    zeanm = await zean.client(getchat(zean.chat_id))
+    hehe = await zean.client(getvc(zeanm.full_chat.call, limit=1))
     return hehe.call
 
 
@@ -38,7 +38,7 @@ def user_list(l, n):
         yield l[i: i + n]
 
 
-@bing_cmd(pattern="startvc$")
+@zean_cmd(pattern="startvc$")
 @register(pattern=r"^\.startvcs$", sudo=True)
 async def start_voice(c):
     chat = await c.get_chat()
@@ -55,7 +55,7 @@ async def start_voice(c):
         await edit_or_reply(c, f"**ERROR:** `{ex}`")
 
 
-@bing_cmd(pattern="stopvc$")
+@zean_cmd(pattern="stopvc$")
 @register(pattern=r"^\.stopvcs$", sudo=True)
 async def stop_voice(c):
     chat = await c.get_chat()
@@ -72,25 +72,25 @@ async def stop_voice(c):
         await edit_delete(c, f"**ERROR:** `{ex}`")
 
 
-@bing_cmd(pattern="vcinvite")
-async def _(bing):
-    await edit_or_reply(bing, "`Sedang Menginvite Member...`")
+@zean_cmd(pattern="vcinvite")
+async def _(zean):
+    await edit_or_reply(zean, "`Sedang Menginvite Member...`")
     users = []
     z = 0
-    async for x in bing.client.iter_participants(bing.chat_id):
+    async for x in zean.client.iter_participants(zean.chat_id):
         if not x.bot:
             users.append(x.id)
     hmm = list(user_list(users, 6))
     for p in hmm:
         try:
-            await bing.client(invitetovc(call=await get_call(bing), users=p))
+            await zean.client(invitetovc(call=await get_call(zean), users=p))
             z += 6
         except BaseException:
             pass
-    await edit_or_reply(bing, f"`Menginvite {z} Member`")
+    await edit_or_reply(zean, f"`Menginvite {z} Member`")
 
 
-@bing_cmd(pattern="vctitle(?: |$)(.*)")
+@zean_cmd(pattern="vctitle(?: |$)(.*)")
 @register(pattern=r"^\.cvctitle$", sudo=True)
 async def change_title(e):
     title = e.pattern_match.group(1)
