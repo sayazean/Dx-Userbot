@@ -1,11 +1,11 @@
 from time import sleep
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 from telethon import events
 import asyncio
 
 
-@bing_cmd(pattern="sayang$")
+@zean_cmd(pattern="sayang$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         e = await edit_or_reply(e, "I LOVEE YOUUU 💕")
@@ -34,7 +34,7 @@ async def koc(e):
         await e.edit("SAYANG KAMU💞")
 
 
-@bing_cmd(pattern='dino(?: |$)(.*)')
+@zean_cmd(pattern='dino(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     typew = await edit_or_reply(typew, "`DIN DINNN.....`")
@@ -92,7 +92,7 @@ async def typewriter(typew):
     await typew.edit("`-TAMAT-`")
 
 
-@bing_cmd(pattern="gabut$")
+@zean_cmd(pattern="gabut$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         e = await edit_or_reply(e, "`PERNAAHHHHH KAHHH KAUUU MENGIRA`")
