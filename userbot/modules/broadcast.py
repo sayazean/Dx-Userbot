@@ -8,12 +8,12 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, LOGS
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.utils import parse_pre
 
 
-@bing_cmd(pattern="sendto ?(.*)")
+@zean_cmd(pattern="sendto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -65,7 +65,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bing_cmd(pattern="fwdto ?(.*)")
+@zean_cmd(pattern="fwdto ?(.*)")
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -117,7 +117,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bing_cmd(pattern="addto ?(.*)")
+@zean_cmd(pattern="addto ?(.*)")
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -153,7 +153,7 @@ async def catbroadcast_add(event):
             )
 
 
-@bing_cmd(pattern="rmfrom ?(.*)")
+@zean_cmd(pattern="rmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -189,7 +189,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bing_cmd(pattern="clist ?(.*)")
+@zean_cmd(pattern="clist ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -229,7 +229,7 @@ async def catbroadcast_list(event):
     await catevent.edit(finaloutput)
 
 
-@bing_cmd(pattern="clistall ?(.*)")
+@zean_cmd(pattern="clistall ?(.*)")
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -245,7 +245,7 @@ async def catbroadcast_list(event):
     await event.efit(resultext)
 
 
-@bing_cmd(pattern="frmfrom ?(.*)")
+@zean_cmd(pattern="frmfrom ?(.*)")
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -302,7 +302,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bing_cmd(pattern="delc ?(.*)")
+@zean_cmd(pattern="delc ?(.*)")
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return
