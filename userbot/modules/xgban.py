@@ -1,11 +1,11 @@
 from asyncio import sleep
 from telethon.tl.types import ChatBannedRights
 from telethon.tl.functions.channels import EditBannedRequest
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="allban(?: |$)(.*)")
+@zean_cmd(pattern="allban(?: |$)(.*)")
 async def testing(event):
     nikal = await event.get_chat()
     chutiya = await event.client.get_me()
