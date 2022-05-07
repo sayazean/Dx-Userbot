@@ -4,13 +4,13 @@
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 import random
 from userbot import owner
 from telethon.tl.types import InputMessagesFilterVideo
 
 
-@bing_cmd(pattern="asupan$")
+@zean_cmd(pattern="asupan$")
 async def _(event):
     try:
         asupannya = [
