@@ -11,7 +11,7 @@ import random
 import re
 
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
@@ -24,7 +24,7 @@ class FlagContainer:
     is_active = False
 
 
-@bing_cmd(pattern="mention(?: |$)(.*)")
+@zean_cmd(pattern="mention(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -37,7 +37,7 @@ async def _(event):
     await bot.send_message(chat, mentions, reply_to=event.message.reply_to_msg_id)
 
 
-@bing_cmd(pattern="emojitag(?: |$)(.*)")
+@zean_cmd(pattern="emojitag(?: |$)(.*)")
 async def _(event):
     if event.fwd_from or FlagContainer.is_active:
         return
@@ -83,7 +83,7 @@ async def _(event):
         FlagContainer.is_active = False
 
 
-@bing_cmd(pattern="all(?: |$)(.*)")
+@zean_cmd(pattern="all(?: |$)(.*)")
 async def _(event):
     if event.fwd_from or FlagContainer.is_active:
         return
