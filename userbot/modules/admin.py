@@ -460,8 +460,7 @@ async def ungmoot(un_gmute):
         return
 
     # If pass, inform and start ungmuting
-    await zean
-    .edit("```Membuka Global Mute Pengguna...```")
+    await zean.edit("```Membuka Global Mute Pengguna...```")
 
     if ungmute(user.id) is False:
         await zean.edit("`Pengguna Sedang Tidak Di Gmute!`")
