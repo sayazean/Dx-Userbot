@@ -1,10 +1,10 @@
 # port by KOALA 🐨 /@manusiarakitann
 
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="gsend ?(.*)")
+@zean_cmd(pattern="gsend ?(.*)")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
