@@ -1,10 +1,10 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from asyncio.exceptions import TimeoutError
 
 
-@bing_cmd(pattern="sg(?: |$)(.*)")
+@zean_cmd(pattern="sg(?: |$)(.*)")
 async def lastname(steal):
     if steal.fwd_from:
         return
