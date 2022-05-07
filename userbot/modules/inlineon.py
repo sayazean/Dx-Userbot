@@ -7,16 +7,16 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, BOT_USERNAME
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 
-@bing_cmd(pattern="inlineon(?: |$)(.*)")
+@zean_cmd(pattern="inlineon(?: |$)(.*)")
 async def _(event):
     await event.edit(f"Sedang menyalakan inline untuk `@{BOT_USERNAME}` tunggu sebentar")
     async with bot.conversation("@BotFather") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=1337194042)
+                events.NewMessage(incoming=True, from_users=5004651469)
             )
             await conv.send_message("/setinline")
             await conv.get_response()
