@@ -1,7 +1,7 @@
 # Credits: @mrismanaziz
 # FROM Man-Userbot <https://github.com/mrismanaziz/Man-Userbot>
 # t.me/SharingUserbot & t.me/Lunatic0de
-# Ported By Abing @sayaabing
+# Ported By Zean @zeannihbos
 
 import asyncio
 import importlib
@@ -51,7 +51,7 @@ async def autobot():
     if who.username:
         username = who.username + "_ubot"
     else:
-        username = "Abing" + (str(who.id))[5:] + "ubot"
+        username = "Zean" + (str(who.id))[5:] + "ubot"
     bf = "@BotFather"
     await bot(UnblockRequest(bf))
     await bot.send_message(bf, "/cancel")
@@ -84,7 +84,7 @@ async def autobot():
     await bot.send_read_acknowledge("botfather")
     if isdone.startswith("Sorry,"):
         ran = randint(1, 100)
-        username = "Abing" + (str(who.id))[6:] + str(ran) + "ubot"
+        username = "Zean" + (str(who.id))[6:] + str(ran) + "ubot"
         await bot.send_message(bf, username)
         await asyncio.sleep(1)
         nowdone = (await bot.get_messages(bf, limit=1))[0].text
@@ -113,7 +113,7 @@ async def autobot():
             await bot.send_message(bf, f"@{username}")
             await asyncio.sleep(1)
             await bot.send_message(
-                bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @AbingProject ⚡"
+                bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @ZeannProject ⚡"
             )
             await bot.send_message(
                 BOTLOG_CHATID,
@@ -133,7 +133,7 @@ async def autobot():
                 anonymous=False,
                 manage_call=True,
             )
-            await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀʙɪɴɢ ᴀssɪsᴛᴀɴᴛ"))
+            await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "𝙕𝗲𝗮𝙣 ᴀssɪsᴛᴀɴᴛ"))
             kntl = "resources/extras/IMG_20220331_010725.jpg"
             await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
             heroku_var["BOT_TOKEN"] = token
@@ -168,7 +168,7 @@ async def autobot():
         await bot.send_message(bf, f"@{username}")
         await asyncio.sleep(1)
         await bot.send_message(
-            bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @AbingProject ⚡"
+            bf, f"⚡ Owner ~ {who.first_name} ⚡\n\n⚡ Powered By ~ @ZeannProject ⚡"
         )
         await bot.send_message(
             BOTLOG_CHATID,
@@ -188,7 +188,7 @@ async def autobot():
             anonymous=False,
             manage_call=True,
         )
-        await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "ᴀʙɪɴɢ ᴀssɪsᴛᴀɴᴛ"))
+        await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "𝙕𝗲𝗮𝙣 ᴀssɪsᴛᴀɴᴛ"))
         kntl = "resources/extras/IMG_20220331_010725.jpg"
         await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
         heroku_var["BOT_TOKEN"] = token
@@ -312,7 +312,7 @@ async def autopilot():
         r = await bot(
             CreateChannelRequest(
                 title="ᴀʙɪɴɢ ʟᴏɢs",
-                about="ᴍʏ ᴀʙɪɴɢ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @AbingProject",
+                about="ᴍʏ ᴀʙɪɴɢ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @ZeannProject",
                 megagroup=True,
             ),
         )
