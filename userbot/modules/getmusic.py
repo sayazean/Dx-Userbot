@@ -17,7 +17,7 @@ from telethon.tl.types import DocumentAttributeVideo
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP, LASTFM_USERNAME, bot, lastfm
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot.utils import chrome, progress
 
 
@@ -34,7 +34,7 @@ async def getmusicvideo(cat):
     os.system(command)
 
 
-@bing_cmd(pattern="songn (?:(now)|(.*) - (.*))")
+@zean_cmd(pattern="songn (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -75,7 +75,7 @@ async def _(event):
         return await event.edit("`Error: `@WooMaiBot` is not responding!.`")
 
 
-@bing_cmd(pattern="songl(?: |$)(.*)")
+@zean_cmd(pattern="songl(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -107,7 +107,7 @@ async def _(event):
         return await event.edit("`Error: `@MusicsHunterBot` is not responding!.`")
 
 
-@bing_cmd(pattern="songf (?:(now)|(.*) - (.*))")
+@zean_cmd(pattern="songf (?:(now)|(.*) - (.*))")
 async def _(event):
     if event.fwd_from:
         return
@@ -151,7 +151,7 @@ async def _(event):
         )
 
 
-@bing_cmd(pattern="vsong(?: |$)(.*)")
+@zean_cmd(pattern="vsong(?: |$)(.*)")
 async def _(event):
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
