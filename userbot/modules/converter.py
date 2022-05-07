@@ -16,10 +16,10 @@ from PIL import Image
 
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
-from userbot.utils import edit_delete, edit_or_reply, bing_cmd, runcmd
+from userbot.utils import edit_delete, edit_or_reply, zean_cmd, runcmd
 
 
-@bing_cmd(pattern="convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
+@zean_cmd(pattern="convert ?(foto|audio|gif|voice|photo|mp3)? ?(.*)")
 async def cevir(event):
     botman = event.pattern_match.group(1)
     try:
@@ -125,7 +125,7 @@ async def cevir(event):
         return
 
 
-@bing_cmd(pattern="makevoice$")
+@zean_cmd(pattern="makevoice$")
 async def makevoice(event):
     if not event.reply_to:
         return await edit_delete(event, "**Mohon Balas Ke Audio atau video**")
