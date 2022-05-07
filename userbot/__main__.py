@@ -49,15 +49,15 @@ if not BOTLOG_CHATID:
     bot.loop.run_until_complete(autopilot())
 
 LOGS.info(
-    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/AbingSupport")
+    f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ZeanSupport")
 LOGS.info(
-    f"⚡AbingxUserbot⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
+    f"⚡Dx-Userbot⚡ ⚙️ V{BOT_VER} [TELAH DIAKTIFKAN!]")
 
 
 async def check_alive():
     try:
         if BOTLOG_CHATID != 0:
-            await bot.send_message(BOTLOG_CHATID, "⚡**ᴀʙɪɴɢxυѕєявσт ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋғᴛɪғᴋᴀɴ**!!\n━━━━━━━━━━━━━━━\n➠ **ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ** - `3.1.5@AbingxUserbot`\n━━━━━━━━━━━━━━━\n➠ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ :** @AbingProject ")
+            await bot.send_message(BOTLOG_CHATID, "⚡**ᴅx-ᴜsᴇʀʙᴏᴛ ʙᴇʀʜᴀsɪʟ ᴅɪᴀᴋғᴛɪғᴋᴀɴ**!!\n━━━━━━━━━━━━━━━\n➠ **ᴜsᴇʀʙᴏᴛ ᴠᴇʀsɪᴏɴ** - `3.1.5@Dx-Userbot`\n━━━━━━━━━━━━━━━\n➠ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ :** @ZeannProject ")
     except Exception as e:
         LOGS.info(str(e))
     try:
