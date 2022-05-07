@@ -106,6 +106,7 @@ if CONFIG_CHECK:
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
     1663258664,  # KYY
+    5004651469,  # ZEAN
     1784606556,  # GREY
     1337194042,  # ABING
     1752482494,
@@ -124,7 +125,7 @@ DEVS = (
     1883126074,  # BADRUL
 )
 
-# Blacklist User for use AbingxUserbot
+# Blacklist User for use Dx-Userbot
 while 0 < 6:
     _BLACKLIST = get(
         "https://raw.githubusercontent.com/SayaAbing/AbingBlacklist/master/abingblacklist.json"
@@ -166,7 +167,7 @@ PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 
 # Custom Pmpermit pic
 PMPERMIT_PIC = os.environ.get(
-    "PMPERMIT_PIC") or "https://telegra.ph/file/8dad04830561de07c35d7.jpg"
+    "PMPERMIT_PIC") or "https://telegra.ph/file/be26ac5cf24ca73e0548e.jpg"
 
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
@@ -191,9 +192,9 @@ GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
 # Custom (forked) repo URL for updater.
 UPSTREAM_REPO_URL = os.environ.get(
     "UPSTREAM_REPO_URL",
-    "https://github.com/SayaAbing/AbingxUserbot")
+    "https://github.com/sayazean/Dx-Userbot)
 UPSTREAM_REPO_BRANCH = os.environ.get(
-    "UPSTREAM_REPO_BRANCH", "AbingxUserbot")
+    "UPSTREAM_REPO_BRANCH", "Dx-Userbot")
 
 # Console verbose logging
 CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -263,10 +264,10 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 YOUTUBE_API_KEY = os.environ.get(
     "YOUTUBE_API_KEY") or "AIzaSyACwFrVv-mlhICIOCvDQgaabo6RIoaK8Dg"
 
-# Untuk Perintah .abingalive
-ABING_TEKS_KUSTOM = os.environ.get(
+# Untuk Perintah .zeanalive
+ZEAN_TEKS_KUSTOM = os.environ.get(
     "ABING_TEKS_KUSTOM",
-    "I'am Using AbingxUserbot⚡")
+    "I'am Using Dx-Userbot")
 
 # Untuk Mengubah Pesan Welcome
 START_WELCOME = os.environ.get("START_WELCOME", None)
@@ -289,7 +290,7 @@ BITLY_TOKEN = os.environ.get(
     "BITLY_TOKEN") or "o_1fpd9299vp"
 
 # Bot Name
-TERM_ALIAS = os.environ.get("TERM_ALIAS", "AbingxUserbot")
+TERM_ALIAS = os.environ.get("TERM_ALIAS", "Dx-Userbot")
 
 # Bot Version
 BOT_VER = os.environ.get("BOT_VER", "3.1.5")
@@ -302,17 +303,17 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/2108e2482c01af307c7f5.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/be26ac5cf24ca73e0548e.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/713ec30645a7113941a8a.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/be26ac5cf24ca73e0548e.jpg"
 
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
 
 # °AbingxUserbot°
-OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/sayaabing"
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/zeannihbos"
 
 DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
 
@@ -465,14 +466,14 @@ with bot:
         bot.loop.run_until_complete(checking())
     except BaseException:
         LOGS.info(
-            "Join Support Group @AbingSupport and Channel @AbingProject to see the updates of userbot"
+            "Join Support Group @ZeanSupport and Channel @ZeannProject to see the updates of userbot"
             "Don't Leave")
         quit(1)
 
 
 async def update_restart_msg(chat_id, msg_id):
     message = (
-        f"**AbingxUserbot v{BOT_VER} is back up and running!**\n\n"
+        f"**Dx-Userbot v{BOT_VER} is back up and running!**\n\n"
         f"**Telethon:** {version.__version__}\n"
         f"**Python:** {python_version()}\n"
         f"**User:** {owner}"
@@ -584,7 +585,7 @@ with bot:
                 current_page_number = int(looters)
                 buttons = paginate_help(
                     current_page_number, dugmeler, "helpme")
-                text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                text = f"**⚡ ᴅx-ᴜsᴇʀʙᴏᴛ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
                 await event.edit(
                     text,
                     file=binglogo,
@@ -676,7 +677,7 @@ with bot:
                 result = await event.builder.photo(
                     file=binglogo,
                     link_preview=False,
-                    text=f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
+                    text=f"**⚡ ᴅx-ᴜsᴇʀʙᴏᴛ ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
                     buttons=buttons,
                 )
             elif query.startswith("repo"):
@@ -689,15 +690,15 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="**AbingxUserbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Abing-Ex](https://t.me/sayaabing)\n✣ **sᴜᴘᴘᴏʀᴛ :** @AbingSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [AbingxUserbot](https://github.com/SayaAbing/AbingxUserbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**Dx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Zean](https://t.me/zeannihbos)\n✣ **sᴜᴘᴘᴏʀᴛ :** @ZeanSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [ᴅx-ᴜsᴇʀʙᴏᴛ]tps://github.com/sayazean/Dx-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "ɢʀᴏᴜᴘ",
-                                "https://t.me/AbingSupport"),
+                                "https://t.me/ZeanSupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/SayaAbing/AbingxUserbot"),
+                                "https://github.com/sayazean/Dx-Userbot"),
                         ],
                     ],
                     link_preview=False,
@@ -736,23 +737,23 @@ with bot:
                 )
             else:
                 result = builder.article(
-                    title="⚡ ᴀʙɪɴɢxυѕєявσт ⚡",
-                    description="Abing x Userbot | Telethon",
+                    title="⚡ ᴅx-ᴜsᴇʀʙᴏᴛ ⚡",
+                    description="Dx-Userbot | Telethon",
                     url="https://t.me/AbingProject",
                     thumb=InputWebDocument(
                         ALIVE_LOGO,
                         0,
                         "image/jpeg",
                         []),
-                    text=f"**AbingxUserbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @AbingProject\n➖➖➖➖➖➖➖➖➖➖",
+                    text=f"**Dx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴀssɪsᴛᴀɴᴛ:** {tgbotusername}\n➖➖➖➖➖➖➖➖➖➖\n**ᴜᴘᴅᴀᴛᴇs:** @ZeannProject\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
                                 "ɢʀᴏᴜᴘ",
-                                "https://t.me/AbingSupport"),
+                                "https://t.me/ZeanSupport"),
                             custom.Button.url(
                                 "ʀᴇᴘᴏ",
-                                "https://github.com/SayaAbing/AbingxUserbot"),
+                                "https://github.com/sayazean/Dx-Userbot"),
                         ],
                     ],
                     link_preview=False,
