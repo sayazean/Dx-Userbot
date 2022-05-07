@@ -453,7 +453,7 @@ async def ungmoot(un_gmute):
         from userbot.modules.sql_helper.gmute_sql import ungmute
     except AttributeError:
         return await edit_or_reply(un_gmute, NO_SQL)
-    cmd = await edit_or_reply(un_gmute, "`Sedang melakukan membuka Global Mute...`")
+    await edit_or_reply(un_gmute, "`Sedang melakukan membuka Global Mute...`")
     user = await get_user_from_event(un_gmute)
     user = user[0]
     if not user:
