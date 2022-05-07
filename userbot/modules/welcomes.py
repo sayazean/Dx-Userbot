@@ -101,7 +101,7 @@ async def welcome_to_chat(event):
             update_previous_welcome(event.chat_id, current_message.id)
 
 
-@bing_cmd(pattern="setwelcome(?: |$)(.*)")
+@zean_cmd(pattern="setwelcome(?: |$)(.*)")
 async def save_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import add_welcome_setting
@@ -137,7 +137,7 @@ async def save_welcome(event):
         await event.edit(success.format('Disini'))
 
 
-@bing_cmd(pattern="checkwelcome$")
+@zean_cmd(pattern="checkwelcome$")
 async def show_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import get_current_welcome_settings
@@ -158,7 +158,7 @@ async def show_welcome(event):
         await event.reply(cws.reply)
 
 
-@bing_cmd(pattern="rmwelcome$")
+@zean_cmd(pattern="rmwelcome$")
 async def del_welcome(event):
     try:
         from userbot.modules.sql_helper.welcome_sql import rm_welcome_setting
