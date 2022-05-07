@@ -5,7 +5,7 @@
 import os
 
 from PIL import Image, ImageDraw, ImageFont
-from userbot.utils import edit_delete, edit_or_reply, text_set
+from userbot.utils import zean_cmd, edit_delete, edit_or_reply, text_set
 from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 
