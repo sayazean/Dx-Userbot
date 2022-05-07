@@ -1,10 +1,10 @@
 from time import sleep
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern="sange$")
+@zean_cmd(pattern="sange$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         e = await edit_or_reply(e, "SAYANGGGGGGGGG 💕")
@@ -53,7 +53,7 @@ async def koc(e):
         await e.edit("AKU SANGE SAYANG💞")
 
 
-@bing_cmd(pattern="orgil(?: |$)(.*)")
+@zean_cmd(pattern="orgil(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     typew = await edit_or_reply(typew, "`ANJING ADA ORANG GILA.....`")
@@ -111,7 +111,7 @@ async def typewriter(typew):
     await typew.edit("`-TAMAT-`")
 
 
-@bing_cmd(pattern="ass(?: |$)(.*)")
+@zean_cmd(pattern="ass(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     typew = await edit_or_reply(typew, "`Salam dulu biar sopan....`")
