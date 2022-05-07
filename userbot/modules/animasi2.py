@@ -13,7 +13,7 @@ import requests
 from cowpy import cow
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 from userbot.modules.admin import get_user_from_event
 
 # ================= CONSTANT =================
@@ -803,12 +803,12 @@ AENJEAYE = """
 # ===========================================
 
 
-@bing_cmd(pattern=r"^\.anjay$")
+@zean_cmd(pattern=r"^\.anjay$")
 async def anjay(njay):
     await edit_or_reply(njay, AENJEAYE)
 
 
-@bing_cmd(pattern=r"^\.(\w+)say (.*)")
+@zean_cmd(pattern=r"^\.(\w+)say (.*)")
 async def univsaye(cowmsg):
     arg = cowmsg.pattern_match.group(1).lower()
     text = cowmsg.pattern_match.group(2)
@@ -823,7 +823,7 @@ async def univsaye(cowmsg):
     await cowmsg.edit(f"`{cheese.milk(text).replace('`', '´')}`")
 
 
-@bing_cmd(pattern="^:/$")
+@zean_cmd(pattern="^:/$")
 async def kek(keks):
     uio = ["/", "\\"]
     for i in range(1, 15):
@@ -831,7 +831,7 @@ async def kek(keks):
         await keks.edit(":" + uio[i % 2])
 
 
-@bing_cmd(pattern=r"^\.coinflip (.*)")
+@zean_cmd(pattern=r"^\.coinflip (.*)")
 async def coin(event):
     r = choice(["heads", "tails"])
     input_str = event.pattern_match.group(1)
@@ -857,7 +857,7 @@ async def coin(event):
             await event.edit("The coin landed on: **Tails**.")
 
 
-@bing_cmd(pattern=r"^\.slap(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.slap(?: |$)(.*)")
 async def who(event):
     replied_user = await get_user_from_event(event)
     if replied_user:
@@ -908,7 +908,7 @@ async def slap(replied_user, event):
     )
 
 
-@bing_cmd(pattern="^-_-$")
+@zean_cmd(pattern="^-_-$")
 async def llol(lel):
     okay = "-_-"
     for _ in range(10):
@@ -916,7 +916,7 @@ async def llol(lel):
         await lel.edit(okay)
 
 
-@bing_cmd(pattern=r"^\.(yes|no|maybe|decide)$")
+@zean_cmd(pattern=r"^\.(yes|no|maybe|decide)$")
 async def decide(event):
     decision = event.pattern_match.group(1).lower()
     message_id = event.reply_to_msg_id if event.reply_to_msg_id else None
@@ -930,7 +930,7 @@ async def decide(event):
     )
 
 
-@bing_cmd(pattern="^;_;$")
+@zean_cmd(pattern="^;_;$")
 async def fun(e):
     t = ";_;"
     for _ in range(10):
@@ -938,22 +938,22 @@ async def fun(e):
         await e.edit(t)
 
 
-@bing_cmd(pattern=r"^\.fp$")
+@zean_cmd(pattern=r"^\.fp$")
 async def facepalm(e):
     await e.edit("🤦‍♂")
 
 
-@bing_cmd(pattern=r"^\.cry$")
+@zean_cmd(pattern=r"^\.cry$")
 async def cry(e):
     await e.edit(choice(CRI))
 
 
-@bing_cmd(pattern=r"^\.insult$")
+@zean_cmd(pattern=r"^\.insult$")
 async def insult(e):
     await e.edit(choice(INSULT_STRINGS))
 
 
-@bing_cmd(pattern=r"^\.cp(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.cp(?: |$)(.*)")
 async def copypasta(cp_e):
     textx = await cp_e.get_reply_message()
     message = cp_e.pattern_match.group(1)
@@ -982,7 +982,7 @@ async def copypasta(cp_e):
     await cp_e.edit(reply_text)
 
 
-@bing_cmd(pattern=r"^\.vapor(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.vapor(?: |$)(.*)")
 async def vapor(vpr):
     reply_text = []
     textx = await vpr.get_reply_message()
@@ -1005,7 +1005,7 @@ async def vapor(vpr):
     await vpr.edit("".join(reply_text))
 
 
-@bing_cmd(pattern=r"^\.str(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.str(?: |$)(.*)")
 async def stretch(stret):
     textx = await stret.get_reply_message()
     message = stret.text
@@ -1025,7 +1025,7 @@ async def stretch(stret):
     await stret.edit(reply_text)
 
 
-@bing_cmd(pattern=r"^\.zal(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.zal(?: |$)(.*)")
 async def zal(zgfy):
     reply_text = []
     textx = await zgfy.get_reply_message()
@@ -1059,12 +1059,12 @@ async def zal(zgfy):
     await zgfy.edit("".join(reply_text))
 
 
-@bing_cmd(pattern=r"^\.hello$")
+@zean_cmd(pattern=r"^\.hello$")
 async def hoi(hello):
     await hello.edit(choice(HELLOSTR))
 
 
-@bing_cmd(pattern=r"^\.owo(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.owo(?: |$)(.*)")
 async def focos(owo):
     textx = await owo.get_reply_message()
     message = owo.pattern_match.group(1)
@@ -1085,7 +1085,7 @@ async def focos(owo):
     await owo.edit(reply_text)
 
 
-@bing_cmd(pattern=r"^\.ii(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.ii(?: |$)(.*)")
 async def faces(ii):
     textx = await ii.get_reply_message()
     message = ii.pattern_match.group(1)
@@ -1104,7 +1104,7 @@ async def faces(ii):
     await ii.edit(reply_text)
 
 
-@bing_cmd(pattern=r"^\.hi$")
+@zean_cmd(pattern=r"^\.hi$")
 async def sayhi(e):
     await e.edit(
         "\n🙋🙋🙋🙋🙋🙋🙋🙋🙋🙋🙋🙋"
@@ -1119,32 +1119,32 @@ async def sayhi(e):
     )
 
 
-@bing_cmd(pattern=r"^\.react$")
+@zean_cmd(pattern=r"^\.react$")
 async def react_meme(react):
     await react.edit(choice(FACEREACTS))
 
 
-@bing_cmd(pattern=r"^\.shg$")
+@zean_cmd(pattern=r"^\.shg$")
 async def shrugger(shg):
     await shg.edit(choice(SHGS))
 
 
-@bing_cmd(pattern=r"^\.chase$")
+@zean_cmd(pattern=r"^\.chase$")
 async def police(chase):
     await chase.edit(choice(CHASE_STR))
 
 
-@bing_cmd(pattern=r"^\.run$")
+@zean_cmd(pattern=r"^\.run$")
 async def runner_lol(run):
     await run.edit(choice(RUNS_STR))
 
 
-@bing_cmd(pattern=r"^\.metoo$")
+@zean_cmd(pattern=r"^\.metoo$")
 async def metoo(hahayes):
     await hahayes.edit(choice(METOOSTR))
 
 
-@bing_cmd(pattern="^Oof$")
+@zean_cmd(pattern="^Oof$")
 async def Oof(e):
     t = "Oof"
     for _ in range(15):
@@ -1152,22 +1152,22 @@ async def Oof(e):
         await e.edit(t)
 
 
-@bing_cmd(pattern=r"^\.10iq$")
+@zean_cmd(pattern=r"^\.10iq$")
 async def iqless(e):
     await e.edit("♿")
 
 
-@bing_cmd(pattern=r"^\.fuck$")
+@zean_cmd(pattern=r"^\.fuck$")
 async def iqbot(e):
     await e.edit("🖕🖕🖕🖕🖕🖕🖕🖕\n🖕🖕🖕🖕🖕🖕🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕🖕🖕🖕🖕\n🖕🖕🖕🖕🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕")
 
 
-@bing_cmd(pattern=r"^\.bye$")
+@zean_cmd(pattern=r"^\.bye$")
 async def iqboot(e):
     await e.edit("Kek thx bye")
 
 
-@bing_cmd(pattern=r"^\.moon$")
+@zean_cmd(pattern=r"^\.moon$")
 async def moon(event):
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
     try:
@@ -1179,7 +1179,7 @@ async def moon(event):
         return
 
 
-@bing_cmd(pattern=r"^\.earth$")
+@zean_cmd(pattern=r"^\.earth$")
 async def earth(event):
     deq = deque(list("🌏🌍🌎🌎🌍🌏🌍🌎"))
     try:
@@ -1191,7 +1191,7 @@ async def earth(event):
         return
 
 
-@bing_cmd(pattern=r"^\.clock$")
+@zean_cmd(pattern=r"^\.clock$")
 async def clock(event):
     deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
     try:
@@ -1203,7 +1203,7 @@ async def clock(event):
         return
 
 
-@bing_cmd(pattern=r"^\.rain$")
+@zean_cmd(pattern=r"^\.rain$")
 async def rain(event):
     deq = deque(list("☀️🌤⛅️🌥☁️🌧⛈"))
     try:
@@ -1215,7 +1215,7 @@ async def rain(event):
         return
 
 
-@bing_cmd(pattern=r"^\.love$")
+@zean_cmd(pattern=r"^\.love$")
 async def love(event):
     deq = deque(list("❤️🧡💛💚💙💜🖤💕💞💓💗💖💘💝"))
     try:
@@ -1227,7 +1227,7 @@ async def love(event):
         return
 
 
-@bing_cmd(pattern=r"^\.mock(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.mock(?: |$)(.*)")
 async def spongemocktext(mock):
     reply_text = []
     textx = await mock.get_reply_message()
@@ -1249,7 +1249,7 @@ async def spongemocktext(mock):
     await mock.edit("".join(reply_text))
 
 
-@bing_cmd(pattern=r"^\.clap(?: |$)(.*)")
+@zean_cmd(pattern=r"^\.clap(?: |$)(.*)")
 async def claptext(memereview):
     textx = await memereview.get_reply_message()
     message = memereview.pattern_match.group(1)
@@ -1265,7 +1265,7 @@ async def claptext(memereview):
     await memereview.edit(reply_text)
 
 
-@bing_cmd(pattern=r"^\.bt$")
+@zean_cmd(pattern=r"^\.bt$")
 async def bluetext(bt_e):
     if await bt_e.get_reply_message() and bt_e.is_group:
         await bt_e.edit(
@@ -1274,7 +1274,7 @@ async def bluetext(bt_e):
         )
 
 
-@bing_cmd(pattern=r"^\.f (.*)")
+@zean_cmd(pattern=r"^\.f (.*)")
 async def payf(event):
     paytext = event.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
@@ -1294,7 +1294,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@bing_cmd(pattern=r"^\.lfy (.*)")
+@zean_cmd(pattern=r"^\.lfy (.*)")
 async def let_me_google_that_for_you(lmgtfy_q):
     textx = await lmgtfy_q.get_reply_message()
     qry = lmgtfy_q.pattern_match.group(1)
@@ -1312,7 +1312,7 @@ async def let_me_google_that_for_you(lmgtfy_q):
     )
 
 
-@bing_cmd(pattern=r"\.scam(?: |$)(.*)")
+@zean_cmd(pattern=r"\.scam(?: |$)(.*)")
 async def scam(event):
     options = [
         "typing",
@@ -1353,7 +1353,7 @@ async def scam(event):
         return
 
 
-@bing_cmd(pattern=r"\.type(?: |$)(.*)")
+@zean_cmd(pattern=r"\.type(?: |$)(.*)")
 async def typewriter(typew):
     textx = await typew.get_reply_message()
     message = typew.pattern_match.group(1)
@@ -1377,13 +1377,13 @@ async def typewriter(typew):
         await sleep(sleep_time)
 
 
-@bing_cmd(pattern=r"^\.leave$")
+@zean_cmd(pattern=r"^\.leave$")
 async def leave(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e, "`You must Leaving dis Group kek!`")
 
 
-@bing_cmd(pattern=r"^\.fail$")
+@zean_cmd(pattern=r"^\.fail$")
 async def fail(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e,
@@ -1394,7 +1394,7 @@ async def fail(e):
                             )
 
 
-@bing_cmd(pattern=r"^\.lolz$")
+@zean_cmd(pattern=r"^\.lolz$")
 async def leol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e,
@@ -1405,7 +1405,7 @@ async def leol(e):
                             )
 
 
-@bing_cmd(pattern=r"^\.lool$")
+@zean_cmd(pattern=r"^\.lool$")
 async def lool(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1415,7 +1415,7 @@ async def lool(e):
         )
 
 
-@bing_cmd(pattern=r"^\.stfu$")
+@zean_cmd(pattern=r"^\.stfu$")
 async def stfu(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1431,7 +1431,7 @@ async def stfu(e):
         )
 
 
-@bing_cmd(pattern=r"^\.gtfo$")
+@zean_cmd(pattern=r"^\.gtfo$")
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1447,7 +1447,7 @@ async def gtfo(e):
         )
 
 
-@bing_cmd(pattern=r"^\.nih$")
+@zean_cmd(pattern=r"^\.nih$")
 async def nih(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e,
@@ -1461,7 +1461,7 @@ async def nih(e):
                             )
 
 
-@bing_cmd(pattern=r"^\.fag$")
+@zean_cmd(pattern=r"^\.fag$")
 async def fgtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1475,25 +1475,25 @@ async def fgtfo(e):
         )
 
 
-@bing_cmd(pattern=r"^\.taco$")
+@zean_cmd(pattern=r"^\.taco$")
 async def taco(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(r"{\__/}" "\n(●_●)" "\n( >🌮 Want a taco?")
 
 
-@bing_cmd(pattern=r"^\.paw$")
+@zean_cmd(pattern=r"^\.paw$")
 async def paw(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`(=ↀωↀ=)")
 
 
-@bing_cmd(pattern=r"^\.tf$")
+@zean_cmd(pattern=r"^\.tf$")
 async def tf(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("(̿▀̿ ̿Ĺ̯̿̿▀̿ ̿)̄  ")
 
 
-@bing_cmd(pattern=r"^\.gey$")
+@zean_cmd(pattern=r"^\.gey$")
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1504,7 +1504,7 @@ async def gey(e):
         )
 
 
-@bing_cmd(pattern=r"^\.gay$")
+@zean_cmd(pattern=r"^\.gay$")
 async def ghey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await edit_or_reply(e,
@@ -1515,7 +1515,7 @@ async def ghey(e):
                             )
 
 
-@bing_cmd(pattern=r"^\.bot$")
+@zean_cmd(pattern=r"^\.bot$")
 async def bot(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1524,7 +1524,7 @@ async def bot(e):
         )
 
 
-@bing_cmd(pattern=r"^\.hey$")
+@zean_cmd(pattern=r"^\.hey$")
 async def hey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1534,7 +1534,7 @@ async def hey(e):
         )
 
 
-@bing_cmd(pattern=r"^\.nou$")
+@zean_cmd(pattern=r"^\.nou$")
 async def nou(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit(
@@ -1545,7 +1545,7 @@ async def nou(e):
         )
 
 
-@bing_cmd(pattern=r"^\.koc$")
+@zean_cmd(pattern=r"^\.koc$")
 async def koc(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("8✊===D")
@@ -1569,7 +1569,7 @@ async def koc(e):
         await e.edit(choice(FACEREACTS))
 
 
-@bing_cmd(pattern=r"^\.(?:penis|dick)\s?(.)?")
+@zean_cmd(pattern=r"^\.(?:penis|dick)\s?(.)?")
 async def emoji_penis(e):
     emoji = e.pattern_match.group(1)
     titid = GAMBAR_TITIT
