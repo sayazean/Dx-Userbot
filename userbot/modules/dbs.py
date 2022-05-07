@@ -23,5 +23,5 @@ async def amireallydbs(dbs):
     await dbs.edit(""
                    f"**User :** `{owner}` \n"
                    f"**Status Database:** `{db}`\n"
-                   f"**AbingxUserbot :** `{BOT_VER}`"
+                   f"**Dx-Userbot :** `{BOT_VER}`"
                    "")
