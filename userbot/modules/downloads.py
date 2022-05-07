@@ -12,11 +12,11 @@ from youtube_dl.utils import (ContentTooShortError, DownloadError,
                               UnavailableVideoError, XAttrMetadataError)
 from youtubesearchpython import SearchVideos
 
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 from userbot import CMD_HELP, owner, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="song (.*)")
+@zean_cmd(pattern="song (.*)")
 async def download_video(event):
     a = event.text
     if len(a) >= 5 and a[5] == "s":
@@ -122,7 +122,7 @@ Connected to server...
         pass
 
 
-@bing_cmd(pattern="vsongs (.*)")
+@zean_cmd(pattern="vsongs (.*)")
 async def download_vsong(event):
     x = await edit_or_reply(event, "Processing..")
     url = event.pattern_match.group(1)
@@ -197,12 +197,12 @@ async def download_vsong(event):
     await x.delete()
 
 
-@bing_cmd(pattern="lirik (.*)")
+@zean_cmd(pattern="lirik (.*)")
 async def original(event):
     if not event.pattern_match.group(1):
         return await edit_or_reply(event, "Beri Saya Sebuah Judul Lagu Untuk Mencari Lirik.\n**Contoh** : `{cmd}lirik` <Judul Lagu>")
-    bing = event.pattern_match.group(1)
-    bing = await edit_or_reply(event, "`Sedang Mencari Lirik Lagu...`")
+    zean = event.pattern_match.group(1)
+    zean = await edit_or_reply(event, "`Sedang Mencari Lirik Lagu...`")
     dc = random.randrange(1, 3)
     if dc == 1:
         piki = "AIzaSyAyDBsY3WRtB5YPC6aB_w8JAy6ZdXNc6FU"
@@ -214,7 +214,7 @@ async def original(event):
     sh1vm = extract_lyrics.get_lyrics(f"{geez}")
     a7ul = sh1vm["lyrics"]
     await event.client.send_message(event.chat_id, a7ul, reply_to=event.reply_to_msg_id)
-    await bing.delete()
+    await zean.delete()
 
 
 CMD_HELP.update(
