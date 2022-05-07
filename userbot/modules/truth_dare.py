@@ -3,16 +3,16 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern="truth(?: |$)(.*)")
+@zean_cmd(pattern="truth(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "Mengirim pesan truth...")
     async with bot.conversation("@truthordares_bot") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=1335899453)
+                events.NewMessage(incoming=True, from_users=5004651469)
             )
             await conv.send_message("/truth")
             response = await response
@@ -23,13 +23,13 @@ async def _(event):
         await xx.edit(f"**Pesan truth**\n\n{response.message.message}")
 
 
-@bing_cmd(pattern="dare(?: |$)(.*)")
+@zean_cmd(pattern="dare(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "Mengirim pesan dare...")
     async with bot.conversation("@truthordares_bot") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=1335899453)
+                events.NewMessage(incoming=True, from_users=5004651469)
             )
             await conv.send_message("/dare")
             response = await response
@@ -40,13 +40,13 @@ async def _(event):
         await xx.edit(f"**Pesan dare**\n\n{response.message.message}")
 
 
-@bing_cmd(pattern="spill(?: |$)(.*)")
+@zean_cmd(pattern="spill(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "Mengirim pesan spill...")
     async with bot.conversation("@Spillgame_bot") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=1361222893)
+                events.NewMessage(incoming=True, from_users=5004651469)
             )
             await conv.send_message("/spill")
             response = await response
