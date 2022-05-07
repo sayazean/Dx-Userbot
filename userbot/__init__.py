@@ -105,9 +105,9 @@ if CONFIG_CHECK:
 
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
-    1663258664,  # KYY
-    1784606556,  # GREY
-    1337194042,  # ABING
+    1663258664,  #KYY
+    1784606556,  #GREY
+    1337194042,  #ABING
     1752482494,
     2138370470,
     1977874449,
@@ -121,8 +121,7 @@ DEVS = (
     1224143544,
     2010825200,
     860951678,
-    1883126074,  # BADRUL
-    1301786815,  # LUCIFER PREND
+    1883126074,  #BADRUL
 )
 
 # Blacklist User for use AbingxUserbot
@@ -303,14 +302,17 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 
 # Default .alive Logo
 ALIVE_LOGO = os.environ.get(
-    "ALIVE_LOGO") or "https://telegra.ph/file/d87a38d4e2073b715c1ac.jpg"
+    "ALIVE_LOGO") or "https://telegra.ph/file/2108e2482c01af307c7f5.jpg"
 
 # Default .helpme Logo
 INLINE_PIC = os.environ.get(
-    "INLINE_PIC") or "https://telegra.ph/file/0cd11ff20e64122452d49.jpg"
+    "INLINE_PIC") or "https://telegra.ph/file/713ec30645a7113941a8a.jpg"
 
 # Default emoji help
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
+
+# °AbingxUserbot°
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/sayaabing"
 
 DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
 
@@ -538,13 +540,11 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "⪻", data="{}_prev({})".format(prefix, modulo_page)
+                    "««", data="{}_prev({})".format(prefix, modulo_page)
                 ),
+                custom.Button.inline("Tutup", b"close"),
                 custom.Button.inline(
-                    "ʙᴀᴄᴋ", data="{}_close({})".format(prefix, modulo_page)
-                ),
-                custom.Button.inline(
-                    "⪼", data="{}_next({})".format(prefix, modulo_page)
+                    "»»", data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
@@ -571,26 +571,29 @@ with bot:
         user = bot.get_me()
         uid = user.id
         owner = user.first_name
-        asst = tgbot.get_me()
-        botusername = asst.username
         logo = ALIVE_LOGO
-        binglogo = INLINE_PIC
-        cmd = CMD_HANDLER
+        binglogo = ALIVE_LOGO
         tgbotusername = BOT_USERNAME
         BTN_URL_REGEX = re.compile(
             r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)"
         )
 
-        main_help_button = [
-            [
-                Button.inline("ᴍᴏᴅᴜʟᴇs 📖", data="reopen"),
-                Button.inline("ᴠᴄ ᴍᴇɴᴜ 🖇️", data="bing_inline"),
-            ],
-            [
-                Button.url("sᴇᴛᴛɪɴɢs 🔧", f"t.me/{botusername}"),
-            ],
-            [Button.inline("ʙᴀᴄᴋ", data="close")],
-        ]
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(rb"reopen")))
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
+                current_page_number = int(looters)
+                buttons = paginate_help(
+                    current_page_number, dugmeler, "helpme")
+                text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
+                await event.edit(
+                    text,
+                    file=binglogo,
+                    buttons=buttons,
+                    link_preview=False,
+                )
+            else:
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
+                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
         @tgbot.on(events.NewMessage(incoming=True,
                   func=lambda e: e.is_private))
@@ -663,38 +666,18 @@ with bot:
                                 f"**ERROR:** Saat menyimpan detail pesan di database\n`{e}`",
                             )
 
-        @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"reopen")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                buttons = paginate_help(0, dugmeler, "helpme")
-                text = f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**"
-                await event.edit(
-                    text,
-                    file=binglogo,
-                    buttons=buttons,
-                    link_preview=False,
-                )
-            else:
-                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
         @tgbot.on(events.InlineQuery)
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith(
-                    "@AbingxUserbot"):
+            if event.query.user_id == uid and query.startswith("@KyyUserbot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
                 result = await event.builder.photo(
                     file=binglogo,
                     link_preview=False,
                     text=f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**",
-                    buttons=main_help_button,
+                    buttons=buttons,
                 )
             elif query.startswith("repo"):
                 result = builder.article(
@@ -702,7 +685,7 @@ with bot:
                     description="Repository Abing x Userbot",
                     url="https://t.me/AbingSupport",
                     thumb=InputWebDocument(
-                        INLINE_PIC,
+                        ALIVE_LOGO,
                         0,
                         "image/jpeg",
                         []),
@@ -757,7 +740,7 @@ with bot:
                     description="Abing x Userbot | Telethon",
                     url="https://t.me/AbingProject",
                     thumb=InputWebDocument(
-                        INLINE_PIC,
+                        ALIVE_LOGO,
                         0,
                         "image/jpeg",
                         []),
@@ -796,143 +779,17 @@ with bot:
                 )
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
-        @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"helpme_close\((.+?)\)")
-            )
-        )
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
         async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @AbingxUserbot
-                # https://t.me/TelethonChat/115200
+            if event.query.user_id == uid or event.query.user_id in DEVS and SUDO_USERS:
+                openlagi = custom.Button.inline(
+                    "• Re-Open Menu •", data="reopen")
                 await event.edit(
-                    file=binglogo,
-                    link_preview=True,
-                    buttons=main_help_button)
-
-        @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"gcback")
-            )
-        )
-        async def gback_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:  # @AbingxUserbot
-                # https://t.me/TelethonChat/115200
-                text = (
-                    f"**⚡ ᴀʙɪɴɢxυѕєявσт ɪɴʟɪɴᴇ ᴍᴇɴᴜ ⚡**\n\n✣ **ᴏᴡɴᴇʀ :** [{user.first_name}](tg://user?id={user.id})\n✣ **ᴊᴜᴍʟᴀʜ** `{len(dugmeler)}` **Modules**")
-                await event.edit(
-                    text,
-                    file=binglogo,
-                    link_preview=True,
-                    buttons=main_help_button)
-
-        @tgbot.on(events.CallbackQuery(data=b"bing_inline"))
-        async def about(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                await event.edit(f"""
-Voice chat group menu untuk {owner}
-""",
-                                 buttons=[
-                                     [
-                                         Button.inline("ᴠᴄ ᴘʟᴜɢɪɴ ⚙️",
-                                                       data="vcplugin"),
-                                         Button.inline("ᴠᴄ ᴛᴏᴏʟs ⚙️",
-                                                       data="vctools")],
-                                     [custom.Button.inline(
-                                         "ʙᴀᴄᴋ", data="gcback")],
-                                 ]
-                                 )
+                    "⚜️ **ʜᴇʟᴘ ᴍᴏᴅᴇ ʙᴜᴛᴛᴏɴ ᴅɪᴛᴜᴛᴜᴘ!** ⚜️", buttons=openlagi
+                )
             else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
+                reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"vcplugin")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                text = (
-                    f"""
-✘ **Commands available in vcplugin** ✘
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}play` <Judul Lagu/Link YT>
-  ↳ : Untuk Memutar Lagu di voice chat group dengan akun kamu
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vplay` <Judul Video/Link YT>
-  ↳ : Untuk Memutar Video di voice chat group dengan akun kamu
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}end`
-  ↳ : Untuk Memberhentikan video/lagu yang sedang putar di voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}skip`
-  ↳ : Untuk Melewati video/lagu yang sedang di putar
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}pause`
-  ↳ : Untuk memberhentikan video/lagu yang sedang diputar
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}resume`
-  ↳ : Untuk melanjutkan pemutaran video/lagu yang sedang diputar
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}volume` 1-200
-  ↳ : Untuk mengubah volume (Membutuhkan Hak admin)
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}playlist`
-  ↳ : Untuk menampilkan daftar putar Lagu/Video
-""")
-                await event.edit(
-                    text,
-                    file=binglogo,
-                    link_preview=True,
-                    buttons=[Button.inline("ʙᴀᴄᴋ", data="bing_inline")])
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @tgbot.on(
-            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(rb"vctools")
-            )
-        )
-        async def on_plug_in_callback_query_handler(event):
-            if event.query.user_id == uid or event.query.user_id in SUDO_USERS:
-                text = (
-                    f"""
-✘ **Commands available in vctools** ✘
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}startvc`
-  ↳ : Untuk Memulai voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}stopvc`
-  ↳ : Untuk Memberhentikan voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vctitle` <title vcg>
-  ↳ : Untuk Mengubah title/judul voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}vcinvite`
-  ↳ : Mengundang Member group ke voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}joinvc`
-  ↳ : Melakukan Fake voice chat group
-
-  𝘾𝙤𝙢𝙢𝙖𝙣𝙙 : `{cmd}leavevc`
-  ↳ : Memberhentikan Fake voice chat group
-""")
-                await event.edit(
-                    text,
-                    file=binglogo,
-                    link_preview=True,
-                    buttons=[Button.inline("ʙᴀᴄᴋ", data="bing_inline")])
-            else:
-                reply_pop_up_alert = f"❌ DISCLAIMER ❌\n\nAnda Tidak Mempunyai Hak Untuk Menekan Tombol Button Ini"
-                await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
-
-        @tgbot.on(events.CallbackQuery(data=b"close"))
-        async def close(event):
-            buttons = [
-                (custom.Button.inline("ᴍᴀɪɴ ᴍᴇɴᴜ", data="gcback"),),
-            ]
-            await event.edit("**ᴍᴇɴᴜ ᴅɪᴛᴜᴛᴜᴘ!**", file=binglogo, buttons=buttons)
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(
@@ -966,6 +823,7 @@ Voice chat group menu untuk {owner}
                         + modul_name
                         + " "
                     )
+
                 else:
                     help_string = (str(CMD_HELP[modul_name]).replace(
                         "`", "").replace("**", ""))
@@ -978,9 +836,8 @@ Voice chat group menu untuk {owner}
                     )
                 )
                 await event.edit(
-                    reply_pop_up_alert, buttons=[Button.inline("ʙᴀᴄᴋ", data="reopen")]
+                    reply_pop_up_alert, buttons=[Button.inline("Back", data="reopen")]
                 )
-
             else:
                 reply_pop_up_alert = f"Kamu Tidak diizinkan, ini Userbot Milik {owner}"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
