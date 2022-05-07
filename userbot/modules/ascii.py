@@ -12,12 +12,12 @@ from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import DocumentAttributeFilename
 
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 bground = "black"
 
 
-@bing_cmd(pattern="(ascii|asciis)$")
+@zean_cmd(pattern="(ascii|asciis)$")
 async def ascii(event):
     if not event.reply_to_msg_id:
         await event.edit("`Mohon Balas Ke Media..`")
@@ -124,7 +124,7 @@ async def random_color():
     return color
 
 
-@bing_cmd(pattern="asciibg(?: |$)(.*)")
+@zean_cmd(pattern="asciibg(?: |$)(.*)")
 async def _(event):
     BG = event.pattern_match.group(1)
     if BG.isnumeric():
