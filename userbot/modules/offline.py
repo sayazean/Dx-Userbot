@@ -22,7 +22,7 @@ from userbot import (  # noqa pylint: disable=unused-import isort:skip
     bot,
 )
 from userbot import CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 global USER_AFK
 global afk_time
@@ -136,7 +136,7 @@ async def on_afk(event):
             pass
 
 
-@bing_cmd(pattern="off(?: |$)(.*)")  # pylint:disable=E0602
+@zean_cmd(pattern="off(?: |$)(.*)")  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
