@@ -1,8 +1,8 @@
-from userbot.utils import edit_delete, edit_or_reply, bing_cmd
+from userbot.utils import edit_delete, edit_or_reply, zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="(?:dm)\\s?(.*)?")
+@zean_cmd(pattern="(?:dm)\\s?(.*)?")
 async def remoteaccess(event):
 
     p = event.pattern_match.group(1)
