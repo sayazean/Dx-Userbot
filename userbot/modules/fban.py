@@ -1,10 +1,10 @@
 from sqlalchemy.exc import IntegrityError
 
 from userbot import CMD_HELP, bot, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 
-@bing_cmd(pattern="fban(?: |$)(.*)")
+@zean_cmd(pattern="fban(?: |$)(.*)")
 async def fban(event):
     """Bans a user from connected federations."""
     try:
@@ -28,7 +28,7 @@ async def fban(event):
 
     if event.sender_id == fban_id:
         return await event.edit(
-            "**Error: This action has been prevented by AbingBot self preservation protocols.**"
+            "**Error: This action has been prevented by DxBot self preservation protocols.**"
         )
 
     if len((fed_list := get_flist())) == 0:
@@ -75,7 +75,7 @@ async def fban(event):
     )
 
 
-@bing_cmd(pattern="unfban(?: |$)(.*)")
+@zean_cmd(pattern="unfban(?: |$)(.*)")
 async def unfban(event):
     """Unbans a user from connected federations."""
     try:
@@ -144,7 +144,7 @@ async def unfban(event):
     )
 
 
-@bing_cmd(pattern="addf(?: |$)(.*)")
+@zean_cmd(pattern="addf(?: |$)(.*)")
 async def addf(event):
     """Adds current chat to connected federations."""
     try:
@@ -165,7 +165,7 @@ async def addf(event):
     await event.edit("**Added this group to federations list!**")
 
 
-@bing_cmd(pattern="delf$")
+@zean_cmd(pattern="delf$")
 async def delf(event):
     """Removes current chat from connected federations."""
     try:
@@ -177,7 +177,7 @@ async def delf(event):
     await event.edit("**Removed this group from federations list!**")
 
 
-@bing_cmd(pattern="listf$")
+@zean_cmd(pattern="listf$")
 async def listf(event):
     """List all connected federations."""
     try:
@@ -196,7 +196,7 @@ async def listf(event):
     await event.edit(msg)
 
 
-@bing_cmd(pattern="clearf$")
+@zean_cmd(pattern="clearf$")
 async def delf(event):
     """Removes all chats from connected federations."""
     try:
