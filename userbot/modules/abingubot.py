@@ -1,15 +1,15 @@
-# Copyright (C) 2021 Abing x Userbot
+# Copyright (C) 2021 Dx-Userbot
 # Created by Kyy
 # Jangan hapus credit Anj!!!
-# Recode By Abing
+# Recode By Zean
 
 
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern="sadboy(?: |$)(.*)")
+@zean_cmd(pattern="sadboy(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(2)
@@ -23,7 +23,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@bing_cmd(pattern="lahk(?: |$)(.*)")
+@zean_cmd(pattern="lahk(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`Lahk, Lo tolol?`")
@@ -35,7 +35,7 @@ async def typewriter(typew):
     await xnxx.edit("`Gua ga ketrigger sama bocah baru nyemplung!`")
 
 
-@bing_cmd(pattern="sok(?: |$)(.*)")
+@zean_cmd(pattern="sok(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1.5)
@@ -50,7 +50,7 @@ async def typewriter(typew):
     await xnxx.edit("**GA KEREN LO BEGITU NGENTOT**")
 
 
-@bing_cmd(pattern="wah(?: |$)(.*)")
+@zean_cmd(pattern="wah(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`Wahh, War nya keren bang`")
@@ -68,7 +68,7 @@ async def typewriter(typew):
     await xnxx.edit("`Dah sana cabut, Makasih hiburannya, Udah bikin Gua tawa ngakak`")
 
 
-@bing_cmd(pattern="alay(?: |$)(.*)")
+@zean_cmd(pattern="alay(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -83,7 +83,7 @@ async def typewriter(typew):
     await xnxx.edit("pantes **NORAK**")
 
 
-@bing_cmd(pattern="erpe(?: |$)(.*)")
+@zean_cmd(pattern="erpe(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
@@ -106,7 +106,7 @@ async def typewriter(typew):
     await xnxx.edit("Lari Ada Plastik KePanasan")
 
 
-@bing_cmd(pattern="ange(?: |$)(.*)")
+@zean_cmd(pattern="ange(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "`Ayanggggg😖`")
@@ -116,7 +116,7 @@ async def typewriter(typew):
     await xnxx.edit("`Ayukkk Ewean Ayanggg🤤`")
 
 
-@bing_cmd(pattern="virtual(?: |$)(.*)")
+@zean_cmd(pattern="virtual(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "**OOOO**")
@@ -138,7 +138,7 @@ async def typewriter(typew):
     await xnxx.edit("**KASIAN MANA MASIH MUDA**")
 
 
-@bing_cmd(pattern="tittle(?: |$)(.*)")
+@zean_cmd(pattern="tittle(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     xnxx = await edit_or_reply(typew, "**OI ANAK TITLE**")
@@ -177,7 +177,7 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "bingubot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
+    "zeanubot": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sadboy`\
     \n↳ : Biasalah sadboy hikss\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}wah`\
     \n↳ : Ngatain orang war\
