@@ -6,12 +6,12 @@
 """ Userbot module containing commands for keeping notes. """
 
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot.events import register
 from asyncio import sleep
 
 
-@bing_cmd(pattern="notes$")
+@zean_cmd(pattern="notes$")
 async def notes_active(svd):
     """ For .notes command, list all of the notes saved in a chat. """
     try:
@@ -29,7 +29,7 @@ async def notes_active(svd):
     await edit_or_reply(svd, message)
 
 
-@bing_cmd(pattern="clear (\\w*)")
+@zean_cmd(pattern="clear (\\w*)")
 async def remove_notes(clr):
     """ For .clear command, clear note with the given name."""
     try:
@@ -44,7 +44,7 @@ async def remove_notes(clr):
                                    "`Successfully deleted note:` **{}**".format(notename))
 
 
-@bing_cmd(pattern="save (\\w*)")
+@zean_cmd(pattern="save (\\w*)")
 async def add_note(fltr):
     """ For .save command, saves notes in a chat. """
     try:
@@ -113,7 +113,7 @@ async def incom_note(getnt):
         pass
 
 
-@bing_cmd(pattern="rmbotnotes (.*)")
+@zean_cmd(pattern="rmbotnotes (.*)")
 async def kick_marie_notes(kick):
     """ For .rmbotnotes command, allows you to kick all \
         Marie(or her clones) notes from a chat. """
