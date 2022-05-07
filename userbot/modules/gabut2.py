@@ -3,19 +3,19 @@ from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.utils import bing_cmd
 
 
-@bing_cmd(pattern='Abing(?: |$)(.*)')
+@zean_cmd(pattern='Zean(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
-    await typew.edit("`Hai Perkenalkan Namaku Abing`")
+    await typew.edit("`Hai Perkenalkan Namaku Zean`")
     sleep(3)
-    await typew.edit("`10 Tahun`")
+    await typew.edit("`Umur Ku Ga Ada Yang Tau`")
     sleep(1)
     await typew.edit("`Tinggal Di Jakarta, Salam Kenal:)`")
 # Create by myself @localheart
 
 
-@bing_cmd(pattern='sayang(?: |$)(.*)')
+@zean_cmd(pattern='sayang(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -27,7 +27,7 @@ async def typewriter(typew):
 # Create by myself @localheart
 
 
-@bing_cmd(pattern='semangat(?: |$)(.*)')
+@zean_cmd(pattern='semangat(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(3)
@@ -40,8 +40,8 @@ async def typewriter(typew):
 
 
 CMD_HELP.update({
-    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Abing`\
-    \n↳ : perkenalan Abing\
+    "oi": f"𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}Zean`\
+    \n↳ : perkenalan Zean\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}sayang`\
     \n↳ : Gombalan maut`\
     \n\n𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `{cmd}semangat`\
