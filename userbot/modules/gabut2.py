@@ -1,6 +1,6 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-
+from userbot.utils import zean_cmd
 
 @zean_cmd(pattern='Zean(?: |$)(.*)')
 async def typewriter(typew):
