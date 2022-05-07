@@ -1,11 +1,11 @@
 import os
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot import bot, TEMP_DOWNLOAD_DIRECTORY, CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern='kamuii(:? |$)([1-8])?')
+@zean_cmd(pattern='kamuii(:? |$)([1-8])?')
 async def _(fry):
     await fry.edit("`Prosess, Mengaktifkan jurus tumor bolong...😜`")
     level = fry.pattern_match.group(2)
@@ -67,7 +67,7 @@ async def _(fry):
     return os.remove(downloaded_file_name)
 
 
-@bing_cmd(pattern='df(:? |$)([1-8])?')
+@zean_cmd(pattern='df(:? |$)([1-8])?')
 async def _(fry):
     await fry.edit("`Sedang Dalam Proses......`")
     level = fry.pattern_match.group(2)
