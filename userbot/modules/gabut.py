@@ -1,29 +1,29 @@
 from userbot import owner, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 
-@bing_cmd(pattern="p(?: |$)(.*)")
+@zean_cmd(pattern="p(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Salam
 
 
-@bing_cmd(pattern="l(?: |$)(.*)")
+@zean_cmd(pattern="l(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("`وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ`")
 # Menjawab Salam
 
 
-@bing_cmd(pattern="istigfar(?: |$)(.*)")
+@zean_cmd(pattern="istigfar(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit("`اَسْتَغْفِرُاللهَ الْعَظِيْم`")
 # Istigfar
 
 
-@bing_cmd(pattern="perkenalan(?: |$)(.*)")
+@zean_cmd(pattern="perkenalan(?: |$)(.*)")
 async def perkenalan(event):
     event.pattern_match.group(1)
     await event.edit(f"`Hai Guys , Perkenalkan Nama Gw {owner}`")
