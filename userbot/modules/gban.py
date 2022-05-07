@@ -5,7 +5,7 @@ from telethon.tl.types import MessageEntityMentionName
 from userbot import owner, CMD_HELP, DEVS, bot
 from userbot import CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
 async def get_full_user(event):
@@ -36,7 +36,7 @@ async def get_full_user(event):
             user_obj = await event.client.get_entity(user)
         except Exception as err:
             return await event.edit(
-                "`Terjadi Kesalahan... Mohon Lapor Ke` @sayaabing", str(err)
+                "`Terjadi Kesalahan... Mohon Lapor Ke` @zeannihbos", str(err)
             )
     return user_obj, extra
 
@@ -82,7 +82,7 @@ async def handler(tele):
                             return
 
 
-@bing_cmd(pattern="gban(?: |$)(.*)")
+@zean_cmd(pattern="gban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgban(?: |$)(.*)")
 async def gben(userbot):
     dc = userbot
@@ -151,7 +151,7 @@ async def gben(userbot):
     )
 
 
-@bing_cmd(pattern="ungban(?: |$)(.*)")
+@zean_cmd(pattern="ungban(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cungban(?: |$)(.*)")
 async def gunben(userbot):
     dc = userbot
