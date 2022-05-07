@@ -7,7 +7,7 @@
 import os
 import lyricsgenius
 
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot import CMD_HELP, GENIUS, lastfm, LASTFM_USERNAME
 from userbot import CMD_HANDLER as cmd
 from pylast import User
@@ -16,7 +16,7 @@ if GENIUS is not None:
     genius = lyricsgenius.Genius(GENIUS)
 
 
-@bing_cmd(pattern="lyrics (?:(now)|(.*) - (.*))")
+@zean_cmd(pattern="lyrics (?:(now)|(.*) - (.*))")
 async def lyrics(lyric):
     xx = await edit_or_reply(lyrics, "`Getting information...`")
     if GENIUS is None:
