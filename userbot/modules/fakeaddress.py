@@ -2,13 +2,13 @@ import json
 import urllib.request
 
 
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
 # Port By @VckyouuBitch From GeezProject
 # Buat Kamu Yang Hapus Credits. Intinya Kamu Anjing:)
-@bing_cmd(pattern="ip(?: |$)(.*)")
+@zean_cmd(pattern="ip(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
         return
