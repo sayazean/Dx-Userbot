@@ -4,11 +4,11 @@ import asyncio
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 #from userbot.utils import admin_cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot import owner, CMD_HELP, bot, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="fgban(?: |$)(.*)")
+@zean_cmd(pattern="fgban(?: |$)(.*)")
 async def gbun(event):
     if event.fwd_from:
         return
