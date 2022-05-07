@@ -9,7 +9,7 @@ from telethon.tl.types import (
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 
 from userbot.events import register
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot import owner, DEVS, CMD_HELP, CMD_HANDLER as cmd
 
 
@@ -59,7 +59,7 @@ except BaseException:
     client2 = client3 = None
 
 
-@bing_cmd(pattern="gkick(?: |$)(.*)")
+@zean_cmd(pattern="gkick(?: |$)(.*)")
 @register(incoming=True, from_users=DEVS, pattern=r"^\.cgkick")
 async def gspide(rk):
     lazy = rk
