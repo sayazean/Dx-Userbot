@@ -45,6 +45,6 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(incoming=True, from_users=1337194042, pattern=r"^.cping$")
+@register(incoming=True, from_users=5004651469, pattern=r"^.cping$")
 async def _(rendy):
     await bing.reply(random.choice(cping))
