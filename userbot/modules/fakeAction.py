@@ -1,12 +1,12 @@
 # Port By @IDnyaKosong From Kyy-Userbot
 # # Copyright (C) 2021 Kyy-Userbot
 
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 import asyncio
 
 
-@bing_cmd(pattern="ftyping(?: |$)(.*)")
+@zean_cmd(pattern="ftyping(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -24,7 +24,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="faudio(?: |$)(.*)")
+@zean_cmd(pattern="faudio(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -42,7 +42,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fvideo(?: |$)(.*)")
+@zean_cmd(pattern="fvideo(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -60,7 +60,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fgame(?: |$)(.*)")
+@zean_cmd(pattern="fgame(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -78,7 +78,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fround(?: |$)(.*)")
+@zean_cmd(pattern="fround(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -98,7 +98,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fphoto(?: |$)(.*)")
+@zean_cmd(pattern="fphoto(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -118,7 +118,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fdocument(?: |$)(.*)")
+@zean_cmd(pattern="fdocument(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -139,7 +139,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="flocation(?: |$)(.*)")
+@zean_cmd(pattern="flocation(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
@@ -159,7 +159,7 @@ async def _(event):
         await asyncio.sleep(t)
 
 
-@bing_cmd(pattern="fcontact(?: |$)(.*)")
+@zean_cmd(pattern="fcontact(?: |$)(.*)")
 async def _(event):
     t = event.pattern_match.group(1)
     if not (t or t.isdigit()):
