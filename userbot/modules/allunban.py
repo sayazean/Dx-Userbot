@@ -2,11 +2,11 @@ from telethon.tl.types import (
     ChannelParticipantsKicked,
 )
 
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="allunban(?: |$)(.*)")
+@zean_cmd(pattern="allunban(?: |$)(.*)")
 async def _(event):
     xx = await edit_or_reply(event, "`Sedang Mencari List Banning.`")
     p = 0
