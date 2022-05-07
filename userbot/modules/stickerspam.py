@@ -10,11 +10,11 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, CMD_HANDLER as cmd
 
 
-@bing_cmd(pattern="sspam(?: |$)(.*)")
+@zean_cmd(pattern="sspam(?: |$)(.*)")
 async def stickerpack_spam(event):
     if event.fwd_from:
         return
@@ -26,10 +26,10 @@ async def stickerpack_spam(event):
     hmm = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     try:
         stickerset_attr = reply.document.attributes[1]
-        bing = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
+        zean = await edit_or_reply(event, "`Fetching details of the sticker pack, please wait..`"
                                    )
     except BaseException:
-        await bing.edit("`This is not a sticker. Reply to a sticker.`", 5)
+        await zean.edit("`This is not a sticker. Reply to a sticker.`", 5)
         return
     try:
         get_stickerset = await event.client(
@@ -41,7 +41,7 @@ async def stickerpack_spam(event):
             )
         )
     except Exception:
-        return await bing.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
+        return await zean.edit("`I guess this sticker is not part of any pack so i cant kang this sticker pack try kang for this sticker`",
                                )
     try:
         hmm = Get(hmm)
