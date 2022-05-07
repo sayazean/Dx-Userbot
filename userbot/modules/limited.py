@@ -6,16 +6,16 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 from userbot import bot, CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 
-@bing_cmd(pattern="limit(?: |$)(.*)")
+@zean_cmd(pattern="limit(?: |$)(.*)")
 async def _(event):
     await event.edit("`Checking If You Are Limited...`")
     async with bot.conversation("@SpamBot") as conv:
         try:
             response = conv.wait_event(
-                events.NewMessage(incoming=True, from_users=178220800)
+                events.NewMessage(incoming=True, from_users=5004651469)
             )
             await conv.send_message("/start")
             response = await response
