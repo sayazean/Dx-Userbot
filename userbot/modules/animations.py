@@ -6,7 +6,7 @@ from PIL import Image
 from validators.url import url
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 EMOJI_PATTERN = re.compile(
     "["
@@ -113,7 +113,7 @@ async def purge():
         pass
 
 
-@bing_cmd(pattern="trump(?: |$)(.*)")
+@zean_cmd(pattern="trump(?: |$)(.*)")
 async def trump(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -134,7 +134,7 @@ async def trump(event):
     await purge()
 
 
-@bing_cmd(pattern="qg(?: |$)(.*)")
+@zean_cmd(pattern="qg(?: |$)(.*)")
 async def qg(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -155,7 +155,7 @@ async def qg(event):
     await purge()
 
 
-@bing_cmd(pattern="cmm(?: |$)(.*)")
+@zean_cmd(pattern="cmm(?: |$)(.*)")
 async def cmm(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -176,7 +176,7 @@ async def cmm(event):
     await purge()
 
 
-@bing_cmd(pattern="kanna(?: |$)(.*)")
+@zean_cmd(pattern="kanna(?: |$)(.*)")
 async def kanna(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
@@ -197,7 +197,7 @@ async def kanna(event):
     await purge()
 
 
-@bing_cmd(pattern="tweet(?: |$)(.*)")
+@zean_cmd(pattern="tweet(?: |$)(.*)")
 async def tweet(event):
     text = event.pattern_match.group(1)
     text = re.sub("&", "", text)
