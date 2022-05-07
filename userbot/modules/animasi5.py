@@ -1,10 +1,10 @@
 # Edit By @pikyus1
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern='thanks(?: |$)(.*)')
+@zean_cmd(pattern='thanks(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●\n"
@@ -17,7 +17,7 @@ async def typewriter(typew):
                         "●▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬●")
 
 
-@bing_cmd(pattern='malam(?: |$)(.*)')
+@zean_cmd(pattern='malam(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "╔═╦═╦╗╔═╦══╦═╦══╗\n"
@@ -30,7 +30,7 @@ async def typewriter(typew):
                         "╚╩╩╩╩╩═╩╩╩╩╩╝")
 
 
-@bing_cmd(pattern='rumah(?: |$)(.*)')
+@zean_cmd(pattern='rumah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GAMBAR RUMAH**\n"
@@ -42,7 +42,7 @@ async def typewriter(typew):
                         "๑۩๑๑۩๑๑ ۩๑๑۩๑▓๑۩๑๑۩๑")
 
 
-@bing_cmd(pattern='join(?: |$)(.*)')
+@zean_cmd(pattern='join(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "_/﹋\\_\n"
