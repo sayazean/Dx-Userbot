@@ -4,11 +4,11 @@
 from PIL import Image
 import cv2
 import os
-from userbot.utils import edit_or_reply, edit_delete, bing_cmd
+from userbot.utils import edit_or_reply, edit_delete, zean_cmd
 from userbot import CMD_HELP, bot
 
 
-@bing_cmd(pattern="tiny(?: |$)(.*)")
+@zean_cmd(pattern="tiny(?: |$)(.*)")
 async def _(event):
     reply = await event.get_reply_message()
     if not (reply and (reply.media)):
