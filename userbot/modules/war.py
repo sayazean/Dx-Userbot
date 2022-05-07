@@ -1,9 +1,9 @@
 from time import sleep
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern="jamet(?: |$)(.*)")
+@zean_cmd(pattern="jamet(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     x = await edit_or_reply(typew, "**WOII**")
@@ -29,7 +29,7 @@ async def typewriter(typew):
     await x.edit("**LEMBEK NGENTOT🔥**")
 
 
-@bing_cmd(pattern="pp(?: |$)(.*)")
+@zean_cmd(pattern="pp(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
@@ -37,31 +37,31 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="dp(?: |$)(.*)")
+@zean_cmd(pattern="dp(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MUKA LU HINA, GAUSAH SOK KERAS YA NGENTOT!!**")
 
 
-@bing_cmd(pattern="so(?: |$)(.*)")
+@zean_cmd(pattern="so(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**GAUSAH SOKAB SAMA GUA NGENTOT, LU BABU GA LEVEL!!**")
 
 
-@bing_cmd(pattern="nb(?: |$)(.*)")
+@zean_cmd(pattern="nb(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MAEN BOT MULU ALAY NGENTOTT, KESANNYA NORAK GOBLOK!!!**")
 
 
-@bing_cmd(pattern="met(?: |$)(.*)")
+@zean_cmd(pattern="met(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**NAMANYA JUGA JAMET CAPER SANA SINI BUAT CARI NAMA BHAHAHA**")
 
 
-@bing_cmd(pattern="war(?: |$)(.*)")
+@zean_cmd(pattern="war(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(event,
@@ -69,7 +69,7 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="wartai(?: |$)(.*)")
+@zean_cmd(pattern="wartai(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
@@ -77,7 +77,7 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="kismin(?: |$)(.*)")
+@zean_cmd(pattern="kismin(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
@@ -85,13 +85,13 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="ded(?: |$)(.*)")
+@zean_cmd(pattern="ded(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew, "**MATI AJA LU GOBLOK, GAGUNA LU HIDUP DI BUMI**")
 
 
-@bing_cmd(pattern="sokab(?: |$)(.*)")
+@zean_cmd(pattern="sokab(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
@@ -99,7 +99,7 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="gembel(?: |$)(.*)")
+@zean_cmd(pattern="gembel(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
@@ -107,7 +107,7 @@ async def typewriter(typew):
                         )
 
 
-@bing_cmd(pattern="cuih(?: |$)(.*)")
+@zean_cmd(pattern="cuih(?: |$)(.*)")
 async def typewriter(typew):
     typew.pattern_match.group(1)
     await edit_or_reply(typew,
