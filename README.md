@@ -1,8 +1,8 @@
-<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px">𝗔𝗕𝗜𝗡𝗚 𝗫 𝗨𝗦𝗘𝗥𝗕𝗢𝗧<img src="./resources/extras/GeezFire.gif" width="35px"></h1>
+<h1 align="center"><img src="./resources/extras/GeezFire.gif" width="35px"> DX-USERBOT <img src="./resources/extras/GeezFire.gif" width="35px"></h1>
 
 <p align="center">
-    <a href="https://github.com/SayaAbing/AbingxUserbot/commits/AbingxUserbot"><img src="https://img.shields.io/github/last-commit/SayaAbing/AbingxUserbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
-    <a href="https://github.com/SayaAbing/AbingxUserbot"> <img src="https://img.shields.io/github/repo-size/SayaAbing/AbingxUserbot?logo=github&style=for-the-badge" /></a>
+    <a href="https://github.com/sayazean/Dx-Userbot/commits/Dx-Userbot"><img src="https://img.shields.io/github/last-commit/sayazean/Dx-Userbot?color=ff0000&logo=github&logoColor=ffffff&style=for-the-badge" /></a>
+    <a href="https://github.com/sayazean/Dx-Userbot"> <img src="https://img.shields.io/github/repo-size/sayazean/Dx-Userbot?logo=github&style=for-the-badge" /></a>
     <a href="https://pypi.org/project/Telethon/"><img src="https://img.shields.io/pypi/v/telethon?color=important&label=telethon&logo=python&logoColor=brightgreen&style=for-the-badge" /></a>
     <img alt="PYTHON" src="https://img.shields.io/badge/PYTHON-v3.9.6-purple?style=for-the-badge&logo=appveyor"/>
     </p>
@@ -29,11 +29,11 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 
 ## Heroku Deployment
 <p align="center">
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/SayaAbing/AbingxUserbot/"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-blue?style=flat&logo=heroku" width="250" height="50.00" /></a></p>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/sayazean/Dx-Userbot/"> <img src="https://img.shields.io/badge/Deploy%20Ke%20Heroku-blue?style=flat&logo=heroku" width="250" height="50.00" /></a></p>
 
 
 ### Support & Updates 
-<a href="https://t.me/AbingSupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/AbingProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/ZeanSupport"><img src="https://img.shields.io/badge/Join-Group%20Support-red.svg?style=for-the-badge&logo=Telegram"></a> <a href="https://t.me/ZeannProject"><img src="https://img.shields.io/badge/Join-Updates%20Channel-white.svg?style=for-the-badge&logo=Telegram"></a>
 
 ### Follow Me :
 <p align="left">
@@ -47,7 +47,7 @@ Gunakan bot ini dengan risiko Anda sendiri, dan gunakan dengan bijak.
 *   [Sendi](https://github.com/SendiAp/Rose-Userbot)   Rose-Userbot
 *   [Skyzu](https://github.com/Skyzu/skyzu-userbot)   skyzu-userbot
 *   [ALBY](https://github.com/PunyaAlby/ALBY-Userbot)   ALBY-Userbot
-*   [Abing](https://github.com/SayaAbing/AbingxUserbot)  AbingxUserbot
+*   [Abing](https://github.com/SayaAbing)
 *   [Grey](https://github.com/grey423/CilikUserbot)  CilikUserbot
 
 *   DAN TERIMAKASIH KEPADA USERBOT LAINNYA
