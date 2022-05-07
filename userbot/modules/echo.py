@@ -4,7 +4,7 @@
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
 from userbot.events import register
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 from userbot.modules.sql_helper.echo_sql import (
     addecho,
     get_all_echos,
@@ -18,12 +18,12 @@ from userbot.utils import edit_delete, edit_or_reply
 from userbot.utils.events import get_user_from_event
 
 
-@bing_cmd(pattern="addecho(?: |$)(.*)")
+@zean_cmd(pattern="addecho(?: |$)(.*)")
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("`Balas pesan Pengguna untuk menggemakan pesannya`")
-    bingevent = await event.edit("`Tambahkan Echo ke pengguna...`")
-    user, rank = await get_user_from_event(event, bingevent, nogroup=True)
+    zeanevent = await event.edit("`Tambahkan Echo ke pengguna...`")
+    user, rank = await get_user_from_event(event, zeanevent, nogroup=True)
     if not user:
         return
     reply_msg = await event.get_reply_message()
@@ -53,7 +53,7 @@ async def echo(event):
         await edit_or_reply(roseevent, "Berhasil")
 
 
-@bing_cmd(pattern="rmecho(?: |$)(.*)")
+@zean_cmd(pattern="rmecho(?: |$)(.*)")
 async def echo(event):
     if event.reply_to_msg_id is None:
         return await event.edit("Reply to a User's message to echo his messages")
@@ -64,14 +64,14 @@ async def echo(event):
         try:
             remove_echo(chat_id, user_id)
         except Exception as e:
-            await edit_delete(bingevent, f"**Error:**\n`{str(e)}`")
+            await edit_delete(zeanevent, f"**Error:**\n`{str(e)}`")
         else:
             await event.edit("Echo has been stopped for the user")
     else:
         await event.edit("The user is not activated with echo")
 
 
-@bing_cmd(pattern="delecho(?: |$)(.*)")
+@zean_cmd(pattern="delecho(?: |$)(.*)")
 async def echo(event):
     input_str = event.pattern_match.group(1)
     if input_str:
@@ -101,7 +101,7 @@ async def echo(event):
             await event.edit("Echo telah di hentikan.")
 
 
-@bing_cmd(pattern="echolist(?: |$)(.*)")
+@zean_cmd(pattern="echolist(?: |$)(.*)")
 async def echo(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
     private_chats = ""
