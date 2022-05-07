@@ -10,7 +10,7 @@ from userbot import CMD_HANDLER as cmd
 from userbot import CMD_HELP
 
 
-@bing_cmd(pattern="nulis(?: |$)(.*)")
+@zean_cmd(pattern="nulis(?: |$)(.*)")
 async def writer(event):
     if event.reply_to:
         reply = await event.get_reply_message()
