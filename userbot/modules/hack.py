@@ -1,10 +1,10 @@
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import bing_cmd
+from userbot.utils import zean_cmd
 
 import asyncio
 
 
-@bing_cmd(pattern='hack(?: |$)(.*)')
+@zean_cmd(pattern='hack(?: |$)(.*)')
 async def hack(event):
     range(0, 11)
     await event.edit("Installing.")
