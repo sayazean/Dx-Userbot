@@ -1,10 +1,10 @@
 from time import sleep
 
 from userbot import CMD_HELP, CMD_HANDLER as cmd
-from userbot.utils import edit_or_reply, bing_cmd
+from userbot.utils import edit_or_reply, zean_cmd
 
 
-@bing_cmd(pattern='alfatihah(?: |$)(.*)')
+@zean_cmd(pattern='alfatihah(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
     sleep(1)
