@@ -134,7 +134,7 @@ async def autobot():
                 manage_call=True,
             )
             await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "𝙕𝗲𝗮𝙣 ᴀssɪsᴛᴀɴᴛ"))
-            kntl = "resources/extras/IMG_20220331_010725.jpg"
+            kntl = "resources/extras/IMG_00876988-8aee-4f08-8cd7-657ef4a1c204.jpg"
             await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
             heroku_var["BOT_TOKEN"] = token
             heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -189,7 +189,7 @@ async def autobot():
             manage_call=True,
         )
         await bot(EditAdminRequest(int(BOTLOG_CHATID), f"@{username}", rights, "𝙕𝗲𝗮𝙣 ᴀssɪsᴛᴀɴᴛ"))
-        kntl = "resources/extras/IMG_20220331_010725.jpg"
+        kntl = "resources/extras/IMG_00876988-8aee-4f08-8cd7-657ef4a1c204.jpg"
         await bot(EditPhotoRequest(BOTLOG_CHATID, await bot.upload_file(kntl)))
         heroku_var["BOT_TOKEN"] = token
         heroku_var["BOT_USERNAME"] = f"@{username}"
@@ -311,8 +311,8 @@ async def autopilot():
     try:
         r = await bot(
             CreateChannelRequest(
-                title="ᴀʙɪɴɢ ʟᴏɢs",
-                about="ᴍʏ ᴀʙɪɴɢ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @ZeannProject",
+                title="ᴢᴇᴀɴ ʟᴏɢꜱ",
+                about="ᴍʏ ᴢᴇᴀɴ ʟᴏɢs ɢʀᴏᴜᴘ\n\n Join @ZeannProject",
                 megagroup=True,
             ),
         )
