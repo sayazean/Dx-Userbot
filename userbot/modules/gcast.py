@@ -32,6 +32,8 @@ GCAST_BLACKLIST = [
     -1001795125065,  # BagaskaraSupport
     -1001489233533,  # RumahKitaro
     -1001512737035,  # HirosiSupport
+    -1001772273258,  # Private Gc
+    -1001726415203,  # Private Gc
 
 ]
 
