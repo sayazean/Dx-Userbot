@@ -83,7 +83,7 @@ async def killdabot(event):
 async def reedme(e):
     await edit_or_reply(e,
                         "Here's Something for You to Read :\n"
-                        "\n[⚡ ᴀʙɪɴɢxυѕєявσт Repo](https://github.com/sayazean/Dx-Userbot/blob/Dx-Userbot/README.md)"
+                        "\n[⚡ ᴅx-ᴜsᴇʀʙᴏᴛ Repo](https://github.com/sayazean/Dx-Userbot/blob/Dx-Userbot/README.md)"
                         "\n[Setup Guide - Basic](https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02)"
                         "\n[Special - Note](https://telegra.ph/Special-Note-11-02)")
 
@@ -109,7 +109,7 @@ async def repo_is_here(wannasee):
                         "**Hey**, I am using **⚡ᴅx-ᴜsᴇʀʙᴏᴛ⚡** \n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Repo Userbot :** [ɢɪᴛʜᴜʙ](https://github.com/sayazean/Dx-Userbot)\n"
-                        "➣ **Owner Bot :** [Zean](t.me/zeannihbos)\n"
+                        "➣ **Owner Bot :** [Zean](t.me/zeannihboss)\n"
                         "卍━━━━━━━━━━━━━━━━━━━━━━卍\n"
                         "➣ **Support :** [sᴜᴘᴘᴏʀᴛ](https://t.me/ZeanSupport)\n"
                         "➣ **Channel :** [ᴄʜᴀɴɴᴇʟ](https://t.me/ZeannProject)\n"
