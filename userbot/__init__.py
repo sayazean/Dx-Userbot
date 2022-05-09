@@ -106,7 +106,7 @@ if CONFIG_CHECK:
 # KALO NGEFORK/CLONE ID DEVS NYA GA USAH DI HAPUS YA KONTOLLLL 😡
 DEVS = (
     1663258664,  # KYY
-    5004651469,  # ZEAN
+    1848018651,  # ZEAN
     1784606556,  # GREY
     1337194042,  # ABING
     1752482494,
@@ -312,7 +312,7 @@ INLINE_PIC = os.environ.get(
 EMOJI_HELP = os.environ.get("EMOJI_HELP") or "⚡"
 
 # °AbingxUserbot°
-OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/zeannihbos"
+OWNER_URL = os.environ.get("OWNER_URL") or "https://t.me/zeannihboss"
 
 DEFAULT = list(map(int, b64decode("MTY2MzI1ODY2NA==").split()))
 
@@ -689,7 +689,7 @@ with bot:
                         0,
                         "image/jpeg",
                         []),
-                    text="**Dx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Zean](https://t.me/zeannihbos)\n✣ **sᴜᴘᴘᴏʀᴛ :** @ZeanSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [ᴅx-ᴜsᴇʀʙᴏᴛ]tps://github.com/sayazean/Dx-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
+                    text="**Dx-Userbot**\n➖➖➖➖➖➖➖➖➖➖\n✣ **ᴏᴡɴᴇʀ ʀᴇᴘᴏ :** [Zean](https://t.me/zeannihboss)\n✣ **sᴜᴘᴘᴏʀᴛ :** @ZeanSupport\n✣ **ʀᴇᴘᴏsɪᴛᴏʀʏ :** [ᴅx-ᴜsᴇʀʙᴏᴛ]tps://github.com/sayazean/Dx-Userbot)\n➖➖➖➖➖➖➖➖➖➖",
                     buttons=[
                         [
                             custom.Button.url(
