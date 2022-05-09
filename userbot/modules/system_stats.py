@@ -238,7 +238,7 @@ async def amireallyalive(alive):
         f"◙ `Bot Ver    :` {BOT_VER} \n"
         f"◙ `Modules    :` {len(modules)} \n"
         f"╰✠╼━━━━━━━━━━━━━━━✠╯\n"
-        f"[ɢʀᴏᴜᴘꜱ](https://t.me/ZeanSupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ZeannProject) | [ᴏᴡɴᴇʀ](https://t.me/zeannihbos) | [ɢɪᴛʜᴜʙ](https://github.com/sayazean/Dx-Userbot)")
+        f"[ɢʀᴏᴜᴘꜱ](https://t.me/ZeanSupport) | [ᴄʜᴀɴɴᴇʟ](https://t.me/ZeannProject) | [ᴏᴡɴᴇʀ](https://t.me/zeannihboss) | [ɢɪᴛʜᴜʙ](https://github.com/sayazean/Dx-Userbot)")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -265,7 +265,7 @@ async def amireallyalive(alive):
     await get_readable_time((time.time() - StartTime))
     output = (
         f"●▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬● \n"
-        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[ZEAN](t.me/zeannihbos) \n"
+        f"✾ 🤴 • `ᴏᴡɴᴇʀ    :`[ZEAN](t.me/zeannihboss) \n"
         f"✾ 🖥️ • `ꜱʏꜱᴛᴇᴍ   :`Ubuntu 20.10 \n"
         f"✾ ⚙️ • `ᴛᴇʟᴇᴛʜᴏɴ :`v.{version.__version__} \n"
         f"✾ 🐍 • `ᴘʏᴛʜᴏɴ   :`v.{python_version()} \n"
@@ -316,7 +316,7 @@ async def redis(alive):
         f"┣  **Modules  :** {len(modules)} Modules \n"
         f"┣  **GitHub   :** [ᴀʙɪɴɢ](https://github.com/sayazean/Dx-Userbot) \n"
         f"┣  **Support  :** [ɢʀᴏᴜᴘs](https://t.me/ZeannProject) \n"
-        f"┣  **Owner    :** [ZEAN](https://t.me/zeannihbos) \n"
+        f"┣  **Owner    :** [ZEAN](https://t.me/zeannihboss) \n"
         f"┗━━━━━━━━━━━━━━━━━━━━━")
     if ALIVE_LOGO:
         try:
